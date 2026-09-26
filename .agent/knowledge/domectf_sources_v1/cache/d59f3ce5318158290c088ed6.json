@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 34740,
+  "content_sha256": "2c86f90739304b112df17f37093230e35fbf270fb580d1f7dc2c6a81e9fdba40",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/farness-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:19.104103+00:00"
+}

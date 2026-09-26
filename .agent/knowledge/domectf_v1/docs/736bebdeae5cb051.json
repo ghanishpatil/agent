@@ -1,0 +1,165 @@
+{
+  "content_hash": "02f40d6f8d6da6b6793d28dca835272af3da0f110d237f670ec3c5119727107b",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "explicit",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "android",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [
+      "domectf{\"   +   Encoder  .  INSTANCE  .  decrypt  (  \"BFoyVSK/7xBCjElYkNASqCCY6sqbkdbzKWbIzO/cjpmbD7gi7JS5ChmX7aUC67cE\"  ,   str  )   +   \"}",
+      "domectf{sOcekBZRw3c263wBPV6kzmUxgLcUAJbQ}"
+    ],
+    "name": "Inside Out",
+    "points": null,
+    "tags": [
+      "AES Mode Attack",
+      "Hash Attack",
+      "Static Analysis",
+      "XOR Cipher",
+      "Return-Oriented Programming",
+      "TPM / Hardware Security",
+      "Reverse Engineering"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "bc07cfd2b8373b1cd9c9450580a9989e1a9099fb8c0f0aa31783fc5cb7cb3dee",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_inside-out-writeup.html.html",
+    "extra": {
+      "author": "Anandhu K A",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/inside-out-writeup.html",
+      "challenge": "Inside Out",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_inside-out-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/inside-out-writeup.html"
+  },
+  "record_id": "736bebdeae5cb051",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Inside Out is an Android challenge that was part of DOME CTF 2020 where you are provided with just an apk to find the flag.",
+  "techniques": [
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "Cipher instance = Cipher . getInstance ( \"AES/ECB/PKCS5Padding\" ); instance . init (",
+      "keywords": [
+        "aes",
+        "ecb"
+      ],
+      "name": "AES Mode Attack",
+      "technique_id": "aes-mode-attack"
+    },
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "igest2 . digest ()); Log . d ( \"hash:\" , convertToHex ); byte [] bAr",
+      "keywords": [
+        "hash",
+        "md5",
+        "sha1"
+      ],
+      "name": "Hash Attack",
+      "technique_id": "hash-attack"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.85,
+      "evidence": "at you have to crack.\u201d You\u2019re given an apk and you have to decompile it using a tool like APK Studio available on Windows. Onc",
+      "keywords": [
+        "decompil"
+      ],
+      "name": "Static Analysis",
+      "technique_id": "static-analysis"
+    },
+    {
+      "category": "crypto",
+      "confidence": 0.7,
+      "evidence": "we can see that the combination of username and password is xored to: u s e r @d o m c t f i n ~ s a i n t ~ 0 1 2 3 4 5 6",
+      "keywords": [
+        "xor"
+      ],
+      "name": "XOR Cipher",
+      "technique_id": "xor-cipher"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.55,
+      "evidence": "at you have to crack.\u201d You\u2019re given an apk and you have to decompile it using a tool like APK Studio available on Windows. Once",
+      "keywords": [
+        "decompile"
+      ],
+      "name": "Reverse Engineering",
+      "technique_id": "reversing"
+    }
+  ],
+  "title": "Inside Out Writeup",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.7,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 0,
+        "source_heading": "",
+        "text": "solution code block present"
+      },
+      {
+        "confidence": 0.7,
+        "kind": "VERIFICATION",
+        "order": 1,
+        "source_heading": "",
+        "text": "flag present: domectf{\"   +   Encoder  .  INSTANCE  .  decrypt  (  \"BFoyVSK/7xBCjElYkNASqCCY6sqbkdbzKWbIzO/cjpmbD7gi7JS5ChmX7aUC67cE\"  ,   str  )   +   \"}"
+      }
+    ]
+  }
+}

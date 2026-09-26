@@ -1,0 +1,21 @@
+# Up? Down? Degraded? (Status Page)
+
+**Flag:** `TDHT{RA5uhZNprW6DnDCjOFpIIlGJk5}`
+
+---
+
+Status page with a search bar. Typed `{{7*7}}` into search, got `49` back in the "Formatted Search Query" box. Jinja2 SSTI confirmed.
+
+Leaked the Flask config with `{{config}}` — saw the SECRET_KEY, database URL, and a trolling ADMIN_USERNAME field.
+
+Used `lipsum.__globals__.os.popen` to get shell access and read the app source:
+
+```
+{{lipsum.__globals__.os.popen('cat /app/app.py').read()}}
+```
+
+Inside the source, one of the incident update messages had a base64 string being decoded inline. The `remove_flags()` function strips the flag from the public `/incident/2` view so you can't see it by browsing normally.
+
+Decoded the base64: `VERIVHtSQTV1aFpOcHJXNkRuRENqT0ZwSUlsR0prNX0=`
+
+Flag was hiding in plain sight inside the incident data.

@@ -1,0 +1,18 @@
+{
+  "content_length_bytes": 233312,
+  "content_sha256": "d10fac00dadb591d8b44b5e65abdff77f5c0bf9a26cd2b04d74723d1a6951803",
+  "content_type": "text/html; charset=utf-8",
+  "error": null,
+  "final_url": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/France_Remember.md",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [
+    {
+      "code": 301,
+      "from": "https://github.com/aencode/domectf/blob/master/c0c0n_xii/France_Remember.md",
+      "to": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/France_Remember.md"
+    }
+  ],
+  "retrieved_at": "2026-09-25T07:22:13.344697+00:00",
+  "stored_raw_differs_from_refetch": true
+}

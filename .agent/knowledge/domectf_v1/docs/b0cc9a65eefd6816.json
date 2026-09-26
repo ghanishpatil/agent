@@ -1,0 +1,111 @@
+{
+  "content_hash": "c0c6cf8d13a903cf8d2863f5de7b40b1bb99f2780a929281b46ed11d4895a8f5",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "Mercure's Signature Dish",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "8794944e3e05df65d2083a00b89251f82286287976af003488d4bd116239fd61",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_mercures-signature-dish-writeup.html.html",
+    "extra": {
+      "author": "Jishnu Vijayan",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/mercures-signature-dish-writeup.html",
+      "challenge": "Mercure's Signature Dish",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_mercures-signature-dish-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/mercures-signature-dish-writeup.html"
+  },
+  "record_id": "b0cc9a65eefd6816",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Story Hotel Me.Mercure is an online secret food ordering platform. Find a way to order their signature dishes! Solution A URL is provided, which leads to a login page. The challenger has to login using username and password, but as we know the password is not given (username is provided)....",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Mercure\u2019s Signature Dish Writeup",
+  "trajectory": {
+    "completeness": 0.2727,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Hotel Me.Mercure is an online secret food ordering platform. Find a way to order their signature dishes!"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: A URL is provided, which leads to a login page. The challenger has to login using username and password, but as we know the password is not given (username is provided).\n After logging in, you can find a PDF file, which is also protected by a password. Inside the PDF, the flag is hidden. You have to find out the password to login and also you have to crack the password of the pdf file."
+      },
+      {
+        "confidence": 0.9,
+        "kind": "VERIFICATION",
+        "order": 2,
+        "source_heading": "3. Use \u201cJohn the Ripper\u201d to crack the password for this file, and the flag will be hidden in the PDF. A simple text hiding method was used to hide the flag.",
+        "text": "3. Use \u201cJohn the Ripper\u201d to crack the password for this file, and the flag will be hidden in the PDF. A simple text hiding method was used to hide the flag.: Written by\n     Jishnu Vijayan\n\n Security Engineer\n As a dedicated Security Engineer, Jishnu brings a wealth of expertise and a vigilant approach to protecting digital environments from relentless cyber threats. With a keen analytical mind an"
+      }
+    ]
+  }
+}

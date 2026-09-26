@@ -1,0 +1,76 @@
+# impossible — Groth16 Proof Forgery from Leaked Toxic Waste
+
+**CTF:** NNS CTF 2026
+**Category:** Cryptography (zk)
+**Points:** 77
+**Flag:** `NNS{1MP0s51Bl3_PR00F5_fr0m_C3r3M0ny_45h3s}`
+
+---
+
+Connected to `ncat --ssl impossible-...chall.nnsc.tf 1337` and got:
+
+```
+impossible
+authorized balance: 100
+requested mint: 1000000000
+submit <ceremony_id>:<proof>
+>
+```
+
+So it's a Groth16 verifier. You have balance 100 but want to mint 1,000,000,000 — the circuit enforces `mint <= balance`, so a legit proof is impossible. The description hint: "a secret that was not hidden nearly well enough" and "ceremony ashes" = the trusted-setup toxic waste leaked.
+
+The tarball (`crypto_impossible.tar.gz`) had a Rust project using `bellman 0.1.0` + `pairing 0.14.2` (BLS12-381). Key files: `lib.rs`, `vk.bin`, and a `secret` file.
+
+The `secret` file was ROT13-obfuscated (that's the "not hidden well enough" part):
+
+```
+PRERZBAL_VQ=3p311q9qso7735r42643s394qp2p10ns   -> CEREMONY_ID=3c311d9dfb7735e42643f394dc2c10af
+GNH=3894627051107121998319229043...            -> TAU=3894627051107121998319229043008213446770981528672674568925122813412699817
+```
+
+The whole trusted setup is derived from that single `tau`. In `lib.rs`, `derive(tau)` blake2b-expands tau into six field elements: `[alpha, beta, gamma, delta, g1-scale, g2-scale]`. With alpha/beta/gamma/delta known, you can forge a proof for ANY public input without a witness — the classic "I have the toxic waste" attack.
+
+One twist: the verifying key doesn't use the standard generators. Dumping `vk.bin` and comparing showed the vk uses SCALED generators:
+- G1 base = `s1*G1` (s1 = g1-scale = d[4])
+- G2 base = `s2*G2` (s2 = g2-scale = d[5])
+
+So `vk.alpha_g1 = (alpha*s1)G1`, `vk.beta_g2 = (beta*s2)G2`, `vk.gamma_g2 = (gamma*s2)G2`, `vk.delta_g2 = (delta*s2)G2`, and `vk.ic[i] = (ic_i*s1)G1`. I confirmed all six matched.
+
+The bellman verification equation is:
+
+```
+e(A, B) = e(vk.alpha_g1, vk.beta_g2) * e(acc, vk.gamma_g2) * e(C, vk.delta_g2)
+```
+
+where `acc = ic[0] + claim*ic[1] = (ic0 + claim*ic1)*s1*G1`.
+
+Forgery: pick `A = vk.alpha_g1` and `B = vk.beta_g2`, so the first pairing term matches automatically. Then I just need the remaining terms to cancel:
+
+```
+e(acc, gamma*s2*G2) * e(C, delta*s2*G2) = 1
+=> acc_exp * gamma * s2 + C_exp * delta * s2 = 0
+=> C_exp = -(ic0 + claim*ic1) * s1 * gamma / delta
+```
+
+Set `C = C_exp * G1`. That's it — a valid (A, B, C) with no real witness.
+
+Wrote this in Rust with the exact pinned crates (had to install the `stable-x86_64-pc-windows-gnu` toolchain since MSVC linker wasn't present). The `mint_ic_scalars` and `derive`/`g1`/`g2` helpers were already in `lib.rs`, so I reused them. Verified locally against `vk.bin` with the challenge's own `verify()` — got `true`.
+
+Serialized the proof as `a||b||c` (compressed points, bellman's Proof::write order), hex-encoded, prefixed with the ceremony_id, and submitted over TLS:
+
+```
+3c311d9dfb7735e42643f394dc2c10af:83b5945e...eb47e62
+```
+
+Response:
+
+```
+accepted
+NNS{1MP0s51Bl3_PR00F5_fr0m_C3r3M0ny_45h3s}
+```
+
+## Takeaways
+- Groth16 soundness depends entirely on the trusted-setup secret (tau/toxic waste) being destroyed. Leak it and you can forge proofs for arbitrary public inputs.
+- The "impossible" mint (1e9 > balance 100) is trivial once you're forging — the circuit constraints are irrelevant because you never build a witness; you construct A/B/C directly to satisfy the pairing equation.
+- Watch for non-standard generator scaling in the vk — dump and compare every element before assuming the textbook layout.
+- Obfuscation (ROT13 on the secret file) is not security.

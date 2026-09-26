@@ -1,0 +1,86 @@
+{
+  "aggregate": {
+    "false_disproofs": 0,
+    "false_verifications": 0,
+    "fast_path_cases_zero_retrieval": 1,
+    "mean_actions_per_solve": 1.6,
+    "mean_time_to_first_action_ms": 11.504,
+    "mean_time_to_verified_ms": 25.785,
+    "stopping_correct_cases": 5,
+    "total_budget_violations": 0,
+    "total_duplicate_actions": 1,
+    "total_knowledge_hypotheses": 3,
+    "total_retrieval_calls": 4,
+    "total_unnecessary_retrievals": 1
+  },
+  "all_safety_invariants_preserved": true,
+  "knowledge_attributable_verified_solves": 2,
+  "per_case_metrics": {
+    "kd2-baseline-solvable": {
+      "actions_per_solve": 2,
+      "budget_violations": 0,
+      "duplicate_actions": 0,
+      "false_disproof": false,
+      "false_verification": false,
+      "knowledge_hypotheses_per_solve": 0,
+      "retrieval_calls_per_solve": 0,
+      "stopping_correct": true,
+      "time_to_first_action_ms": 10.095,
+      "time_to_verified_ms": 22.597,
+      "unnecessary_retrievals": 0
+    },
+    "kd2-conflicting": {
+      "actions_per_solve": 2,
+      "budget_violations": 0,
+      "duplicate_actions": 0,
+      "false_disproof": false,
+      "false_verification": false,
+      "knowledge_hypotheses_per_solve": 1,
+      "retrieval_calls_per_solve": 1,
+      "stopping_correct": true,
+      "time_to_first_action_ms": 14.194,
+      "time_to_verified_ms": 29.087,
+      "unnecessary_retrievals": 0
+    },
+    "kd2-knowledge-dependent": {
+      "actions_per_solve": 2,
+      "budget_violations": 0,
+      "duplicate_actions": 0,
+      "false_disproof": false,
+      "false_verification": false,
+      "knowledge_hypotheses_per_solve": 1,
+      "retrieval_calls_per_solve": 1,
+      "stopping_correct": true,
+      "time_to_first_action_ms": 12.152,
+      "time_to_verified_ms": 25.672,
+      "unnecessary_retrievals": 0
+    },
+    "kd2-misleading": {
+      "actions_per_solve": 2,
+      "budget_violations": 0,
+      "duplicate_actions": 1,
+      "false_disproof": false,
+      "false_verification": false,
+      "knowledge_hypotheses_per_solve": 1,
+      "retrieval_calls_per_solve": 1,
+      "stopping_correct": true,
+      "time_to_first_action_ms": 9.576,
+      "time_to_verified_ms": null,
+      "unnecessary_retrievals": 0
+    },
+    "kd2-noise": {
+      "actions_per_solve": 0,
+      "budget_violations": 0,
+      "duplicate_actions": 0,
+      "false_disproof": false,
+      "false_verification": false,
+      "knowledge_hypotheses_per_solve": 0,
+      "retrieval_calls_per_solve": 1,
+      "stopping_correct": true,
+      "time_to_first_action_ms": null,
+      "time_to_verified_ms": null,
+      "unnecessary_retrievals": 1
+    }
+  },
+  "verdict": "KNOWLEDGE-CONTRIBUTING: 2 knowledge-attributable verified solve(s); all safety invariants preserved; easy cases stayed on the fast path"
+}

@@ -1,0 +1,150 @@
+{
+  "target": "http://fresh-start-267.emergent.host",
+  "timestamp": "2026-04-27 12:35:22",
+  "findings": [
+    {
+      "severity": "LOW",
+      "category": "Missing Security Header",
+      "description": "X-Frame-Options not set",
+      "details": ""
+    },
+    {
+      "severity": "LOW",
+      "category": "Missing Security Header",
+      "description": "X-Content-Type-Options not set",
+      "details": ""
+    },
+    {
+      "severity": "LOW",
+      "category": "Missing Security Header",
+      "description": "Strict-Transport-Security not set",
+      "details": ""
+    },
+    {
+      "severity": "LOW",
+      "category": "Missing Security Header",
+      "description": "Content-Security-Policy not set",
+      "details": ""
+    },
+    {
+      "severity": "LOW",
+      "category": "Missing Security Header",
+      "description": "X-XSS-Protection not set",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/robots.txt returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/sitemap.xml returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/.git/HEAD returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/.env returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/admin returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/login returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/graphql returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/swagger returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/phpinfo.php returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/info.php returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/test.php returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/.well-known/security.txt returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/backup returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/config returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/database returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/db returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/wp-admin returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/administrator returned 200",
+      "details": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Discovered Endpoint",
+      "description": "/phpmyadmin returned 200",
+      "details": ""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "content_hash": "7d01b71381645ba8aea249b21430ca7a66ff825411347520d5fd040f900d2d4d",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "inferred",
+    "category": "missing",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "missing",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "missing",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "",
+    "difficulty": "",
+    "event": "c0c0n XII",
+    "flag_format": "",
+    "flags": [],
+    "name": "Weapon Store",
+    "points": null,
+    "tags": []
+  },
+  "provenance": {
+    "content_sha256": "a04938d0d689d7a9dfdc1ef51a9f7a03eb896e6651cfd60aa8160b24b40d0bff",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__github.com_aencode_domectf_blob_master_c0c0n_xii_Madagascar_Weapon_store.md.html",
+    "extra": {
+      "author": "Ashish Rana",
+      "canonical_url": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/Madagascar_Weapon_store.md",
+      "challenge": "Weapon Store",
+      "event": "c0c0n XII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__github.com_aencode_domectf_blob_master_c0c0n_xii_Madagascar_Weapon_store.md.html",
+      "source_origin": "explicit_reference",
+      "year": "2019"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://github.com/aencode/domectf/blob/master/c0c0n_xii/Madagascar_Weapon_store.md"
+  },
+  "record_id": "3132bba3ed711768",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "d0mectf organized by AppFabs. Contribute to AshishRanaX/domectf development by creating an account on GitHub.",
+  "techniques": [],
+  "title": "domectf/c0c0n_xii/Madagascar_Weapon_store.md at master \u00b7 AshishRanaX/domectf \u00b7 GitHub",
+  "trajectory": {
+    "completeness": 0.0,
+    "steps": []
+  }
+}

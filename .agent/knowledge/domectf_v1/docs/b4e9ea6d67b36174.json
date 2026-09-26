@@ -1,0 +1,89 @@
+{
+  "content_hash": "50cac77f37a4515da94a40d6eee99265c2c4dbcfb0e4e2ec719acda41b91cc7d",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "missing",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "Black Propagation",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "3a5e28163bbc76419cf6082cc7d0fde56a2cdd143fcb2c82bd070d8011052226",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_black-propagation-writeup.html.html",
+    "extra": {
+      "author": "Nasim Sulaiman",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/black-propagation-writeup.html",
+      "challenge": "Black Propagation",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_black-propagation-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/black-propagation-writeup.html"
+  },
+  "record_id": "b4e9ea6d67b36174",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "In the Black Propagation challenge, you",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 0.7,
+      "evidence": "ead Share DOMECTF2020 The story for the Black Propagation challenge was as follows: \u201cThe local TV broadcaster",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Black Propagation Writeup",
+  "trajectory": {
+    "completeness": 0.0,
+    "steps": []
+  }
+}

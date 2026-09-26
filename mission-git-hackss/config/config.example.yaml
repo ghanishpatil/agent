@@ -1,0 +1,116 @@
+# MD-EXPLOIT-ENGINE Configuration
+
+# General Settings
+general:
+  threads: 4
+  timeout: 300
+  max_retries: 3
+  docker_isolation: true
+  safe_mode: true
+
+# Challenge Classification
+classification:
+  ml_model: models/classifier.pkl
+  confidence_threshold: 0.7
+  auto_detect: true
+
+# Module Settings
+modules:
+  web:
+    enabled: true
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+    timeout: 30
+    max_redirects: 10
+    verify_ssl: false
+    
+  crypto:
+    enabled: true
+    wordlist: wordlists/rockyou.txt
+    max_keyspace: 1000000
+    
+  pwn:
+    enabled: true
+    libc_database: /opt/libc-database
+    rop_gadget_depth: 5
+    
+  reversing:
+    enabled: true
+    ghidra_path: /opt/ghidra
+    decompiler: ghidra
+    
+  forensics:
+    enabled: true
+    volatility_path: /opt/volatility3
+    
+  osint:
+    enabled: true
+    api_keys:
+      shodan: ""
+      censys: ""
+      virustotal: ""
+
+# Flag Detection
+flags:
+  patterns:
+    - "flag\\{[^}]+\\}"
+    - "CTF\\{[^}]+\\}"
+    - "HTB\\{[^}]+\\}"
+    - "[A-Z0-9]{32}"
+  auto_submit: false
+  
+# CTF Platform Integration
+platforms:
+  ctfd:
+    enabled: false
+    url: ""
+    token: ""
+  
+  hackthebox:
+    enabled: false
+    api_key: ""
+    
+  tryhackme:
+    enabled: false
+    api_key: ""
+
+# Database
+database:
+  type: sqlite
+  path: data/md-exploit-engine.db
+  
+# Logging
+logging:
+  level: INFO
+  file: logs/md-exploit-engine.log
+  max_size: 10485760  # 10MB
+  backup_count: 5
+
+# API Server
+api:
+  host: 127.0.0.1
+  port: 5000
+  cors_origins: ["*"]
+  rate_limit: 100
+
+# Web Dashboard
+web:
+  host: 127.0.0.1
+  port: 8080
+  secret_key: "change-this-secret-key"
+
+# Notifications
+notifications:
+  discord:
+    enabled: false
+    webhook_url: ""
+  
+  slack:
+    enabled: false
+    webhook_url: ""
+
+# Safety & Ethics
+safety:
+  require_authorization: true
+  rate_limit_enabled: true
+  educational_mode: false
+  audit_logging: true

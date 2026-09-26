@@ -1,0 +1,104 @@
+{
+  "content_hash": "4151fa396ba46e63636c9e78c6c1b4005c23ff406325c4c0bd7f537556865ad7",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "PetVet",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "4d8a053487e63be184515cdf2b347a169548dd94903eb1b59cb4c1f65ac2ce99",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_petvet-writeup.html.html",
+    "extra": {
+      "author": "Anees P K",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/petvet-writeup.html",
+      "challenge": "PetVet",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_petvet-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/petvet-writeup.html"
+  },
+  "record_id": "15d8fac6f5e78e5b",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Find the flag from the Pet veterinary website that",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 0.85,
+      "evidence": "bectl get configmaps -o yaml There\u2019s a really weird game.properties listed and an interesting pod.properties. It\u2019s listed",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "PetVet Writeup",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Nobody likes animal cruelty! These veterinarians are running something bad behind the front, bust them out!"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: By accessing the URL you\u2019ll get a Pet Veterinary site. There\u2019s a contact form in it.\n But nothing actually happens. By inspecting the site source code, you can see that there\u2019s a commented out form element and the action is a php file.\n\n While accessing the file, it\u2019s downloadable and there\u2019s some interesting information. Especially the hardcoded db credential.\n\n Okay, let\u2019s check the po"
+      }
+    ]
+  }
+}

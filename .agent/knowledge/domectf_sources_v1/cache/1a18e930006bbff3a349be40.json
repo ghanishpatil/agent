@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 53970,
+  "content_sha256": "a7718e1ed8cf2dce116534ae59cbf041f626bd074331ecad4d54200ec92923da",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/timezone-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:40.939977+00:00"
+}

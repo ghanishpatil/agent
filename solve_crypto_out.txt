@@ -1,0 +1,19 @@
+[local proof] sign(root) == sign(root^user) ^ sign(user) for 1000 random matrices: True
+[params] user=b'babyuser' root=b'chadr00t' query(root^user).hex()=0109031d07435506  query==root? False
+Warning: _curses.error: setupterm: could not find terminfo database
+
+Terminal features will not be available.  Consider setting TERM variable to your current terminal name (or xterm).
+[x] Opening connection to chal.secso.cc on port 2000
+[x] Opening connection to chal.secso.cc on port 2000: Trying 52.190.194.251
+[+] Opening connection to chal.secso.cc on port 2000: Done
+[recv] user signature: 5ccfadfba01632b18eed489c6b97f6b4
+[recv] your signature: 368bfffa93bfeae99ad9303c79853521
+[forged root_sig] 6a44520133a9d858143478a01212c395
+[x] Receiving all data
+[x] Receiving all data: 0B
+[x] Receiving all data: 41B
+[+] Receiving all data: Done (41B)
+[*] Closed connection to chal.secso.cc port 2000
+[server] K17{y0u_ar3_f1ll3d_w1th_deter1min4t10n}
+
+

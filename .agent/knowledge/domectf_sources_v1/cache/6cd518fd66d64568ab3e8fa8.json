@@ -1,0 +1,22 @@
+{
+  "content_length_bytes": 3399,
+  "content_sha256": "0682dd8d9557da5e321e2c056ed78871a88ba33f5bdab844e70c05e2e7adb21e",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/404",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [
+    {
+      "code": 301,
+      "from": "https://beaglesecurity.com/blog/domectf2020/the-leaked-list-writeup.html",
+      "to": "https://beaglesecurity.com/domectf2020/the-leaked-list-writeup/"
+    },
+    {
+      "code": 302,
+      "from": "https://beaglesecurity.com/domectf2020/the-leaked-list-writeup/",
+      "to": "https://beaglesecurity.com/404"
+    }
+  ],
+  "retrieved_at": "2026-09-25T07:22:31.593131+00:00"
+}

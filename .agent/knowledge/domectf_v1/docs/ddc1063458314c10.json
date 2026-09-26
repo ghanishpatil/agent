@@ -1,0 +1,146 @@
+{
+  "content_hash": "e8588aaaa2839302e3dd3e4d777ee4cca4272ba8ae825b7e092e1286b80b56c3",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "reverse",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [
+      "domectf{TcfrADXqDZdtfbQkT5d5bkTcKtQTrAoX}"
+    ],
+    "name": "Stones",
+    "points": null,
+    "tags": [
+      "Hash Attack",
+      "Return-Oriented Programming",
+      "Static Analysis",
+      "TPM / Hardware Security",
+      "Reverse Engineering"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "a25c645522c1d4bd5b72847399ec2170892592f049ab219402aa67e95b74ccc9",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_stones-writeup.html.html",
+    "extra": {
+      "author": "Febna V M",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/stones-writeup.html",
+      "challenge": "Stones",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_stones-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/stones-writeup.html"
+  },
+  "record_id": "ddc1063458314c10",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Help David to place the stones in order and find the flag to complete this challenge in DOME CTF 2020.",
+  "techniques": [
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "ssage Gather your stones together in domectf{} This is your hash\u2026abe06e77a7e14e53cb3c01a04eeb0451237042e2a8293d56f2e6471ab31",
+      "keywords": [
+        "hash"
+      ],
+      "name": "Hash Attack",
+      "technique_id": "hash-attack"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Security Lead Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.55,
+      "evidence": "have to reverse it. Using a reverse engineering tool like Ghidra, analyze the executable file and the method of generating t",
+      "keywords": [
+        "ghidra"
+      ],
+      "name": "Static Analysis",
+      "technique_id": "static-analysis"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.55,
+      "evidence": "have to reverse it. Using a reverse engineering tool like Ghidra, analyze the executable file and the method of generating t",
+      "keywords": [
+        "ghidra"
+      ],
+      "name": "Reverse Engineering",
+      "technique_id": "reversing"
+    }
+  ],
+  "title": "Stones Writeup",
+  "trajectory": {
+    "completeness": 0.2727,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: David needs to find a key of stones. Even one stone in the wrong place will destroy everything. Help him to place the stones in order."
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: An executable \u2018generator\u2019 is given as an attachment. When you run that file a message is shown.\n Great..! You have a message Gather your stones together in domectf{} This is your hash\u2026abe06e77a7e14e53cb3c01a04eeb0451237042e2a8293d56f2e6471ab31615f5\n From this result it is clear that some hash value is given and you have to enclose your random string in domectf{} which will generate the a"
+      },
+      {
+        "confidence": 0.7,
+        "kind": "VERIFICATION",
+        "order": 2,
+        "source_heading": "",
+        "text": "flag present: domectf{TcfrADXqDZdtfbQkT5d5bkTcKtQTrAoX}"
+      }
+    ]
+  }
+}

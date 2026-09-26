@@ -1,0 +1,130 @@
+{
+  "content_hash": "b674c72d0a4d2bcba8fdcd9102e34f2b4a1cdb1526f0776e6908de999ec5b613",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "reverse",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "Qropolis",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "Static Analysis",
+      "RSA Attack",
+      "TPM / Hardware Security",
+      "Reverse Engineering"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "478e602979bbd4236f8a2d0596c107b45f97f69d6547d41ed52786b7256a7012",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_qropolis-writeup.html.html",
+    "extra": {
+      "author": "Anandhu K A",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/qropolis-writeup.html",
+      "challenge": "Qropolis",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_qropolis-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/qropolis-writeup.html"
+  },
+  "record_id": "73e3f7a0c32d057f",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Qropolis features another Android challenge where you",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 0.85,
+      "evidence": "hare DOMECTF2020 I\u2019ll give you a walkthrough of the Qropolis challenge that was part of DOME CTF 2020. Let\u2019s break i",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.85,
+      "evidence": "roud.\u201d So, for solving this challenge you\u2019ll have to first decompile the apk file. You can use a tool like Apk decompiler onlin",
+      "keywords": [
+        "decompil"
+      ],
+      "name": "Static Analysis",
+      "technique_id": "static-analysis"
+    },
+    {
+      "category": "crypto",
+      "confidence": 0.7,
+      "evidence": "} }); initialiseDetectorsAndSources(); } From initViews() we can see that al",
+      "keywords": [
+        "rsa"
+      ],
+      "name": "RSA Attack",
+      "technique_id": "rsa-attack"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.55,
+      "evidence": "roud.\u201d So, for solving this challenge you\u2019ll have to first decompile the apk file. You can use a tool like Apk decompiler online",
+      "keywords": [
+        "decompile"
+      ],
+      "name": "Reverse Engineering",
+      "technique_id": "reversing"
+    }
+  ],
+  "title": "Qropolis Writeup",
+  "trajectory": {
+    "completeness": 0.0909,
+    "steps": [
+      {
+        "confidence": 0.7,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 0,
+        "source_heading": "",
+        "text": "solution code block present"
+      }
+    ]
+  }
+}

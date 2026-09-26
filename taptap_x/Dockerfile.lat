@@ -1,0 +1,2 @@
+FROM ctf-env:latest
+RUN pip install --no-cache-dir cysignals fpylll || pip install --no-cache-dir cysignals fpylll

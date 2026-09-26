@@ -1,0 +1,56 @@
+Warning: _curses.error: setupterm: could not find terminfo database
+
+Terminal features will not be available.  Consider setting TERM variable to your current terminal name (or xterm).
+[x] Opening connection to chal.secso.cc on port 4000
+[x] Opening connection to chal.secso.cc on port 4000: Trying 52.190.194.251
+[+] Opening connection to chal.secso.cc on port 4000: Done
+==== initial (incl first SNAPSHOT) ====
+
+
+> welcome to ONLINE ROULETTE
+>  - gamble as much as you want!
+>  - you have a 1-in-36 chance to double your wager! (tiny house edge so we can maintain infra costs)
+>  - enter `0` to quit the game
+
+[!] minibolt has breached the system
+
+=== camerons black magick ===
+0x7ffe597ae160: 0x0000000000000001  <-- rsp [game]
+0x7ffe597ae168: 0x00007ffe597ae1cc
+0x7ffe597ae170: 0x0000000000000001
+0x7ffe597ae178: 0x0000000000000000
+0x7ffe597ae180: 0x0000000000403df0
+0x7ffe597ae188: 0x00007fca015ca000
+0x7ffe597ae190: 0x00007ffe597ae1d0  <-- rbp [game]
+0x7ffe597ae198: 0x0000000000401566  <-- rsp [main]
+0x7ffe597ae1a0: 0x0000000000000000
+0x7ffe597ae1a8: 0x1400000000000000
+0x7ffe597ae1b0: 0x0000000000000000
+0x7ffe597ae1b8: 0x00007fca015b2af0
+0x7ffe597ae1c0: 0x00007ffe597ae2b0
+0x7ffe597ae1c8: 0x0000000a597ae2f8
+0x7ffe597ae1d0: 0x00007ffe597ae270  <-- rbp [main]
+
+[addr]> 
+==== after addr=0 ====
+[value]> 
+Traceback (most recent call last):
+  File "/work/ro_recon.py", line 17, in <module>
+    d3=io.recvuntil(b"wager> ", timeout=10)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 381, in recvuntil
+    res = self.recv(timeout=self.timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 146, in recv
+    return self._recv(numb, timeout) or b''
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 216, in _recv
+    if not self.buffer and not self._fillbuffer(timeout):
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/tube.py", line 195, in _fillbuffer
+    data = self.recv_raw(self.buffer.get_fill_size())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/sock.py", line 56, in recv_raw
+    raise EOFError
+EOFError
+[*] Closed connection to chal.secso.cc port 4000

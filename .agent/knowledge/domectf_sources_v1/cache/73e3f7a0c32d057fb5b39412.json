@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 56875,
+  "content_sha256": "478e602979bbd4236f8a2d0596c107b45f97f69d6547d41ed52786b7256a7012",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/qropolis-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:39.439571+00:00"
+}

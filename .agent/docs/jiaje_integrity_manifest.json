@@ -1,0 +1,73 @@
+{
+  "records": [
+    {
+      "author": "Jiajie Chen (@jiegec)",
+      "content_hash": "af33290bc22d7ad47adf21f595c97ad2441e4b99e3c4720478d3c65f4aaf7858",
+      "has_static_content": "True",
+      "record_id": "9a2e80eddba247ec",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "source_uri": "https://jia.je/ctf-writeups/misc/solution.html"
+    },
+    {
+      "author": "Jiajie Chen (@jiegec)",
+      "content_hash": "85d2559192debfe4b58730f59ece0f77429cace6049ab67165f114e75eeb9208",
+      "has_static_content": "True",
+      "record_id": "d2f0fa20ccb28787",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "source_uri": "https://jia.je/ctf-writeups/misc/pyjail.html"
+    },
+    {
+      "author": "Jiajie Chen (@jiegec)",
+      "content_hash": "44224276ca5ad4a4fb0766f98294f800d80148ade5552fbdfcc018904aae0dce",
+      "has_static_content": "False",
+      "record_id": "407c5878caed2954",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "source_uri": "https://jia.je/ctf-writeups/puppeteer/index.html"
+    },
+    {
+      "author": "Jiajie Chen (@jiegec)",
+      "content_hash": "127c188bd203a44cc562f032db350fd7573fb5ac23d6aecf9ed57f660f2847a0",
+      "has_static_content": "False",
+      "record_id": "325b647ee83567bb",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "source_uri": "https://jia.je/ctf-writeups/summer2026/index.html"
+    }
+  ],
+  "store": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\jiaje_v1",
+  "store_manifest": {
+    "average_trajectory_completeness": 0.068,
+    "by_category": {
+      "misc": 2,
+      "unknown": 2
+    },
+    "by_source_type": {
+      "HTTP": 4
+    },
+    "by_technique": {
+      "aes-mode-attack": 1,
+      "buffer-overflow": 1,
+      "classical-cipher": 1,
+      "dynamic-analysis": 2,
+      "format-string": 1,
+      "hash-attack": 1,
+      "memory-forensics": 1,
+      "path-traversal": 1,
+      "pcap-analysis": 1,
+      "rsa-attack": 1,
+      "sql-injection": 1,
+      "ssrf": 1,
+      "ssti": 1,
+      "static-analysis": 1,
+      "steganography": 1,
+      "xor-cipher": 1,
+      "xss": 1
+    },
+    "duplicate_records": 0,
+    "generated_at": "2026-09-25T05:33:06.763913+00:00",
+    "records_sha256": "65d02038ea20dbfe19a6f678684f87c2aaae23e8ce8bc082ebf4eab54866717f",
+    "records_with_failures": 0,
+    "schema_version": "1.0",
+    "total_records": 4,
+    "unique_records": 4
+  }
+}

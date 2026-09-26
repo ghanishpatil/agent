@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 46944,
+  "content_sha256": "3a5e28163bbc76419cf6082cc7d0fde56a2cdd143fcb2c82bd070d8011052226",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/black-propagation-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:25.775228+00:00"
+}

@@ -1,0 +1,119 @@
+{
+  "audit_root": "F:\\mission-git-hackss\\mission-git-hackss\\.agent_audit",
+  "changed_cases": [],
+  "control": {
+    "arm": "control",
+    "average_actions_per_solve": 2.8,
+    "blind_retry_rate": 0.0,
+    "budget_violations": 0,
+    "case_count": 6,
+    "duplicate_action_rate": 0.36,
+    "false_disproof_rate": 0.0,
+    "false_verification_rate": 0.0,
+    "memory_root": "F:\\mission-git-hackss\\mission-git-hackss\\.agent_audit",
+    "per_case": {
+      "adversarial-decoy": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{real_template_flag}"
+      },
+      "environment-recovery": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{recovered_after_environment_failure}"
+      },
+      "heldout-classical": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{heldout_caesar_structure}"
+      },
+      "known-xor": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{phase5_xor_novel}"
+      },
+      "novel-ssti": {
+        "actions": 2,
+        "status": "SOLVED",
+        "verified_flag": "CTF{novel_template_49}"
+      },
+      "unavailable-tool": {
+        "actions": 2,
+        "status": "BLOCKED",
+        "verified_flag": null
+      }
+    },
+    "solve_rate": 0.8333333333333334,
+    "specialist_selection_accuracy": 1.0,
+    "stop_correctness": 1.0,
+    "terminal_state_correctness": 1.0,
+    "verified_solve_rate": 0.8333333333333334
+  },
+  "deltas": {
+    "average_actions_per_solve": 0.0,
+    "budget_violations": 0.0,
+    "duplicate_action_rate": 0.0,
+    "false_disproof_rate": 0.0,
+    "false_verification_rate": 0.0,
+    "solve_rate": 0.0,
+    "verified_solve_rate": 0.0
+  },
+  "external_records": 32,
+  "invariants": {
+    "no_budget_violations": true,
+    "no_increase_false_disproof": true,
+    "no_increase_false_verification": true,
+    "no_solved_regression": true,
+    "stop_correctness_maintained": true,
+    "terminal_state_correctness_maintained": true
+  },
+  "treatment": {
+    "arm": "treatment",
+    "average_actions_per_solve": 2.8,
+    "blind_retry_rate": 0.0,
+    "budget_violations": 0,
+    "case_count": 6,
+    "duplicate_action_rate": 0.36,
+    "false_disproof_rate": 0.0,
+    "false_verification_rate": 0.0,
+    "memory_root": "C:\\Users\\ghani\\AppData\\Local\\Temp\\ab_experiment_oat8tmzx\\work\\augmented_memory",
+    "per_case": {
+      "adversarial-decoy": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{real_template_flag}"
+      },
+      "environment-recovery": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{recovered_after_environment_failure}"
+      },
+      "heldout-classical": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{heldout_caesar_structure}"
+      },
+      "known-xor": {
+        "actions": 3,
+        "status": "SOLVED",
+        "verified_flag": "CTF{phase5_xor_novel}"
+      },
+      "novel-ssti": {
+        "actions": 2,
+        "status": "SOLVED",
+        "verified_flag": "CTF{novel_template_49}"
+      },
+      "unavailable-tool": {
+        "actions": 2,
+        "status": "BLOCKED",
+        "verified_flag": null
+      }
+    },
+    "solve_rate": 0.8333333333333334,
+    "specialist_selection_accuracy": 1.0,
+    "stop_correctness": 1.0,
+    "terminal_state_correctness": 1.0,
+    "verified_solve_rate": 0.8333333333333334
+  },
+  "verdict": "NEUTRAL: verified solve rate unchanged and no invariant violated (knowledge neither helped nor harmed verified solving on this benchmark)"
+}

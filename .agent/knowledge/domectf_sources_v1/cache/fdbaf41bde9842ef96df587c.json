@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 16199,
+  "content_sha256": "1d39c800198071f5b271397d0e93238e08ed4d195a8b8fd80c1aa2a2bf733415",
+  "content_type": "text/html; charset=UTF-8",
+  "error": null,
+  "final_url": "https://india.c0c0n.org/2022/DomeCTF/",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:06.988753+00:00"
+}

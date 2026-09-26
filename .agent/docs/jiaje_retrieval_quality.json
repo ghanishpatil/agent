@@ -1,0 +1,28 @@
+{
+  "k": 3,
+  "mean_precision_at_k": 0.5,
+  "mean_recall_at_k": 1.0,
+  "mean_reciprocal_rank": 1.0,
+  "per_query": [
+    {
+      "precision_at_k": 0.5,
+      "query_id": "pyjail",
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved_ids": [
+        "d2f0fa20ccb28787",
+        "9a2e80eddba247ec"
+      ]
+    },
+    {
+      "precision_at_k": 0.5,
+      "query_id": "crypto-taxonomy",
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "retrieved_ids": [
+        "9a2e80eddba247ec",
+        "d2f0fa20ccb28787"
+      ]
+    }
+  ]
+}

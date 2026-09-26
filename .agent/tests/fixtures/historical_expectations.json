@@ -1,0 +1,14 @@
+{
+  "FAIL-001": {"expected_result_class": "SUCCESS", "expected_impact": "NO_IMPACT", "expected_control": "SUPPORTED:CONTINUE"},
+  "FAIL-002": {"expected_result_class": "SUCCESS", "expected_impact": "NO_IMPACT", "expected_control": "SUPPORTED:CONTINUE"},
+  "FAIL-003": {"expected_result_class": "INPUT_REJECTION", "expected_impact": "BLOCKS_TEST", "expected_control": "DUPLICATE"},
+  "FAIL-004": {"expected_result_class": "SUCCESS", "expected_impact": "NO_IMPACT", "expected_control": "SUPPORTED:CONTINUE"},
+  "FAIL-005": {"expected_result_class": "TARGET_RESPONSE", "expected_impact": "UNRESOLVES", "expected_control": "UNRESOLVES"},
+  "FAIL-006": {"expected_result_class": "AMBIGUOUS", "expected_impact": "NO_IMPACT", "expected_control": "NO_IMPACT"},
+  "FAIL-007": {"expected_result_class": "AMBIGUOUS", "expected_impact": "NO_IMPACT", "expected_control": "NO_IMPACT"},
+  "FAIL-008": {"expected_result_class": "TIMEOUT", "expected_impact": "UNRESOLVES", "expected_control": "UNRESOLVES"},
+  "FAIL-009": {"expected_result_class": "ENVIRONMENT_FAILURE", "expected_impact": "UNRESOLVES", "expected_control": "UNRESOLVES"},
+  "FAIL-010": {"expected_result_class": "SUCCESS", "expected_impact": "NO_IMPACT", "expected_control": "SUPPORTED:CONTINUE"},
+  "FAIL-011": {"expected_result_class": "AMBIGUOUS", "expected_impact": "BLOCKS_TEST", "expected_control": "BLOCKS_TEST"},
+  "FAIL-012": {"expected_result_class": "RATE_LIMIT", "expected_impact": "UNRESOLVES", "expected_control": "UNRESOLVES"}
+}

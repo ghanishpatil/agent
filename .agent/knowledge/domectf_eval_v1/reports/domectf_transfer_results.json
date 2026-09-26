@@ -1,0 +1,364 @@
+{
+  "historical_reference_recall": {
+    "k": 5,
+    "mechanism_recall_at_k": 0.8438,
+    "note": "memorization/retrieval recall only; NOT a solve. Historical flags are never treated as verification.",
+    "per_case": [
+      {
+        "category": "web",
+        "challenge": "COCON XII DOME CTF Walkthrough",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2019"
+      },
+      {
+        "category": "",
+        "challenge": "Weapon Store",
+        "mechanism_recall": false,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2019"
+      },
+      {
+        "category": "reverse",
+        "challenge": "UnlockMe CTF",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 2,
+        "year": "2019"
+      },
+      {
+        "category": "",
+        "challenge": "Remember CTF",
+        "mechanism_recall": false,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2019"
+      },
+      {
+        "category": "pwn",
+        "challenge": "City",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "crypto",
+        "challenge": "Frames & Stories",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "crypto",
+        "challenge": "Adleman's Doc",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "malware",
+        "challenge": "The Dark Times",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "Black Propagation",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "crypto",
+        "challenge": "JimmyBot",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "android",
+        "challenge": "Inside Out",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "Mercure's Signature Dish",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "crypto",
+        "challenge": "The Retrospect",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "PetVet",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 2,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "Neos",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 2,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "Foundation Palette",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "reverse",
+        "challenge": "Qropolis",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "Time Zone",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "Hike to the Top",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "reverse",
+        "challenge": "Stones",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "hardware",
+        "challenge": "TPM",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "pwn",
+        "challenge": "Assemble",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 2,
+        "year": "2020"
+      },
+      {
+        "category": "web",
+        "challenge": "TikTok",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "web",
+        "challenge": "The Leaked List",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2020"
+      },
+      {
+        "category": "osint",
+        "challenge": "The Spy",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      },
+      {
+        "category": "reverse",
+        "challenge": "LockBox",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      },
+      {
+        "category": "",
+        "challenge": "Murder",
+        "mechanism_recall": false,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      },
+      {
+        "category": "",
+        "challenge": "Farness",
+        "mechanism_recall": false,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      },
+      {
+        "category": "web",
+        "challenge": "JOT",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      },
+      {
+        "category": "crypto",
+        "challenge": "International Space Station",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      },
+      {
+        "category": "crypto",
+        "challenge": "Rocket",
+        "mechanism_recall": true,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      },
+      {
+        "category": "",
+        "challenge": "SEO",
+        "mechanism_recall": false,
+        "retrieved_self": true,
+        "self_rank": 1,
+        "year": "2021"
+      }
+    ],
+    "records": 32,
+    "self_recall_at_k": 1.0
+  },
+  "knowledge_transfer": {
+    "dc-transfer-sqli": {
+      "by_config": {
+        "B_generic_jiaje": {
+          "attribution_reasons": [
+            "treatment did not kernel-verify the expected flag"
+          ],
+          "knowledge_attributable": false,
+          "knowledge_hypotheses": 0,
+          "retrieval_calls": 1,
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        },
+        "C_domectf": {
+          "attribution_reasons": [],
+          "knowledge_attributable": true,
+          "knowledge_hypotheses": 1,
+          "retrieval_calls": 1,
+          "treatment_status": "SOLVED",
+          "treatment_verified_flag": "CTF{dc_transfer_sqli_real}"
+        },
+        "D_combined": {
+          "attribution_reasons": [
+            "treatment did not kernel-verify the expected flag"
+          ],
+          "knowledge_attributable": false,
+          "knowledge_hypotheses": 0,
+          "retrieval_calls": 1,
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        }
+      },
+      "control_A": {
+        "actions": 0,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": null,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 0,
+        "verified_flag": null
+      },
+      "kind": "KNOWLEDGE_DEPENDENT"
+    },
+    "dc-transfer-ssti": {
+      "by_config": {
+        "B_generic_jiaje": {
+          "attribution_reasons": [
+            "treatment did not kernel-verify the expected flag"
+          ],
+          "knowledge_attributable": false,
+          "knowledge_hypotheses": 0,
+          "retrieval_calls": 1,
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        },
+        "C_domectf": {
+          "attribution_reasons": [
+            "treatment did not kernel-verify the expected flag"
+          ],
+          "knowledge_attributable": false,
+          "knowledge_hypotheses": 1,
+          "retrieval_calls": 1,
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        },
+        "D_combined": {
+          "attribution_reasons": [
+            "treatment did not kernel-verify the expected flag"
+          ],
+          "knowledge_attributable": false,
+          "knowledge_hypotheses": 0,
+          "retrieval_calls": 1,
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        }
+      },
+      "control_A": {
+        "actions": 0,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": null,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 0,
+        "verified_flag": null
+      },
+      "kind": "KNOWLEDGE_DEPENDENT"
+    }
+  },
+  "note": "transfer flags are NEW (not historical). A solve requires the current challenge to be independently verified; a memorized historical flag cannot satisfy it."
+}

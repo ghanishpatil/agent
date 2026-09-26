@@ -1,0 +1,46 @@
+Skip to content
+CTF Writeups by @jiegec
+Redbud Puppeteer
+Search
+ GitHub
+23
+3
+Home
+Writeups by Solution
+Pyjail
+Redbud Puppeteer
+Redbud Summer 2026
+On this page
+目录
+Week 0
+Week 1
+Week 2
+Week 3
+Week 4
+Redbud Puppeteer CTF Writeups
+
+Puppeteer 是 Redbud 组织的每周 CTF 活动。你可以在我的 存档网站 中做这些题目。
+
+目录
+Week 0
+Easy Random 1: 攻击 glibc 随机数生成器
+Easy Random 2: 攻击 Python 随机数生成器
+The Old Gods Are Whispering: 音频隐写
+Week 1
+Easy Pyjail 1: 简单的 Python jail（禁用 builtins）
+Easy Random 3: 使用 gf2bv 攻击 Python 随机数生成器
+Easy RE 1: 简单的可逆密码的逆向工程
+Rosetta 3: 三种字符编码（使用 dcode.fr 解码）
+RSA All in One: 五种典型的 RSA 攻击
+Week 2
+Easy Random 4: 攻击 LCG 随机数生成器
+ECDSA Nonce Reuse: 攻击复用 Nonce 的 ECDSA
+Week 3
+Easy Random 5: 攻击 Xoshiro256starstar 随机数生成器
+RSA Partial Factorization: 使用 Coppersmith 算法攻击 RSA
+Week 4
+Easy Random 6: 攻击 Truncated LCG 随机数生成器
+Cite This
+Comments
+Copyright © 2025-2026 Jiajie Chen
+Made with Zensical

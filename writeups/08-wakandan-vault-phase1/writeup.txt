@@ -1,0 +1,24 @@
+# Phase 1 // Wakandan Vault
+
+**CTF:** HexNova // Chakravyuh Dynamic Range
+**Category:** Crypto
+**Points:** 125
+**Flag:** `CHAKRA{p1_xor_single-4BEF69}`
+
+---
+
+Challenge says the vault is sealed with single-byte XOR. Connect via netcat, service spits out a hex ciphertext and asks you to send back the plaintext.
+
+Connected and got:
+
+```
+524d4656454a4d514929353d32373d37
+```
+
+Single-byte XOR means the same key byte is XORed against every byte of the plaintext. Only 256 possible keys. Wrote a quick brute force — decode the hex, XOR every byte with each possible key from 0 to 255, print the ones that come out as printable ASCII.
+
+Key `0x04` gave `VIBRANIUM-196393`. Clearly the plaintext — everything else was garbage.
+
+Sent `VIBRANIUM-196393` back to the service and got the flag.
+
+The challenge had a big notice saying AI can't solve it because the flag is unique to the running instance. That's true — the flag itself changes per instance. But the exploit doesn't. The ciphertext changes, the key changes, but brute forcing 256 possibilities and picking the readable result is the same every time.

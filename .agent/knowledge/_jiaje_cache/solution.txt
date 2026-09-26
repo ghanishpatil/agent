@@ -1,0 +1,91 @@
+Writeups by Solution - CTF Writeups by @jiegec
+
+This document organizes CTF writeups by solution type and technique rather than by CTF event. Use this as a reference when looking for specific exploitation techniques or vulnerability types.
+
+Category: Misc
+
+AI
+Jailbreak: System prompt leak
+KV cache: Recover prompt from kv cache
+
+Crypto
+RSA: Small n; Small e; Factorable n; Small d; Same m and n, different e; N and c has common factors; Known n, p-q; Known n, e, phi^{-1}*d mod n; Known n, e, d; Known n, pow(p, -q, q), pow(q, -p, p); Solving p, q for different known values; Recover message with non co-prime factors
+Discrete logarithm: Baby-step giant-step; Pohlig-Hellman; Pohlig-Hellman without large factors; Elliptic Curve Discrete Logarithm Problem; Smart's Attack
+AES: Chosen plaintext attack; Padding oracle attack; XOR attack against AES-CTR & CRC; GCM nonce reuse attack
+DES: Weak keys; Slide attack
+Double block cipher: Meet in the middle
+Caesar cipher: QuipQiup
+Polynomial: Find small coefficients using LLL; N-th root to reduce the number of unknown coefficients; Find odd-degree coefficients
+Linear congruential generator: Parameter recover; Recover truncated LCG with LSB bits known; Recover different types of LCG
+ECDSA: Reused nonce k; Nonce leakage attack
+Python random number generator: Solve MT19937 using known bits
+C random number generator: Enumerate seed to recover
+Approximate Common Divisor: Algorithms for Approximate Common Divisor Problem
+Modular Inverse Hidden Number Problem: Algorithms for MIHNP
+Differential Cryptanalysis: Recover key by using two keys that differ in only one bit
+Learning with Errors: Errors are sampled from a small set
+
+Forensics
+Wireshark: USB keyboard events; TLS key injection; USB SCSI data extraction; Hostname extraction from NetBIOS
+Microsoft Word: Visual Basic
+Editor history: .viminfo replay
+Disk image: binwalk
+Password protected files: fcrackzip; hashcat
+Audio: Spectrogram visualizer
+Shell: Find files by date and time
+Windows: NTUSER.DAT registry extraction using MiTeC Windows Registry Recovery; winevt Logs .evtx extraction using evtx_dump; config registry dump using reged or hivexregedit; NTFS USN journal dump using USN-Journal-Parser; Registry key modification time recovery via regipy; Recently accessed files via Recent .lnk using lnkinfo or LECmd; AutomaticDestinations via strings or JLECmd; RecentDocs in registry; powershell history via ConsoleHost_history.txt; scheduled tasks under Group Policy History ScheduledTasks.xml
+Linux: Linux memory dump analysis using volatility3; Check files against checksum computed by package managers; Find files with recent modification time; Dump memory by triggering core dump
+TightVNC: VNC password extraction
+
+Misc
+Image steganography: StegSolve
+Text steganography: Zero width characters
+Audio steganography: Sonic visualizer; LSB
+Representations: Minecraft; Zeckendorf representation; EBCDIC
+Font: Ligature
+Side channel: Blind execution with time side channel
+PDF: Decompress /FlateDecode via qpdf
+DNS: DNS Reconnaissance
+
+Pwn
+Stack buffer overflow: Override return address to system; Return oriented programming; Run shellcode on stack
+Format string: Blind printf arbitrary memory read; Override return address; Random address write
+Out of bounds read/write: Arbitrary memory read; Arbitrary memory write to stdin->_IO_buf_base; FSOP; FSOP via house of apple 2; FSOP via house of cat
+Arbitrary file access: Access memory via /proc/self/mem
+Integer overflow: Overflow to get negative integer; Overflow to get zero
+Ruby jail: Define new method; Disassemble method; Memory scan; CVE-2018-8778 Buffer under-read in String#unpack
+JavaScript jail: JSFuck, write any JavaScript using 6 characters
+Python jail: Unicode bypass; Without builtins and digits; Access sys module from datetime.sys for Python <= 3.11; Other Python jails
+Shell jail: Pager !/bin/sh; Arithmetic evaluation
+Perl jail: Newline to bypass regex; Pipe operator to execute command and get output
+Environment variable: KEY==VALUE confusion
+Seccomp jail: Make syscalls via io_uring; Send fd via sendmsg
+
+Reverse
+Fuzzing: Crash on correct input
+JavaScript: Evaluate code and inspect variables in developer tools
+Android: apktool; dex2jar + JD-GUI
+Memory dump: Dump memory in debugger; Dump arguments of library functions with ltrace
+Validation bypass: Patch conditional jump instruction
+PyInstaller: pyinstxtractor
+BPF: Use bpftool to dump bpf program and maps; BPF assembly reverse engineering
+Side channel: Use loop count as side channel to recover flag
+VM: Convert VM bytecode to RISC-V assembly to reuse decompiler
+
+Web
+XSS: Inline JavaScript; SSRF in JavaScript; HTML injection; PDF.js vulnerability
+GraphQL: Schema introspection
+CURL: SSRF using gopher://
+PHP: php://filter for arbitrary file read; More than 1000 input variables
+Flask: Jinja template injection to leak data; Jinja template injection to RCE; Debugger PIN leak
+SQL injection: Enumerate and read from unknown tables; Arbitrary file read; Use UNION SELECT to query extra data
+Json query injection: Blind recovery of hidden string
+MongoDB: MongoDB $operator injection
+Information leak: robots.txt
+Next.js: CVE-2025-29927 Next.js Middleware Authorization Bypass
+YAML: YAML v1.1 versus v1.2; NO parsed as false
+Race condition: Cookie session race condition; Lock file race condition
+Path traversal: Use / to force absolute path; Relative path
+bcrypt: Length truncation to 72 bytes
+DNS: DNS rebinding attack
+Side channel: Timing side channel for password validation

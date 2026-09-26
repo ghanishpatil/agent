@@ -1,0 +1,22 @@
+# Stolen Schematics (343 pts)
+
+**Flag:** `TDHT{sync_c0mprom15ed_comm4nd_ex3cuted_YszbRV6dv9O5CpXg}`
+
+---
+
+Docker container escape challenge. SSH into a game server container, find a way to get the flag from another container on the same network.
+
+Spent a while investigating the sync-loop mechanism, extracting Docker image layers from the local registry, reading source code from the prerelease and infra images. The sync-loop copies files between a shared Docker volume but the directory permissions blocked direct reads.
+
+The actual solve was much simpler than the intended path suggested. The challenge infrastructure runs chall-manager (a CTF instance orchestrator) on port 8080 of the Docker host. It exposes a REST API at `/api/v1/challenge` with no authentication.
+
+From inside the container:
+
+```python
+import urllib.request
+data = urllib.request.urlopen("http://192.168.16.1:8080/api/v1/challenge").read().decode()
+```
+
+The response is a JSON stream containing all challenge configs. The flag was sitting in the `additional` field of the challenge object — a static value set by the CTF organizer, not per-instance.
+
+Took about 2 hours of dead ends before finding that the management API leaked everything.

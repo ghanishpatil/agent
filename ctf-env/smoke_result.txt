@@ -1,0 +1,51 @@
+=== core ===
+Python 3.12.3
+GNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1
+radare2 5.5.0 0 @ linux-x86-64 git.5.5.0
+qemu-x86_64 version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+=== python libs ===
+pwn OK
+Crypto OK
+z3 OK
+angr OK
+capstone OK
+unicorn OK
+PIL OK
+numpy OK
+oletools OK
+sympy OK
+gmpy2 OK
+jwt OK
+requests OK
+bs4 OK
+=== cli tools ===
+binwalk OK
+foremost OK
+zsteg OK
+steghide OK
+exiftool OK
+tshark OK
+hashcat OK
+john OK
+ffuf OK
+gobuster OK
+ROPgadget OK
+one_gadget OK
+nc OK
+nmap OK
+openssl OK
+=== RsaCtfTool ===
+RsaCtfTool MISSING
+=== refs ===
+GTFOBins
+LOLBAS
+PayloadsAllTheThings
+SecLists
+=== run-foreign-ELF check ===
+qemu-aarch64 OK
+=== workspace mount ===
+ABSOLUTE_FINAL_FLAG_CHECK.py
+ABSOLUTE_FINAL_NUCLEAR_HACK.py
+ABSOLUTE_LAST_ATTEMPT.py
+AUTOMATONS_SECRET
+AUTOMATONS_SECRET.zip

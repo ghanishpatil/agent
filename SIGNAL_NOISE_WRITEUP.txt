@@ -1,0 +1,124 @@
+Signal Noise - Writeup
+
+Challenge: Signal Noise (Broadcasting)
+Category: Cryptography
+Points: 200
+Solves: [Solves not specified]
+Flag: Kaal{ghost_in_the_weirwoods}
+
+Description
+During broadcasting, the signal lost its form with some noise. Clear the obscuring text to find the message.
+
+Input:
+73 32 66 21 68 62 68 23 74 6e 61 24 67 39 7a 23 64 66 39 24 70 62 6c 21 39 30 61 21 67 76 66 23 64 32 76 23 70 63 6e 21 64 76 62 24 32 72 7a 21 66 71 6f 24 3d
+
+Solution
+
+Step 1: Hex to ASCII Conversion
+The input consists of hex values separated by spaces. Converting each hex byte to its ASCII character:
+
+hex_string = "73 32 66 21 68 62 68 23 74 6e 61 24 67 39 7a 23 64 66 39 24 70 62 6c 21 39 30 61 21 67 76 66 23 64 32 76 23 70 63 6e 21 64 76 62 24 32 72 7a 21 66 71 6f 24 3d"
+bytes_list = bytes.fromhex(hex_string.replace(' ', ''))
+ascii_text = bytes_list.decode('ascii')
+
+Result: s2f!hbh#tna$g9z#df9$pbl!90a!gvf#d2v#pcn!dvb$2rz!fqo$=
+
+Step 2: Identifying Noise Characters
+Analyzing the decoded string, noticed repeating special characters that appear to be noise:
+- ! (0x21)
+- # (0x23)  
+- $ (0x24)
+
+These characters don't fit typical base64 patterns and appear at regular intervals, suggesting they're the "noise" mentioned in the description.
+
+Step 3: Removing Noise
+Filtered out the noise characters:
+
+clean_text = ascii_text.replace('!', '').replace('#', '').replace('$', '')
+
+Result: s2fhbhtnag9zdf9pbl90agvfd2vpcndvb2rzfqo=
+
+This looks like base64 (ends with =, contains alphanumeric characters).
+
+Step 4: Base64 Decoding Issue
+Attempted to decode the base64 string:
+
+import base64
+decoded = base64.b64decode(clean_text)
+
+However, the output contained non-printable characters and garbage, not the expected flag format.
+
+Step 5: Case Correction Analysis
+Realized the issue: base64 is case-sensitive, but all letters in our string are lowercase. Standard base64 uses both uppercase and lowercase letters.
+
+Knowing the flag format starts with "Kaal{", worked backwards:
+- "Kaal{" in base64 should be "S2FhbH"
+- Our string starts with "s2fhbh"
+- This means certain positions need to be uppercased
+
+Step 6: Iterative Case Fixing
+Systematically identified which positions needed uppercasing by:
+1. Attempting decode
+2. Finding non-printable bytes
+3. Uppercasing the responsible base64 character
+4. Repeating until clean output
+
+Positions that needed uppercasing:
+- Position 0: s → S
+- Position 2: f → F  
+- Position 5: h → H
+- Position 9: g → G
+- Position 13: f → F
+- Position 21: g → G
+- Position 22: v → V
+- Position 26: v → V
+- Position 34: r → R
+- Position 37: q → Q
+
+Step 7: Final Decoding
+Corrected base64 string:
+
+S2FhbHtnaG9zdF9pbl90aGVfd2Vpcndvb2RzfQo=
+
+Decoded to ASCII:
+
+Kaal{ghost_in_the_weirwoods}
+
+Attack Chain Summary
+1. Converted hex values to ASCII characters
+2. Identified noise characters: !, #, $
+3. Removed noise to reveal base64-like string
+4. Recognized case sensitivity issue in base64
+5. Iteratively corrected lowercase to uppercase letters
+6. Successfully decoded to obtain flag
+
+Key Techniques
+- Hex to ASCII conversion
+- Pattern recognition for noise identification
+- Base64 encoding/decoding
+- Case sensitivity analysis
+- Iterative debugging and correction
+
+Python Solution Script
+
+import base64
+
+hex_input = "73 32 66 21 68 62 68 23 74 6e 61 24 67 39 7a 23 64 66 39 24 70 62 6c 21 39 30 61 21 67 76 66 23 64 32 76 23 70 63 6e 21 64 76 62 24 32 72 7a 21 66 71 6f 24 3d"
+
+ascii_text = bytes.fromhex(hex_input.replace(' ', '')).decode('ascii')
+print(f"Decoded hex: {ascii_text}")
+
+clean = ascii_text.replace('!', '').replace('#', '').replace('$', '')
+print(f"Removed noise: {clean}")
+
+corrected = "S2FhbHtnaG9zdF9pbl90aGVfd2Vpcndvb2RzfQo="
+flag = base64.b64decode(corrected).decode('ascii').strip()
+print(f"Flag: {flag}")
+
+Tools Used
+- Python base64 module
+- Hex decoder
+- Text editor for pattern analysis
+
+Flag
+Kaal{ghost_in_the_weirwoods}

@@ -1,0 +1,116 @@
+{
+  "content_hash": "eb86a3a94b829316de956fd5bdbf6ee0da64c0ba7dc072f18f568bde9b03ce1f",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "reverse",
+    "difficulty": "",
+    "event": "c0c0n XIV",
+    "flag_format": "",
+    "flags": [
+      "domectf{  \"   +   password   +   \"  }",
+      "domectf{UDp9VZXL1tElEKVT8IAP1OdarSvWfQ4X}"
+    ],
+    "name": "LockBox",
+    "points": null,
+    "tags": [
+      "Static Analysis",
+      "Reverse Engineering"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "b2b3876e94b2329a0314dc7d5e66d34898407008cf4746ab4373f3cc73feb0ff",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_lockbox-writeup.html.html",
+    "extra": {
+      "author": "Febna V M",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/lockbox-writeup.html",
+      "challenge": "lockbox",
+      "event": "c0c0n XIV",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_lockbox-writeup.html.html",
+      "source_origin": "discovered_from_explicit_source",
+      "year": "2021"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/lockbox-writeup.html"
+  },
+  "record_id": "4c9629fa479a2ed9",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Can Edward break into the lockbox? Help him to find the flag to complete this challenge in DomeCTF 2021.",
+  "techniques": [
+    {
+      "category": "reverse",
+      "confidence": 0.85,
+      "evidence": "hin the code. We can use reverse engineering tools such as Ghidra, objdump, etc to reverse the executables and to find out th",
+      "keywords": [
+        "ghidra",
+        "ida"
+      ],
+      "name": "Static Analysis",
+      "technique_id": "static-analysis"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.7,
+      "evidence": "hin the code. We can use reverse engineering tools such as Ghidra, objdump, etc to reverse the executables and to find out th",
+      "keywords": [
+        "ghidra",
+        "objdump"
+      ],
+      "name": "Reverse Engineering",
+      "technique_id": "reversing"
+    }
+  ],
+  "title": "LockBox Write-up",
+  "trajectory": {
+    "completeness": 0.2727,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Edward received a lockbox with a message\n Hello, Ed. I hope you received the box. I set the key to be sent after one year. However, you may attempt to break into it before receiving the key."
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: This challenge is built in Python.\n On executing the given file in a terminal, it will be prompted to enter a key.\n\n We can see that it returns some output while giving an input. This means that the input is being validated based on certain conditions within the code.\n We can use reverse engineering tools such as Ghidra, objdump, etc to reverse the executables and to find out the functio"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "VERIFICATION",
+        "order": 2,
+        "source_heading": "Capturing the flag",
+        "text": "Capturing the flag: The FLAG  domectf{UDp9VZXL1tElEKVT8IAP1OdarSvWfQ4X}  can be obtained by combining all the blocks we have derived.\n\n  Written by\n     Febna V M\n\n Cyber Security Engineer\n Febna once spent an entire evening arguing with an AI chatbot just to prove that machines can be confidently wrong. The debate ended with no clear winner, but it did spark her curiosity for the fascinating worl"
+      }
+    ]
+  }
+}

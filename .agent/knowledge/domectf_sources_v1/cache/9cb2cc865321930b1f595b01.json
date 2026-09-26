@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 35365,
+  "content_sha256": "cf5d0db0b7bec67c2c46579ad2a9accd79988c7a00ac7340357d02bce0792ada",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/domectf-2021.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:49.601139+00:00"
+}

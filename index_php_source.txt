@@ -1,0 +1,91 @@
+<?php
+// ============================================================
+
+// ============================================================
+
+
+class Admin
+{
+    public $is_admin    = "";
+    public $your_secret = "";
+    public $my_secret   = "";
+}
+
+
+$FLAG = getenv('FLAG');
+if (!$FLAG) {
+    $FLAG = 'CTF{y0u_f0und_th3_h1dd3n_c0nf1g}';
+}
+
+
+if (isset($_GET['file'])) {
+    include($_GET['file']);
+}
+
+
+$flag_output  = "";
+$debug_output = "";
+
+if (isset($_COOKIE['winter_is_coming'])) {
+
+    $raw   = $_COOKIE['winter_is_coming'];
+    $f     = base64_decode($raw);
+    $unout = $f ? @unserialize($f) : false;
+
+
+
+    try {
+        if (!$f)     throw new Exception("Invalid cookie.");
+        if (!$unout) throw new Exception("Wrong cookie format.");
+
+        $unout->my_secret = $FLAG;
+
+        if ($unout->is_admin == 0 && $unout->your_secret === $unout->my_secret) {
+            $flag_output = "
+            <div class='flag-box'>
+                <p>&#127881; Congratulations!</p>
+                <code>" . htmlspecialchars($FLAG) . "</code>
+            </div>";
+        }
+    } catch (Exception $e) {
+        // silent
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFE STORE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #e8f0f7; min-height: 100vh; }
+        h1 { background-color: #2196c9; color: white; font-size: 2em; font-weight: bold; text-align: center; padding: 28px 0; letter-spacing: 1px; }
+        h2 { background-color: #a8d4e8; color: #222; font-size: 1.2em; font-weight: bold; text-align: center; padding: 18px 0; }
+        .center-image { display: block; margin: 30px auto; width: 195px; height: 125px; object-fit: cover; border-radius: 6px; }
+        .search-container { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 10px; }
+        .search-container label { font-size: 1em; color: #222; }
+        .search-container input[type="text"] { width: 220px; height: 36px; border: 1px solid #ccc; border-radius: 3px; padding: 0 8px; font-size: 1em; background: #fff; outline: none; }
+        .search-container button { height: 36px; padding: 0 22px; background-color: #3dba5e; color: white; border: none; border-radius: 3px; font-size: 0.95em; font-weight: bold; cursor: pointer; }
+        .search-container button:hover { background-color: #34a352; }
+        .flag-box { margin: 30px auto; max-width: 600px; background: #1a1a1a; border: 2px solid #3dba5e; border-radius: 8px; padding: 24px; text-align: center; font-family: monospace; }
+        .flag-box p { color: #3dba5e; font-size: 1.3em; margin-bottom: 12px; }
+        .flag-box code { color: #fff; font-size: 1.2em; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <h1>WELCOME TO MY STORE</h1>
+    <h2>Best Deals on Your Favorite Items!</h2>
+    <img src="shop.jpg" class="center-image" alt="Store Image">
+    <form method="get" action="index.php" class="search-container">
+        <label for="search">Search items</label>
+        <input type="text" id="search" name="file">
+        <button type="submit">submit</button>
+    </form>
+    <?php echo $debug_output; ?>
+    <?php echo $flag_output; ?>
+    <p hidden>?file=</p>
+    <p hidden>Rm9sbG93IHRoZSByb290cyE=</p>
+</body>
+</html>

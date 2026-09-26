@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-09-25T05:59:53.261439+00:00",
+  "pages": {
+    "https://jia.je/ctf-writeups/puppeteer/index.html": {
+      "js": {
+        "final_url": "https://jia.je/ctf-writeups/puppeteer/index.html",
+        "http_status": 200,
+        "ok": true,
+        "rendered_html_bytes": 36763,
+        "rendered_text_len": 860,
+        "renderer": "playwright-chromium 1.61.0 / 149.0.7827.55",
+        "writeup_link_candidates": 15
+      },
+      "static": {
+        "static_extracted_source": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\_jiaje_cache\\puppeteer.txt",
+        "static_extracted_text_len": 43,
+        "static_raw_error": "",
+        "static_raw_html_bytes": 23243
+      }
+    },
+    "https://jia.je/ctf-writeups/summer2026/index.html": {
+      "js": {
+        "final_url": "https://jia.je/ctf-writeups/summer2026/index.html",
+        "http_status": 200,
+        "ok": true,
+        "rendered_html_bytes": 33169,
+        "rendered_text_len": 366,
+        "renderer": "playwright-chromium 1.61.0 / 149.0.7827.55",
+        "writeup_link_candidates": 11
+      },
+      "static": {
+        "static_extracted_source": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\_jiaje_cache\\summer2026.txt",
+        "static_extracted_text_len": 45,
+        "static_raw_error": "",
+        "static_raw_html_bytes": 19634
+      }
+    }
+  }
+}

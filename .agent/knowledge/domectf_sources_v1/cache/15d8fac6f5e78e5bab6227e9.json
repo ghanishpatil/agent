@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 51501,
+  "content_sha256": "4d8a053487e63be184515cdf2b347a169548dd94903eb1b59cb4c1f65ac2ce99",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/petvet-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:35.098866+00:00"
+}

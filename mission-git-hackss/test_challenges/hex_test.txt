@@ -1,0 +1,5 @@
+The flag is hidden in hexadecimal:
+
+666c61677b6865785f656e636f64696e675f69735f66756e7d
+
+Decode it!

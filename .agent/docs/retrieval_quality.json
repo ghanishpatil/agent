@@ -1,0 +1,107 @@
+{
+  "labeled_synthetic": {
+    "k": 5,
+    "mean_precision_at_k": 0.4861,
+    "mean_recall_at_k": 1.0,
+    "mean_reciprocal_rank": 1.0,
+    "per_query": [
+      {
+        "precision_at_k": 0.5,
+        "query_id": "ssti",
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "retrieved_ids": [
+          "web-ssti-1",
+          "web-ssti-2",
+          "web-sqli-1",
+          "web-jwt-1"
+        ]
+      },
+      {
+        "precision_at_k": 0.25,
+        "query_id": "jwt",
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "retrieved_ids": [
+          "web-jwt-1",
+          "web-ssti-2",
+          "web-ssti-1",
+          "web-sqli-1"
+        ]
+      },
+      {
+        "precision_at_k": 0.3333,
+        "query_id": "xor",
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "retrieved_ids": [
+          "crypto-xor-1",
+          "crypto-caesar-1",
+          "crypto-rsa-1"
+        ]
+      },
+      {
+        "precision_at_k": 0.3333,
+        "query_id": "rsa",
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "retrieved_ids": [
+          "crypto-rsa-1",
+          "crypto-xor-1",
+          "crypto-caesar-1"
+        ]
+      },
+      {
+        "precision_at_k": 0.5,
+        "query_id": "rop",
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "retrieved_ids": [
+          "pwn-rop-1",
+          "pwn-fmt-1"
+        ]
+      },
+      {
+        "precision_at_k": 1.0,
+        "query_id": "pcap",
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "retrieved_ids": [
+          "forensics-pcap-1"
+        ]
+      }
+    ]
+  },
+  "real_store_category_consistency": {
+    "k": 5,
+    "mean_category_consistency": 0.72,
+    "per_query": [
+      {
+        "category": "web",
+        "consistency": 1.0,
+        "retrieved": 5
+      },
+      {
+        "category": "crypto",
+        "consistency": 1.0,
+        "retrieved": 5
+      },
+      {
+        "category": "pwn",
+        "consistency": 0.6667,
+        "retrieved": 3
+      },
+      {
+        "category": "reverse",
+        "consistency": 0.6,
+        "retrieved": 5
+      },
+      {
+        "category": "forensics",
+        "consistency": 0.3333,
+        "retrieved": 3
+      }
+    ]
+  },
+  "real_store_path": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\local_writeups"
+}

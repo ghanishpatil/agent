@@ -1,0 +1,113 @@
+{
+  "content_hash": "0d8124979d1c8a5587dc96545591bd571575b5f9df341253d8bf4ef20ce2d252",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [
+      "domectf{<32 characters>}"
+    ],
+    "name": "Hike to the Top",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "8a7a2eb1256d28dece59ed94c43f9ba5d99008332fd079cd9d8eaa33f73c86bb",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_hike-to-the-top-writeup.html.html",
+    "extra": {
+      "author": "Ananthu S",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/hike-to-the-top-writeup.html",
+      "challenge": "Hike to the Top",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_hike-to-the-top-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/hike-to-the-top-writeup.html"
+  },
+  "record_id": "704b50bdce3189ae",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Story Travelix has a very unique hiking expedition and it is described as being one of the best in the world. Find it from their website. Solution Travelix is a simple travel website. When we look at the whole page, they all are simple HTML pages, and there are no...",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Itty Marketing Manager DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Hike to the Top Writeup",
+  "trajectory": {
+    "completeness": 0.2727,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Travelix has a very unique hiking expedition and it is described as being one of the best in the world. Find it from their website."
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: Travelix is a simple travel website. When we look at the whole page, they all are simple HTML pages, and there are no API calls.\n So there is something else on that website. Just check the sitemap file of the website.\n Yeah, you got that, it is a  gpx  file.ere.\n\n You can find that there are 32 places denoted as latitude and longitude. Just search these latitude and longitudes on Google "
+      },
+      {
+        "confidence": 0.7,
+        "kind": "VERIFICATION",
+        "order": 2,
+        "source_heading": "",
+        "text": "flag present: domectf{<32 characters>}"
+      }
+    ]
+  }
+}

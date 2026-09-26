@@ -1,0 +1,123 @@
+            ; CALL XREF from main @ 0x401346
+/ 172: sym.__gets (char *arg1);
+|           ; var char *buf @ rbp-0x18
+|           ; var size_t n @ rbp-0x8
+|           ; var ssize_t var_4h @ rbp-0x4
+|           ; arg char *arg1 @ rdi
+|           0x004011f6      f30f1efa       endbr64
+|           0x004011fa      55             push rbp
+|           0x004011fb      4889e5         mov rbp, rsp
+|           0x004011fe      4883ec20       sub rsp, 0x20
+|           0x00401202      48897de8       mov qword [buf], rdi        ; arg1
+|           0x00401206      488b45e8       mov rax, qword [buf]
+|           0x0040120a      0fb600         movzx eax, byte [rax]
+|           0x0040120d      84c0           test al, al
+|       ,=< 0x0040120f      7425           je 0x401236
+|       |   0x00401211      488b45e8       mov rax, qword [buf]
+|       |   0x00401215      4889c7         mov rdi, rax                ; const char *s
+|       |   0x00401218      e8a3feffff     call sym.imp.strlen         ; size_t strlen(const char *s)
+|       |   0x0040121d      4889c2         mov rdx, rax                ; size_t nbyte
+|       |   0x00401220      488b45e8       mov rax, qword [buf]
+|       |   0x00401224      4889c6         mov rsi, rax                ; void *buf
+|       |   0x00401227      bf00000000     mov edi, 0                  ; int fildes
+|       |   0x0040122c      e8bffeffff     call sym.imp.read           ; ssize_t read(int fildes, void *buf, size_t nbyte)
+|       |   0x00401231      8945fc         mov dword [var_4h], eax
+|      ,==< 0x00401234      eb19           jmp 0x40124f
+|      ||   ; CODE XREF from sym.__gets @ 0x40120f
+|      |`-> 0x00401236      488b45e8       mov rax, qword [buf]
+|      |    0x0040123a      ba80000000     mov edx, 0x80               ; 128 ; size_t nbyte
+|      |    0x0040123f      4889c6         mov rsi, rax                ; void *buf
+|      |    0x00401242      bf00000000     mov edi, 0                  ; int fildes
+|      |    0x00401247      e8a4feffff     call sym.imp.read           ; ssize_t read(int fildes, void *buf, size_t nbyte)
+|      |    0x0040124c      8945fc         mov dword [var_4h], eax
+|      |    ; CODE XREF from sym.__gets @ 0x401234
+|      `--> 0x0040124f      c745f8000000.  mov dword [n], 0
+|       ,=< 0x00401256      eb3f           jmp 0x401297
+|       |   ; CODE XREF from sym.__gets @ 0x40129d
+|      .--> 0x00401258      8b45f8         mov eax, dword [n]
+|      :|   0x0040125b      4863d0         movsxd rdx, eax
+|      :|   0x0040125e      488b45e8       mov rax, qword [buf]
+|      :|   0x00401262      4801d0         add rax, rdx
+|      :|   0x00401265      0fb600         movzx eax, byte [rax]
+|      :|   0x00401268      84c0           test al, al
+|     ,===< 0x0040126a      7527           jne 0x401293
+|     |:|   0x0040126c      8b45fc         mov eax, dword [var_4h]
+|     |:|   0x0040126f      2b45f8         sub eax, dword [n]
+|     |:|   0x00401272      4898           cdqe
+|     |:|   0x00401274      8b55f8         mov edx, dword [n]
+|     |:|   0x00401277      4863ca         movsxd rcx, edx
+|     |:|   0x0040127a      488b55e8       mov rdx, qword [buf]
+|     |:|   0x0040127e      4801d1         add rcx, rdx
+|     |:|   0x00401281      4889c2         mov rdx, rax                ; size_t n
+|     |:|   0x00401284      be00000000     mov esi, 0                  ; int c
+|     |:|   0x00401289      4889cf         mov rdi, rcx                ; void *s
+|     |:|   0x0040128c      e84ffeffff     call sym.imp.memset         ; void *memset(void *s, int c, size_t n)
+|    ,====< 0x00401291      eb0c           jmp 0x40129f
+|    ||:|   ; CODE XREF from sym.__gets @ 0x40126a
+|    |`---> 0x00401293      8345f801       add dword [n], 1
+|    | :|   ; CODE XREF from sym.__gets @ 0x401256
+|    | :`-> 0x00401297      8b45f8         mov eax, dword [n]
+|    | :    0x0040129a      3b45fc         cmp eax, dword [var_4h]
+|    | `==< 0x0040129d      7cb9           jl 0x401258
+|    |      ; CODE XREF from sym.__gets @ 0x401291
+|    `----> 0x0040129f      90             nop
+|           0x004012a0      c9             leave
+\           0x004012a1      c3             ret
+            ; DATA XREF from entry0 @ 0x401128
+/ 210: int main (int argc, char **argv, char **envp);
+|           ; var char *s1 @ rbp-0x50
+|           ; var int64_t var_48h @ rbp-0x48
+|           ; var int64_t var_40h @ rbp-0x40
+|           ; var int64_t var_38h @ rbp-0x38
+|           ; var int64_t var_30h @ rbp-0x30
+|           ; var int64_t var_28h @ rbp-0x28
+|           ; var int64_t var_20h @ rbp-0x20
+|           ; var int64_t var_18h @ rbp-0x18
+|           ; var int64_t var_10h @ rbp-0x10
+|           ; var int64_t var_8h @ rbp-0x8
+|           0x004012a2      f30f1efa       endbr64
+|           0x004012a6      55             push rbp
+|           0x004012a7      4889e5         mov rbp, rsp
+|           0x004012aa      4883ec50       sub rsp, 0x50
+|           0x004012ae      488b05ab2d00.  mov rax, qword [obj.stdout] ; obj.__TMC_END__
+|                                                                      ; [0x404060:8]=0
+|           0x004012b5      b900000000     mov ecx, 0                  ; size_t size
+|           0x004012ba      ba02000000     mov edx, 2                  ; int mode
+|           0x004012bf      be00000000     mov esi, 0                  ; char *buf
+|           0x004012c4      4889c7         mov rdi, rax                ; FILE*stream
+|           0x004012c7      e834feffff     call sym.imp.setvbuf        ; int setvbuf(FILE*stream, char *buf, int mode, size_t size)
+|           0x004012cc      48c745b00000.  mov qword [s1], 0
+|           0x004012d4      48c745b80000.  mov qword [var_48h], 0
+|           0x004012dc      48c745c00000.  mov qword [var_40h], 0
+|           0x004012e4      48c745c80000.  mov qword [var_38h], 0
+|           0x004012ec      48c745d00000.  mov qword [var_30h], 0
+|           0x004012f4      48c745d80000.  mov qword [var_28h], 0
+|           0x004012fc      48c745e00000.  mov qword [var_20h], 0
+|           0x00401304      48c745e80000.  mov qword [var_18h], 0
+|           0x0040130c      48c745f00000.  mov qword [var_10h], 0
+|           0x00401314      48c745f80000.  mov qword [var_8h], 0
+|           ; CODE XREF from main @ 0x40136a
+|       .-> 0x0040131c      488d05e50c00.  lea rax, str.Look_ma__I_made_sure_you_cant_rop_no_more. ; 0x402008 ; "Look ma, I made sure you can't rop no more."
+|       :   0x00401323      4889c7         mov rdi, rax                ; const char *s
+|       :   0x00401326      e885fdffff     call sym.imp.puts           ; int puts(const char *s)
+|       :   0x0040132b      488d05020d00.  lea rax, [0x00402034]       ; ">> "
+|       :   0x00401332      4889c7         mov rdi, rax                ; const char *format
+|       :   0x00401335      b800000000     mov eax, 0
+|       :   0x0040133a      e891fdffff     call sym.imp.printf         ; int printf(const char *format)
+|       :   0x0040133f      488d45b0       lea rax, [s1]
+|       :   0x00401343      4889c7         mov rdi, rax                ; int64_t arg1
+|       :   0x00401346      e8abfeffff     call sym.__gets
+|       :   0x0040134b      488d45b0       lea rax, [s1]
+|       :   0x0040134f      ba04000000     mov edx, 4                  ; size_t n
+|       :   0x00401354      488d0ddd0c00.  lea rcx, str.exit           ; 0x402038 ; "exit"
+|       :   0x0040135b      4889ce         mov rsi, rcx                ; const char *s2
+|       :   0x0040135e      4889c7         mov rdi, rax                ; const char *s1
+|       :   0x00401361      e83afdffff     call sym.imp.strncmp        ; int strncmp(const char *s1, const char *s2, size_t n)
+|       :   0x00401366      85c0           test eax, eax
+|      ,==< 0x00401368      7402           je 0x40136c
+|      |`=< 0x0040136a      ebb0           jmp 0x40131c
+|      |    ; CODE XREF from main @ 0x401368
+|      `--> 0x0040136c      90             nop
+|           0x0040136d      b800000000     mov eax, 0
+|           0x00401372      c9             leave
+\           0x00401373      c3             ret

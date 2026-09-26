@@ -1,0 +1,116 @@
+﻿CONNECTED
+uid=1000(player) gid=1000(player) groups=1000(player)
+#!/bin/bash
+service ssh start
+/opt/mc/scripts/sync-loop.sh &
+tail -f /dev/null#Minecraft server properties
+#Thu Jul 30 11:12:18 UTC 2026
+accepts-transfers=false
+allow-flight=true
+broadcast-console-to-ops=true
+broadcast-rcon-to-ops=true
+bug-report-link=
+debug=false
+difficulty=easy
+enable-code-of-conduct=false
+enable-jmx-monitoring=false
+enable-query=false
+enable-rcon=false
+enable-status=true
+enforce-secure-profile=false
+enforce-whitelist=false
+entity-broadcast-range-percentage=100
+force-gamemode=false
+function-permission-level=2
+gamemode=survival
+generate-structures=true
+generator-settings={}
+hardcore=false
+hide-online-players=false
+initial-disabled-packs=
+initial-enabled-packs=vanilla
+level-name=world
+level-seed=
+level-type=minecraft\:normal
+log-ips=true
+management-server-allowed-origins=
+management-server-enabled=false
+management-server-host=localhost
+management-server-port=0
+management-server-secret=dOpKC729CoeywJl9pSUPcAGmaiFhtkzd7CD0jJPQ
+management-server-tls-enabled=true
+management-server-tls-keystore=
+management-server-tls-keystore-password=
+max-chained-neighbor-updates=10000
+max-players=5000
+max-tick-time=60000
+max-world-size=29999984
+motd=A Minecraft Server
+network-compression-threshold=256
+online-mode=false
+op-permission-level=4
+pause-when-empty-seconds=-1
+player-idle-timeout=0
+prevent-proxy-connections=false
+query.port=25568
+rate-limit=0
+rcon.password=
+rcon.port=25575
+region-file-compression=deflate
+require-resource-pack=false
+resource-pack=
+resource-pack-id=
+resource-pack-prompt=
+resource-pack-sha1=
+server-ip=0.0.0.0
+server-name=Unknown Server
+server-port=25568
+simulation-distance=4
+spawn-protection=0
+status-heartbeat-interval=0
+sync-chunk-writes=false
+text-filtering-config=
+text-filtering-version=0
+use-native-transport=true
+view-distance=8
+white-list=false
+STRINGS sync-loop:
+bash: line 1: strings: command not found
+
+bash: line 1: xxd: command not found
+
+EXTRACT ALL:
+MANIFEST TYPE application/vnd.docker.distribution.manifest.v2+json keys ['schemaVersion', 'mediaType', 'manifests']
+Traceback (most recent call last):
+  File "<stdin>", line 45, in <module>
+  File "<stdin>", line 13, in get
+  File "/usr/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.10/urllib/request.py", line 525, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.10/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.10/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+NETWORK:
+GW 192.168.16.1 SUBNET 192.168.16
+OPEN 192.168.16.1 22
+OPEN 192.168.16.1 80
+OPEN 192.168.16.1 8080
+OPEN 192.168.16.1 5000
+OPEN 192.168.16.3 22
+
+SYNC TEST sync.trigger check:
+no trigger
+
+total 20
+drwxr-xr-x 1 player player 4096 Aug 22 00:52 .
+drwxr-xr-x 1 root   root   4096 Aug 22 00:52 ..
+-rw-rw-r-- 1 player player   26 Aug 23 02:43 sync-request.conf
+

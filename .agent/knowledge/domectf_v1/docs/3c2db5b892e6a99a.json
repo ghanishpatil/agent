@@ -1,0 +1,115 @@
+{
+  "content_hash": "109de3d436dedc4d6d54848150b4315c77d728b3bbbc3f847190726b4cd3a9d6",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "web",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "The Leaked List",
+    "points": null,
+    "tags": [
+      "Server-Side Request Forgery",
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "edfe01ee0ca3e7251787d6b25a197f8e24781c81a4da9c672131e9fcc5f97c9c",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_leaked-list-writeup.html.html",
+    "extra": {
+      "author": "Manindar Mohan",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/leaked-list-writeup.html",
+      "challenge": "leaked-list",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_leaked-list-writeup.html.html",
+      "source_origin": "discovered_from_explicit_source",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/leaked-list-writeup.html"
+  },
+  "record_id": "3c2db5b892e6a99a",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "The Leaked List is a ctf challenge that was part of DOME CTF 2020 where the participant has to find the flag ultimately.",
+  "techniques": [
+    {
+      "category": "web",
+      "confidence": 0.55,
+      "evidence": "dis password is hard coded there. The challenge is a plain SSRF so we need to craft the URL with redis commands using gophe",
+      "keywords": [
+        "ssrf"
+      ],
+      "name": "Server-Side Request Forgery",
+      "technique_id": "ssrf"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "The Leaked List Writeup",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Red Racks, a hacker group, has released a web application that helps in checking whether a website is hacked by them or not. Are you smart enough to hack the hackers?"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: The application gives two input forms, one for project name and one for URL.\n\n Anything given other than the exact payload will result in server error. If we inspect the elements we can see a string.\n\n This gives a hint that the application is using redis and also the redis password is hard coded there.\n The challenge is a plain SSRF so we need to craft the URL with redis commands using "
+      }
+    ]
+  }
+}

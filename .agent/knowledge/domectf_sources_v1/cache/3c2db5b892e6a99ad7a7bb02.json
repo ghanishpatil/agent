@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 46547,
+  "content_sha256": "edfe01ee0ca3e7251787d6b25a197f8e24781c81a4da9c672131e9fcc5f97c9c",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/leaked-list-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:13.336820+00:00"
+}

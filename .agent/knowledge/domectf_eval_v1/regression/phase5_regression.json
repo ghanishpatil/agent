@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "case_count_matches": true,
+    "false_disproof_zero": true,
+    "false_verification_zero": true,
+    "solver_fingerprint_unchanged": true,
+    "stopping_correct": true,
+    "verified_solve_rate_matches": true,
+    "zero_budget_violations": true
+  },
+  "frozen_headline": {
+    "budget_violations": 0,
+    "false_disproof_rate": 0.0,
+    "false_verification_rate": 0.0,
+    "solve_rate": 0.8333333333333334,
+    "stop_correctness": 1.0,
+    "terminal_state_correctness": 1.0,
+    "verified_solve_rate": 0.8333333333333334
+  },
+  "note": "in-memory rerun; docs/phase5_results.json NOT modified",
+  "regression_passed": true,
+  "rerun": {
+    "budget_violations": 0,
+    "case_count": 6,
+    "false_disproof_rate": 0.0,
+    "false_verification_rate": 0.0,
+    "solve_rate": 0.8333333333333334,
+    "stop_correctness": 1.0,
+    "terminal_state_correctness": 1.0,
+    "verified_solve_rate": 0.8333333333333334
+  },
+  "solver_fingerprint": "ead35256c11e882157688410a9618de1e45c3f80a57f4bfb4be7728ebdffdb88"
+}

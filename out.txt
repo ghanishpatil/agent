@@ -1,0 +1,42 @@
+﻿=== SYNC-LOOP.SH ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+PermissionError: [Errno 13] Permission denied: '/proc/16/root/opt/mc/scripts/sync-loop.sh'
+
+=== SYNC.RESULT VIA PROC ===
+exists False
+n/a
+
+=== LS .sync VIA PROC ===
+no dir
+
+=== EXTRACT PRERELEASE ===
+Traceback (most recent call last):
+  File "<stdin>", line 17, in <module>
+KeyError: 'layers'
+
+=== EXTRACT INFRA ===
+skip infra/stolen-schematics latest HTTP Error 404: Not Found
+skip images/stolen-schematics-watcher team131-fix HTTP Error 404: Not Found
+skip images/stolen-schematics-watcher v1 HTTP Error 404: Not Found
+IMAGE images/stolen-schematics-game-server-prerelease v2.5.39
+
+=== SYNC TRIGGER ===
+t+5s cat: /opt/mc/config/sync-result.conf: No such file or directory
+no
+
+t+10s cat: /opt/mc/config/sync-result.conf: No such file or directory
+no
+
+t+15s cat: /opt/mc/config/sync-result.conf: No such file or directory
+no
+
+t+20s cat: /opt/mc/config/sync-result.conf: No such file or directory
+no
+
+t+25s cat: /opt/mc/config/sync-result.conf: No such file or directory
+no
+
+t+30s cat: /opt/mc/config/sync-result.conf: No such file or directory
+no
+

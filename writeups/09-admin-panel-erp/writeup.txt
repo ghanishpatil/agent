@@ -1,0 +1,35 @@
+# Student ERP Portal — Admin Panel
+
+**CTF:** CHAKRAVYUV CTF
+**Category:** Web / Client-Side
+**URL:** https://adminpanel-h6b7.onrender.com/
+**Flag:** `CHAKRA{Y0U_CRACK3D_4DM1N}`
+
+---
+
+Login page for a student ERP portal. Right there in the HTML source was a faded "demo credentials" note — username `guest`, password `guest123`. Didn't even need to look hard.
+
+Logged in and checked `login.js`. The entire authentication is done in JavaScript on the client. No server validation at all. After login it just sets four cookies manually:
+
+erp_session=active
+verified=false
+role=guest
+securitySum=10+1
+
+Then redirects to `dashboard.html`. Read `dashboard.js` next. The admin button checks those three cookies before redirecting to `admin.html`:
+
+- `verified` must equal `"true"`
+- `role` must equal `"admin"`
+- `securitySum` must equal `"11"` (the default was set to `"10+1"` which evaluates to 11 in JS but is stored as the literal string, so the check fails unless you set it to the string `"11"`)
+
+All client-side. Just set the cookies manually and hit `admin.html` directly:
+
+erp_session=active, verified=true, role=admin, securitySum=11
+
+Got into the admin panel. Found an "Encrypted Security Record" with the ciphertext:
+
+QVOYFO{M0I_QFOQY3R_4RA1B}
+
+Hint on the page said Caesar cipher, shift 14, letters moved forward during encryption. So reverse it — shift back by 14. Non-letter characters stay as-is. Decoded to:
+
+CHAKRA{Y0U_CRACK3D_4DM1N}

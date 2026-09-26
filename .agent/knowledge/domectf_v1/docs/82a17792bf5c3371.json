@@ -1,0 +1,104 @@
+{
+  "content_hash": "d253b30c458a0e6e98ef0a86f91baf3efa2d2b6f6a137478fbe41d98b375c0f1",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "crypto",
+    "difficulty": "",
+    "event": "c0c0n XIV",
+    "flag_format": "",
+    "flags": [],
+    "name": "International Space Station",
+    "points": null,
+    "tags": [
+      "XOR Cipher",
+      "PCAP Analysis"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "1d68e4707a87f9c336a4dedeb631cc515d439ca0e454b326254ed6cd6093967e",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_iss-writeup.html.html",
+    "extra": {
+      "author": "Manindar Mohan",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/iss-writeup.html",
+      "challenge": "iss",
+      "event": "c0c0n XIV",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_iss-writeup.html.html",
+      "source_origin": "discovered_from_explicit_source",
+      "year": "2021"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/iss-writeup.html"
+  },
+  "record_id": "82a17792bf5c3371",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "ISS is a CTF challenge that was part of DomeCTF 2021.",
+  "techniques": [
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "ord, you need to get the key from the JSON given below, and XOR it using the secret key, and then encode the XORed value to",
+      "keywords": [
+        "xor"
+      ],
+      "name": "XOR Cipher",
+      "technique_id": "xor-cipher"
+    },
+    {
+      "category": "forensics",
+      "confidence": 0.55,
+      "evidence": "t, as shown below. On capturing the network traffic using Wireshark, we can observe a connection from the local machine to a Pu",
+      "keywords": [
+        "wireshark"
+      ],
+      "name": "PCAP Analysis",
+      "technique_id": "pcap-analysis"
+    }
+  ],
+  "title": "International Space Station Write-up",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: We came across a leaked binary executable used by the Roscosmos to communicate with International Space Station. But it seems the executable is keeping on crashing.\n Your mission is to find a way around it."
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: On executing the provided executable, they will ask you to input the country\u2019s name.\n Since Russia is the country where the challenge is hosted, we should add it as the country.\n Once it is given, the application crashes and won\u2019t exit, as shown below.\n\n On capturing the network traffic using Wireshark, we can observe a connection from the local machine to a Public IP 158.85.213.163 with"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+Suspiciously Attentive - Writeup
+
+Challenge: Suspiciously Attentive
+Category: Forensics
+Points: 200
+Solves: 87
+Flag: Kaal{KYA_GUNDA_BANEGA_RE_TU}
+
+Description
+Be All Ears
+
+Solution
+
+Step 1: Initial Analysis
+The challenge title "Suspiciously Attentive" and description "Be All Ears" strongly hint at audio analysis. This suggests the flag is hidden within an audio file that requires careful listening.
+
+Received a music file containing a popular recent song.
+
+Step 2: Audio File Inspection
+Played through the audio file to identify any anomalies or hidden patterns. The song played normally for most of its duration.
+
+Key observation: Around the 1:40 mark (1 minute 40 seconds), noticed a series of beep sounds that continued for approximately 10 seconds.
+
+These beeps had a distinct pattern - short and long tones that resembled Morse code.
+
+Step 3: Audio Extraction
+Isolated the relevant section containing the Morse code beeps:
+
+Using audio editing software (Audacity or similar):
+1. Opened the music file
+2. Selected the region from 1:40 to 1:50 (approximately)
+3. Exported the selection as a separate audio file
+
+This gave us a clean 10-second clip containing only the beep pattern.
+
+Step 4: Morse Code Decoding
+Used an online Morse code audio decoder to analyze the extracted beeps:
+
+Tools that can be used:
+- morsecode.world/international/decoder/audio-decoder-adaptive.html
+- Online Morse audio decoders
+- Audacity with Morse code plugins
+
+Uploaded the trimmed audio clip to the decoder.
+
+The decoder analyzed the short and long beeps (dots and dashes) and converted them to text.
+
+Step 5: Flag Extraction
+The Morse code decoded to: KYA GUNDA BANEGA RE TU
+
+This translates to a Hindi phrase meaning "What kind of tough guy will you become?"
+
+Wrapped in flag format: Kaal{KYA_GUNDA_BANEGA_RE_TU}
+
+Attack Chain Summary
+1. Received music file with embedded steganography
+2. Listened through the audio to identify anomalies
+3. Found Morse code beeps starting at 1:40 timestamp
+4. Extracted 10-second segment containing the beeps
+5. Used Morse audio decoder to convert beeps to text
+6. Obtained flag: KYA_GUNDA_BANEGA_RE_TU
+
+Key Techniques
+- Audio steganography analysis
+- Morse code recognition
+- Audio editing and extraction
+- Pattern identification in audio signals
+- Online decoder tool usage
+
+Tools Used
+- Audio player (VLC, Windows Media Player)
+- Audio editor (Audacity)
+- Online Morse code audio decoder
+- Audio trimming software
+
+Flag
+Kaal{KYA_GUNDA_BANEGA_RE_TU}

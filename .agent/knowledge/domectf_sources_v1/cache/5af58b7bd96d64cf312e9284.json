@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 37959,
+  "content_sha256": "125ccc401e9a0ccf5078da7513180a099924c50a23834d43f1860bb243b42352",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/seo-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:26.957363+00:00"
+}

@@ -1,0 +1,124 @@
+{
+  "case_count": 6,
+  "headline": {
+    "average_actions_per_solve": 2.8,
+    "blind_retry_rate": 0.0,
+    "budget_violations": 0,
+    "candidate_verification_success": 1.0,
+    "dead_end_recovery_rate": 1.0,
+    "duplicate_action_rate": 0.36,
+    "environmental_failure_recovery_rate": 1.0,
+    "false_disproof_rate": 0.0,
+    "false_verification_rate": 0.0,
+    "median_actions_per_solve": 3,
+    "solve_rate": 0.8333333333333334,
+    "specialist_selection_accuracy": 1.0,
+    "stop_correctness": 1.0,
+    "terminal_state_correctness": 1.0,
+    "tool_failure_recovery_rate": 1.0,
+    "useful_specialist_proposal_rate": 1.0,
+    "verified_solve_rate": 0.8333333333333334
+  },
+  "per_case": [
+    {
+      "actions": 3,
+      "case_id": "known-xor",
+      "failures": [],
+      "flag_correct": true,
+      "kind": "KNOWN",
+      "status": "SOLVED",
+      "status_correct": true,
+      "verified_flag": "CTF{phase5_xor_novel}"
+    },
+    {
+      "actions": 2,
+      "case_id": "novel-ssti",
+      "failures": [],
+      "flag_correct": true,
+      "kind": "NOVEL",
+      "status": "SOLVED",
+      "status_correct": true,
+      "verified_flag": "CTF{novel_template_49}"
+    },
+    {
+      "actions": 3,
+      "case_id": "adversarial-decoy",
+      "failures": [],
+      "flag_correct": true,
+      "kind": "ADVERSARIAL",
+      "status": "SOLVED",
+      "status_correct": true,
+      "verified_flag": "CTF{real_template_flag}"
+    },
+    {
+      "actions": 3,
+      "case_id": "heldout-classical",
+      "failures": [],
+      "flag_correct": true,
+      "kind": "HELD_OUT",
+      "status": "SOLVED",
+      "status_correct": true,
+      "verified_flag": "CTF{heldout_caesar_structure}"
+    },
+    {
+      "actions": 3,
+      "case_id": "environment-recovery",
+      "failures": [],
+      "flag_correct": true,
+      "kind": "ADVERSARIAL",
+      "status": "SOLVED",
+      "status_correct": true,
+      "verified_flag": "CTF{recovered_after_environment_failure}"
+    },
+    {
+      "actions": 2,
+      "case_id": "unavailable-tool",
+      "failures": [],
+      "flag_correct": true,
+      "kind": "ADVERSARIAL",
+      "status": "BLOCKED",
+      "status_correct": true,
+      "verified_flag": null
+    }
+  ],
+  "per_kind": {
+    "ADVERSARIAL": {
+      "case_ids": [
+        "adversarial-decoy",
+        "environment-recovery",
+        "unavailable-tool"
+      ],
+      "cases": 3,
+      "solve_rate": 0.6666666666666666,
+      "solved": 2,
+      "verified_solve_rate": 0.6666666666666666
+    },
+    "HELD_OUT": {
+      "case_ids": [
+        "heldout-classical"
+      ],
+      "cases": 1,
+      "solve_rate": 1.0,
+      "solved": 1,
+      "verified_solve_rate": 1.0
+    },
+    "KNOWN": {
+      "case_ids": [
+        "known-xor"
+      ],
+      "cases": 1,
+      "solve_rate": 1.0,
+      "solved": 1,
+      "verified_solve_rate": 1.0
+    },
+    "NOVEL": {
+      "case_ids": [
+        "novel-ssti"
+      ],
+      "cases": 1,
+      "solve_rate": 1.0,
+      "solved": 1,
+      "verified_solve_rate": 1.0
+    }
+  }
+}

@@ -1,0 +1,153 @@
+=== file ===
+/work/AWholeNewWorld.wld: data
+=== size ===
+2773013
+=== flag-prefix grep (strings) ===
+=== notable ASCII strings (n=6) sample ===
+crimson
+1192594496
+J{"GenPassResults":[{"Name":"Terrain","DurationMs":44,"RandNext":2001121657,"Hash":null,"Skipped":false},{"Name":"Dunes","DurationMs":23,"RandNext":175615502,"Hash":null,"Skipped":false},{"Name":"Ocean Sand","DurationMs":2,"RandNext":1087151071,"Hash":null,"Skipped":false},{"Name":"Sand Patches","DurationMs":82,"RandNext":1175002197,"Hash":null,"Skipped":false},{"Name":"Tunnels","DurationMs":0,"RandNext":76130160,"Hash":null,"Skipped":false},{"Name":"Mount Caves","DurationMs":2,"RandNext":288692824,"Hash":null,"Skipped":false},{"Name":"Dirt Wall Backgrounds","DurationMs":12,"RandNext":968405956,"Hash":null,"Skipped":false},{"Name":"Rocks In Dirt","DurationMs":144,"RandNext":264563870,"Hash":null,"Skipped":false},{"Name":"Dirt In Rocks","DurationMs":182,"RandNext":239952213,"Hash":null,"Skipped":false},{"Name":"Clay","DurationMs":21,"RandNext":1717055150,"Hash":null,"Skipped":false},{"Name":"Small Holes","DurationMs":234,"RandNext":189453355,"Hash":null,"Skipped":false},{"Name":"Dirt Layer Caves","DurationMs":18,"RandNext":2007803255,"Hash":null,"Skipped":false},{"Name":"Rock Layer Caves","DurationMs":204,"RandNext":2082696630,"Hash":null,"Skipped":false},{"Name":"Surface Caves","DurationMs":8,"RandNext":1368701152,"Hash":null,"Skipped":false},{"Name":"Wavy Caves","DurationMs":0,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Generate Ice Biome","DurationMs":7,"RandNext":655038571,"Hash":null,"Skipped":false},{"Name":"Grass","DurationMs":4,"RandNext":1898552035,"Hash":null,"Skipped":false},{"Name":"Jungle","DurationMs":1141,"RandNext":1510556235,"Hash":null,"Skipped":false},{"Name":"Mud Caves To Grass","DurationMs":225,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Full Desert","DurationMs":912,"RandNext":925905988,"Hash":null,"Skipped":false},{"Name":"Mushroom Patches","DurationMs":311,"RandNext":966427414,"Hash":null,"Skipped":false},{"Name":"Marble","DurationMs":73,"RandNext":1096069700,"Hash":null,"Skipped":false},{"Name":"Granite","DurationMs":1121,"RandNext":727325344,"Hash":null,"Skipped":false},{"Name":"Floating Islands","DurationMs":24,"RandNext":683865330,"Hash":null,"Skipped":false},{"Name":"Dirt To Mud","DurationMs":40,"RandNext":482007045,"Hash":null,"Skipped":false},{"Name":"Silt","DurationMs":18,"RandNext":1030036244,"Hash":null,"Skipped":false},{"Name":"Shinies","DurationMs":24,"RandNext":287758639,"Hash":null,"Skipped":false},{"Name":"Webs","DurationMs":4,"RandNext":888221965,"Hash":null,"Skipped":false},{"Name":"Underworld","DurationMs":1030,"RandNext":1710892171,"Hash":null,"Skipped":false},{"Name":"Corruption","DurationMs":175,"RandNext":2117351530,"Hash":null,"Skipped":false},{"Name":"Lakes","DurationMs":73,"RandNext":1909706344,"Hash":null,"Skipped":false},{"Name":"Slush","DurationMs":2,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Dungeon","DurationMs":276,"RandNext":1478859446,"Hash":null,"Skipped":false},{"Name":"Mountain Caves","DurationMs":0,"RandNext":1154794385,"Hash":null,"Skipped":false},{"Name":"Beaches","DurationMs":1,"RandNext":1613812044,"Hash":null,"Skipped":false},{"Name":"Gems","DurationMs":45,"RandNext":1128005220,"Hash":null,"Skipped":false},{"Name":"Gravitating Sand","DurationMs":31,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Create Ocean Caves","DurationMs":0,"RandNext":384742049,"Hash":null,"Skipped":false},{"Name":"Shimmer","DurationMs":17,"RandNext":1943441821,"Hash":null,"Skipped":false},{"Name":"Clean Up Dirt","DurationMs":32,"RandNext":831900837,"Hash":null,"Skipped":false},{"Name":"Pyramids","DurationMs":0,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Dirt Rock Wall Runner","DurationMs":3,"RandNext":181166891,"Hash":null,"Skipped":false},{"Name":"Living Trees","DurationMs":11,"RandNext":1977161167,"Hash":null,"Skipped":false},{"Name":"Wood Tree Walls","DurationMs":14,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Altars","DurationMs":5,"RandNext":977573557,"Hash":null,"Skipped":false},{"Name":"Wet Jungle","DurationMs":1,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Jungle Temple","DurationMs":51,"RandNext":358572545,"Hash":null,"Skipped":false},{"Name":"Hives","DurationMs":216,"RandNext":1455825810,"Hash":null,"Skipped":false},{"Name":"Jungle Chests","DurationMs":0,"RandNext":319665856,"Hash":null,"Skipped":false},{"Name":"Settle Liquids","DurationMs":646,"RandNext":1950497894,"Hash":null,"Skipped":false},{"Name":"Remove Water From Sand","DurationMs":2,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Oasis","DurationMs":9,"RandNext":1030614299,"Hash":null,"Skipped":false},{"Name":"Shell Piles","DurationMs":0,"RandNext":1608328015,"Hash":null,"Skipped":false},{"Name":"Smooth World","DurationMs":299,"RandNext":1552443072,"Hash":null,"Skipped":false},{"Name":"Waterfalls","DurationMs":156,"RandNext":621067773,"Hash":null,"Skipped":false},{"Name":"Ice","DurationMs":12,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Wall Variety","DurationMs":537,"RandNext":1433586206,"Hash":null,"Skipped":false},{"Name":"Life Crystals","DurationMs":0,"RandNext":165395388,"Hash":null,"Skipped":false},{"Name":"Statues","DurationMs":4,"RandNext":1725248177,"Hash":null,"Skipped":false},{"Name":"Buried Chests","DurationMs":58,"RandNext":1698488827,"Hash":null,"Skipped":false},{"Name":"Surface Chests","DurationMs":22,"RandNext":1129753312,"Hash":null,"Skipped":false},{"Name":"Jungle Chests Placement","DurationMs":0,"RandNext":1612486586,"Hash":null,"Skipped":false},{"Name":"Water Chests","DurationMs":2,"RandNext":1713026196,"Hash":null,"Skipped":false},{"Name":"Spider Caves","DurationMs":121,"RandNext":1364382263,"Hash":null,"Skipped":false},{"Name":"Gem Caves","DurationMs":11,"RandNext":1502992061,"Hash":null,"Skipped":false},{"Name":"Moss","DurationMs":135,"RandNext":1985281212,"Hash":null,"Skipped":false},{"Name":"Temple","DurationMs":1,"RandNext":888138096,"Hash":null,"Skipped":false},{"Name":"Cave Walls","DurationMs":673,"RandNext":1311108034,"Hash":null,"Skipped":false},{"Name":"Jungle Trees","DurationMs":43,"RandNext":1993796007,"Hash":null,"Skipped":false},{"Name":"Floating Island Houses","DurationMs":0,"RandNext":1393720957,"Hash":null,"Skipped":false},{"Name":"Quick Cleanup","DurationMs":95,"RandNext":1849832052,"Hash":null,"Skipped":false},{"Name":"Pots","DurationMs":182,"RandNext":306231710,"Hash":null,"Skipped":false},{"Name":"Hellforge","DurationMs":1,"RandNext":1265466504,"Hash":null,"Skipped":false},{"Name":"Spreading Grass","DurationMs":25,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Surface Ore and Stone","DurationMs":1,"RandNext":1618645494,"Hash":null,"Skipped":false},{"Name":"Place Fallen Log","DurationMs":6,"RandNext":11803148,"Hash":null,"Skipped":false},{"Name":"Traps","DurationMs":354,"RandNext":474727375,"Hash":null,"Skipped":false},{"Name":"Piles","DurationMs":82,"RandNext":34694190,"Hash":null,"Skipped":false},{"Name":"Spawn Point","DurationMs":0,"RandNext":384742049,"Hash":null,"Skipped":false},{"Name":"Grass Wall","DurationMs":36,"RandNext":459417224,"Hash":null,"Skipped":false},{"Name":"Guide","DurationMs":0,"RandNext":2108158746,"Hash":null,"Skipped":false},{"Name":"Sunflowers","DurationMs":0,"RandNext":1393720957,"Hash":null,"Skipped":false},{"Name":"Planting Trees","DurationMs":21,"RandNext":256299014,"Hash":null,"Skipped":false},{"Name":"Herbs","DurationMs":17,"RandNext":265867715,"Hash":null,"Skipped":false},{"Name":"Dye Plants","DurationMs":109,"RandNext":1552469161,"Hash":null,"Skipped":false},{"Name":"Webs And Honey","DurationMs":40,"RandNext":43644209,"Hash":null,"Skipped":false},{"Name":"Weeds","DurationMs":33,"RandNext":893213937,"Hash":null,"Skipped":false},{"Name":"Glowing Mushrooms and Jungle Plants","DurationMs":34,"RandNext":2035332990,"Hash":null,"Skipped":false},{"Name":"Jungle Plants","DurationMs":165,"RandNext":1127628586,"Hash":null,"Skipped":false},{"Name":"Vines","DurationMs":174,"RandNext":1578722347,"Hash":null,"Skipped":false},{"Name":"Flowers","DurationMs":1,"RandNext":403270875,"Hash":null,"Skipped":false},{"Name":"Mushrooms","DurationMs":0,"RandNext":358002271,"Hash":null,"Skipped":false},{"Name":"Gems In Ice Biome","DurationMs":0,"RandNext":2113454302,"Hash":null,"Skipped":false},{"Name":"Random Gems","DurationMs":4,"RandNext":2007390255,"Hash":null,"Skipped":false},{"Name":"Moss Grass","DurationMs":56,"RandNext":1429313743,"Hash":null,"Skipped":false},{"Name":"Muds Walls In Jungle","DurationMs":6,"RandNext":1535665653,"Hash":null,"Skipped":false},{"Name":"Larva","DurationMs":0,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Settle Liquids Again","DurationMs":981,"RandNext":2052397633,"Hash":null,"Skipped":false},{"Name":"Cactus, Palm Trees, & Coral","DurationMs":127,"RandNext":1272975760,"Hash":null,"Skipped":false},{"Name":"Tile Cleanup","DurationMs":180,"RandNext":703140764,"Hash":null,"Skipped":false},{"Name":"Lihzahrd Altars","DurationMs":0,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Micro Biomes","DurationMs":1181,"RandNext":1178548682,"Hash":null,"Skipped":false},{"Name":"Water Plants","DurationMs":50,"RandNext":2013082182,"Hash":null,"Skipped":false},{"Name":"Stalac","DurationMs":202,"RandNext":1566147426,"Hash":null,"Skipped":false},{"Name":"Remove Broken Traps","DurationMs":107,"RandNext":2145924332,"Hash":null,"Skipped":false},{"Name":"Final Cleanup","DurationMs":393,"RandNext":1293547610,"Hash":2857396116,"Skipped":false}],"Version":"v1.4.5.6","GitSHA":"","FinalHash":2857396116}@
+B9=@7@
+@-B9	B:
+05B5."
+9B9JB:
+05B5."
+05B5/"
+09B9	@
+ 9B9	B:
+05B5+"
+05B52"
+05B5*F5
+BB5*F5
+05B5*F5
+05B5*F5
+05B5*F5
+?B5)F5
+?B5+F5
+?B5*F5
+?B5*F5
+?B5+F5
+?B5'F5
+?B5'F5
+?B5'F5
+05B5'"
+ 9B9	P
+>B5(F5
+05B5*F
+=B5)F5
+=B5)F5
+05B5'B
+;B5)F5
+05B5&B
+05B5'B
+05B5&B
+:B9$B:
+3@.# y
+05B5(B
+:B9	B:
+5B5+F5
+:B9.B:
+05B5,F5
+4B52F5
+05B52F5
+3B53F5
+05B53F
+FB;	BF
+05B51B
+FB;	BF
+FB;	B{
+05B55B
+05B52B
+:B9"B:
+05B58B
+05B5:B
+ :B9 @
+05B5;B
+05B5?B
+FB; B{
+05B5AB
+05B5BB
+05B5CB
+05B5DB
+05B5FB
+05B5GB
+05B5LF
+0zBz!B
+:B9	by
+0zBz#B
+05B5QF5
+ zBzIB
+:B9	B:
+05B5SF5
+ zBzIB
+05B5UB
+0zBz+B
+05B5VB
+0zBz.B
+=== binwalk ===
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+2768759       0x2A3F77        mcrypt 2.2 encrypted data, algorithm: blowfish-448, mode: CBC, keymode: 8bit
+
+=== tail strings (last part often has signs/npc text) ===
+@B5+B
+ 5B5+B
+AB5(B
+ 5B5,B
+ 5B5)B
+ 5B5*B
+ 5B5,B
+ 5B5*B
+ 5B5)B
+GB5/B
+ 5B5.B
+ 5B5.B
+B9	"y
+IB5-B
+B9	"y
+ 5B5+B
+ 5B5.B
+B9-B:
+ 5B5-B
+B9-B:
+LB5.B
+:B9-B:
+ 5B5,
+B9	by
+ 5B5-
+ 5B5-B
+B9-B:
+B9!B:
+B9 B:
+ 5B5.B
+B9%B:
+ 5B50
+ 5B5.B
+RB53B
+ 5B52B
+SB50B
+:B92B:
+B91B:
+UB50B
+B92B:
+VB53B(
+WB54B(
+XB53B(
+YB52B(
+YB54B(
+B9"B:
+B9"B:
+B:	B9
+\B54B
+\B52B
+B9	B:
+]B53"
+^B51"
+_B55"
+_B56"
+`B54"
+bB55"
+@,B9!@+
+LukeZ
+crimson%

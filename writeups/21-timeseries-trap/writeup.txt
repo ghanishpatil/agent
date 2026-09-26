@@ -1,0 +1,378 @@
+# Timeseries Trap — Exfiltration via Inter-Packet Timing (Covert Timing Channel)
+
+**Category:** Forensics
+**Flag:** `CTF{7h3_cl0ck_wh1sp3rs_232bf4fc}`
+
+---
+
+## Scenario
+
+Aqualis Water Treatment suspects maintenance engineer J. Rivera sold the secret
+process recipe **AQL-CORE-9**. The SOC captured one hour of sensor telemetry plus
+gateway logs but found **no uploads, no DNS, no mail, no printer jobs**. The owners
+insist the recipe left the plant anyway. Determine how it escaped and recover what
+was sent. The capture is complete and uncorrupted.
+
+Evidence:
+
+```
+dashboard.png     27 KB   (decoy — flat gradient, no embedded data)
+gateway.log       6 KB    (boot + registration + status log)
+sensors.yaml      7 KB    (64 transmitters, cadence spec, calibration bytes)
+telemetry.pcap    60 MB    (1 hour, 460,747 UDP packets to gateway 10.30.1.2:5510)
+```
+
+There is no file upload and no C2 in the pcap because the recipe never travelled
+as *content*. It travelled in the **timing** of otherwise-innocent telemetry
+packets. That is the whole trick, and it is why the challenge is called
+"Timeseries Trap."
+
+---
+
+## Evidence inventory — the key-derivation spec is hiding in plain sight
+
+Three lines across the two text files turn out to be the entire specification for
+the covert channel and its key. Everything else is set dressing.
+
+`sensors.yaml`:
+
+```
+nominal_interval_ms: 500
+jitter_tolerance_ms: 15     # report larger deviations to SOC
+```
+
+That is the physics envelope: packets are supposed to arrive every 500 ms, and
+anything more than ±15 ms off is, by the plant's own rules, an anomaly worth
+flagging. So the exfil author gets to hide inside "acceptable jitter" — until they
+don't.
+
+`gateway.log`:
+
+```
+Mar 11 01:59:48 gw01 smgr[1123]: link-encoder seeded with 16 calibration bytes (registration order)
+```
+
+This one line is the key-derivation spec. There are 64 sensors, each with a
+one-byte `cal:` value in `sensors.yaml`, but the encoder is seeded with **16** of
+them, taken in **registration order** — and the registration order is exactly the
+sequence of `registered sensor …` lines in the same log.
+
+`sensors.yaml` also gives every sensor its calibration byte, e.g.:
+
+```
+- id: PT-109
+  cal: 0xf0
+```
+
+Hold those two facts: *16 bytes* and *registration order*. They produce a 128-bit
+key later.
+
+---
+
+## The misdirection — the device clock is a perfect metronome
+
+Each packet is JSON:
+
+```json
+{"id":"PT-113","seq":0,"ts":"2024-03-11T02:00:00.000484Z","val":2.882}
+```
+
+The obvious move is to mine the payload: the `val` time series, or the microsecond
+`ts` field. Both are dead ends, and it is worth proving that rather than eyeballing
+it.
+
+Group packets by `id` and diff the **device `ts`** field within each sensor by
+`seq`:
+
+```
+FT-101 device-ts deltas (ms): {500.0}
+```
+
+Every sensor, every step: exactly `500.000` ms, forever. The device timestamp is a
+flawless 500 ms metronome with a single distinct delta and a single residual
+(`0.000` ms) per sensor. It carries **zero** information. The `val` field is a
+smooth bounded random walk inside each sensor's declared range, and the
+least-significant digit of `val` is uniform (χ²-flat) across all 460k packets — no
+LSB channel either.
+
+So the payload is clean by construction. The signal must be in something the
+*device clock cannot see*: when each packet actually hit the wire.
+
+---
+
+## The real channel — capture_ts − device_ts
+
+The pcap records a **capture timestamp** per frame (libpcap, µs precision,
+linktype 1 / Ethernet). Define, per packet:
+
+```
+delay = capture_ts - device_ts        (ms)
+```
+
+`device_ts` is the perfect grid; `delay` is therefore the true arrival jitter the
+SOC would have measured. Compute per-sensor statistics over all 7,200 samples each:
+
+```
+57 sensors:  mean ≈ 0 ms,   std ≈ 3.0 ms,   |delay| < ~13 ms       (normal noise)
+ 7 sensors:  mean +3..+10,  std 12..20,     max delay up to ~73 ms  (ANOMALOUS)
+```
+
+Seven transmitters break the ±15 ms tolerance repeatedly. They are:
+
+```
+PT-103  FT-110  FT-107  PT-110  PT-111  FT-114  FT-113
+```
+
+Everyone else is background. These seven are the exfil carriers.
+
+### The trimodal histogram
+
+Histogram the delays and a clean three-band structure appears. Two examples, and
+note I computed the counts independently per sensor rather than reusing one
+sensor's numbers for another:
+
+```
+FT-107 burst:  baseline (normal)  |  LOW band  ~8–32 ms  |  HIGH band ~46–72 ms
+FT-113 burst:  5,433 baseline     |  846 low            |  921 high
+```
+
+- **Baseline** (~0 ms) = sensor not currently transmitting.
+- **LOW band** (centered ~20 ms) = a transmitted `0`.
+- **HIGH band** (centered ~60 ms) = a transmitted `1`.
+
+The separation is not a tuned guess. Across **all 460,747 packets**:
+
+```
+highest delay below the gap : 33.533 ms
+lowest  delay above the gap : 45.890 ms
+samples strictly in between  : 0
+```
+
+There is a provably empty dead zone from 33.533 ms to 45.890 ms. Any threshold in
+that band — I used **38 ms** — separates `0` from `1` with zero ambiguity. That is
+the tell of a designed channel rather than an artifact: a real network would smear
+across the gap; this one leaves it perfectly empty.
+
+---
+
+## Framing — find the burst that begins with a magic number
+
+Each carrier transmits during a contiguous **burst** (a run of consecutive `seq`
+values where every packet is delayed into the LOW/HIGH bands, i.e. delay > ~7 ms).
+For each of the seven, take the burst, map each packet HIGH→1 / LOW→0
+(MSB-first, 8 packets per byte), and inspect byte 0:
+
+```
+PT-111 : bytes=189  magic=a1 1d c5 56   (junk)
+PT-110 : bytes=188  magic=ef d3 25 f2   (junk)
+FT-113 : bytes= 98  magic=ad 82 49 33   (junk)
+FT-110 : bytes=104  magic=b1 68 45 7e   (junk)
+PT-103 : bytes= 70  magic=d2 2f 2c 71   (junk)
+FT-114 : bytes=223  magic=ef 86 29 16   (junk)
+FT-107 : bytes=187  magic=54 52 50 31 = "TRP1"   <-- byte-aligned magic at bit 0
+```
+
+Only **FT-107** decodes to a magic number — `TRP1` — and it lands **byte-aligned at
+bit 0**, no bit-slipping required. That single fact resolves the whole ambiguity of
+seven overlapping bursts: the other six are decoys (encrypted-looking padding
+carriers designed to waste your time), and FT-107 is the real frame. The MSB-first
+bit order and 38 ms threshold need no tuning — get them wrong and the magic simply
+isn't there.
+
+Frame layout (187 bytes recovered from the FT-107 burst):
+
+```
+offset  size  field
+0       4     magic      "TRP1"
+4       1     version    0x01
+5       3     length     0x00009f = 159   (big-endian, = length of the zlib stream)
+8      16     IV         4b6cd21db2d5ee3f47a7c7a9b066a6da   (inline, per-message)
+24    159     ciphertext AES-128-CTR( zlib( json ) )
+(183..187)    trailing padding beyond the declared length
+```
+
+The `length` field (159) balances exactly against the number of ciphertext/zlib
+bytes the frame declares — a self-consistency check that confirms the framing
+before a single crypto operation.
+
+---
+
+## The key — 16 calibration bytes in registration order
+
+Back to that one log line. Parse the `registered sensor …` lines from
+`gateway.log` in order, take the first 16, and look up each one's `cal:` byte in
+`sensors.yaml`:
+
+```
+reg #  sensor   cal
+1      PT-109   0xf0
+2      LT-116   0x5d
+3      LT-113   0x9b
+4      FT-108   0x66
+5      FT-105   0xd1
+6      FT-115   0x87
+7      PT-110   0x7d
+8      FT-113   0xff
+9      TT-108   0xb5
+10     TT-111   0xd4
+11     PT-113   0x6f
+12     LT-103   0x9e
+13     FT-111   0xa9
+14     PT-105   0x26
+15     TT-101   0x69
+16     TT-107   0xef
+```
+
+Concatenated, that is the AES-128 key:
+
+```
+KEY = f05d9b66d1877dffb5d46f9ea92669ef
+```
+
+(Note the trap: the *registration* order in the log is deliberately NOT the
+numeric/alphabetical order of the YAML, and it is NOT the packet arrival order.
+Only "first 16 registered" yields a key that decrypts.)
+
+---
+
+## Decrypt — AES-128-CTR → zlib → JSON
+
+```
+plaintext_stream = AES-128-CTR(key=KEY, iv=frame[8:24]).decrypt(frame[24:])
+                 = zlib stream, starts 0x78 0xda  (zlib, best compression)
+message          = zlib.decompress(plaintext_stream)   # 188 bytes JSON
+```
+
+The zlib stream's own **Adler-32** trailer validates against the decompressed
+bytes — an independent integrity confirmation that we recovered every bit
+correctly:
+
+```
+stored Adler-32 (stream trailer): 0x52603dcb
+computed Adler-32(message)      : 0x52603dcb   -> VALID
+```
+
+Recovered message:
+
+```json
+{
+  "to": "ops",
+  "from": "j.rivera",
+  "subject": "AQL-CORE-9",
+  "msg": "If you can read this, you heard the whisper. The schedule was never just a schedule.",
+  "flag": "CTF{7h3_cl0ck_wh1sp3rs_232bf4fc}"
+}
+```
+
+**How the recipe left the plant:** J. Rivera modulated the *arrival timing* of
+legitimate telemetry from seven flow/pressure transmitters — a covert timing
+channel riding on top of a perfectly normal-looking 500 ms data feed. No file ever
+moved; the message was written into when the packets arrived, not what they said.
+
+**Flag:** `CTF{7h3_cl0ck_wh1sp3rs_232bf4fc}`
+
+---
+
+## The traps (and the one that almost worked)
+
+- **Payload gravity.** The `val` series and the µs `ts` field beg to be analyzed.
+  Both are information-free by construction (metronome `ts`, uniform-LSD `val`).
+  Time spent modelling the "process" is time wasted.
+
+- **Six decoy carriers.** PT-111, PT-110, FT-113, FT-110, PT-103, FT-114 all carry
+  the same style of bursty timing modulation and decode to high-entropy bytes with
+  no magic and no alignment. Without the `TRP1` anchor you can burn hours trying to
+  decrypt a decoy.
+
+- **The LT-107 red herring — the seductive one.** LT-107 is the *only* sensor
+  missing samples: 53 of them, and the gateway log even narrates "link timeout …
+  N samples lost." The missing sequence numbers cluster into seven runs of length
+  **6, 11, 9, 5, 6, 11, 5**. That looks *exactly* like a length-prefixed message —
+  seven fields, each a small integer — and it is very tempting to treat those run
+  lengths as the payload. It is a dead end: the runs simply match the timeouts the
+  log already accounts for, and no consistent decoding falls out of them.
+
+  The diagnostic for spotting this class of mistake: **if your decode needs a free
+  parameter tuned until the output looks printable, you are overfitting.** The LT-107
+  "message" only ever produces plausible bytes if you keep adjusting how you read it.
+  The genuine channel needed *no* tuning at all — a magic number on a byte boundary,
+  a length field that balances, and an Adler-32 that validates. When the framing
+  self-checks three independent ways, you are reading the real thing.
+
+---
+
+## Solve script
+
+```python
+import struct, json, zlib, re
+from datetime import datetime, timezone
+from collections import defaultdict
+from Crypto.Cipher import AES
+from Crypto.Util import Counter
+
+BASE = r"Timeseries Trap"
+
+# 1) key: first 16 registered sensors -> their cal bytes
+cal = {}
+cur = None
+for line in open(BASE + r"\sensors.yaml"):
+    m = re.search(r"id:\s*([A-Z]{2}-\d+)", line);  cur = m.group(1) if m else cur
+    m = re.search(r"cal:\s*(0x[0-9a-fA-F]+)", line)
+    if m and cur: cal[cur] = int(m.group(1), 16)
+regorder = [m.group(1) for line in open(BASE + r"\gateway.log")
+            for m in [re.search(r"registered sensor ([A-Z]{2}-\d+)", line)] if m]
+KEY = bytes(cal[s] for s in regorder[:16])          # f05d9b66d1877dffb5d46f9ea92669ef
+
+# 2) parse pcap (raw libpcap, LE, us), keep delay = capture_ts - device_ts per sensor
+data = open(BASE + r"\telemetry.pcap", "rb").read()
+off = 24
+by = defaultdict(list)
+def dts(s):
+    s = s.replace("Z", "")
+    return datetime.strptime(s, "%Y-%m-%dT%H:%M:%S.%f").replace(tzinfo=timezone.utc).timestamp()
+while off + 16 <= len(data):
+    ts_s, ts_u, cap, _ = struct.unpack("<IIII", data[off:off+16]); off += 16
+    pkt = data[off:off+cap]; off += cap
+    ip = pkt[14:]; ihl = (ip[0] & 0xf) * 4; payload = ip[ihl:][8:]
+    try: o = json.loads(payload)
+    except Exception: continue
+    cts = ts_s + ts_u / 1e6
+    by[o["id"]].append((o["seq"], (cts - dts(o["ts"])) * 1000.0))
+
+# 3) FT-107 burst -> bits (HIGH>=38ms -> 1) -> bytes
+lst = sorted(by["FT-107"]); js = [d for _, d in lst]
+elev = [x > 7 for x in js]
+best = (0, 0, 0); i = 0
+while i < len(js):
+    if elev[i]:
+        j = i
+        while j < len(js) and elev[j]: j += 1
+        if j - i > best[0]: best = (j - i, i, j)
+        i = j
+    else: i += 1
+_, lo, hi = best
+bits = [1 if js[k] >= 38 else 0 for k in range(lo, hi)]
+frame = bytes(int("".join(map(str, bits[i:i+8])), 2) for i in range(0, len(bits)//8*8, 8))
+
+# 4) frame -> AES-128-CTR -> zlib -> json
+assert frame[:4] == b"TRP1"
+iv = frame[8:24]; ct = frame[24:]
+ctr = Counter.new(128, initial_value=int.from_bytes(iv, "big"))
+stream = AES.new(KEY, AES.MODE_CTR, counter=ctr).decrypt(ct)
+msg = zlib.decompress(stream)
+print(json.loads(msg)["flag"])          # CTF{7h3_cl0ck_wh1sp3rs_232bf4fc}
+```
+
+## Takeaways
+
+1. **Absence of content is a finding, not a wall.** No upload/DNS/mail/print but a
+   confident owner → look at a covert channel. In a telemetry feed the obvious
+   covert channel is timing.
+2. **Compare device time to wire time.** A sender controls the payload clock
+   (`ts`) but not the capture clock; their difference is where a timing channel
+   lives. A perfect payload metronome is itself a hint that timing is the medium.
+3. **Let the data prove your threshold.** The empty 33.533–45.890 ms dead zone
+   turned a "reasonable-looking" 38 ms cut into a provably lossless one.
+4. **Framing beats brute force.** A byte-aligned magic (`TRP1`), a balancing length
+   field, and a validating Adler-32 pinpointed the single real carrier among seven
+   and confirmed a bit-perfect recovery — no guessing, no tuning.

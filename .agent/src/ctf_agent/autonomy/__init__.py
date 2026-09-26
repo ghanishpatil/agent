@@ -1,0 +1,62 @@
+"""Phase 5 autonomous solver facade and evaluation contracts."""
+
+from .contracts import (
+    ActionTrace,
+    BudgetUsage,
+    CandidateVerifierRoute,
+    ChallengeInput,
+    ChallengeResource,
+    ChallengeUnderstanding,
+    EnvironmentConfig,
+    EvidenceRule,
+    EvidenceTrace,
+    HypothesisTrace,
+    InputFact,
+    InputFactState,
+    KnowledgeSource,
+    PermittedTool,
+    ResourceKind,
+    SolveConstraints,
+    SolveResult,
+    SolveStatus,
+    SpecialistContribution,
+)
+
+from .solver import solve
+from .evaluation import (
+    EvaluationCase,
+    EvaluationCaseResult,
+    EvaluationHarness,
+    EvaluationKind,
+    EvaluationMetrics,
+    EvaluationReport,
+)
+
+__all__ = [
+    "ActionTrace",
+    "BudgetUsage",
+    "CandidateVerifierRoute",
+    "ChallengeInput",
+    "ChallengeResource",
+    "ChallengeUnderstanding",
+    "EnvironmentConfig",
+    "EvidenceRule",
+    "EvidenceTrace",
+    "HypothesisTrace",
+    "InputFact",
+    "InputFactState",
+    "KnowledgeSource",
+    "PermittedTool",
+    "ResourceKind",
+    "SolveConstraints",
+    "SolveResult",
+    "SolveStatus",
+    "SpecialistContribution",
+    "EvaluationCase",
+    "EvaluationCaseResult",
+    "EvaluationHarness",
+    "EvaluationKind",
+    "EvaluationMetrics",
+    "EvaluationReport",
+    "solve",
+]

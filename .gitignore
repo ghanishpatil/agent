@@ -1,0 +1,130 @@
+# ---- dependency / vendored tool trees (huge, not source) ----
+node_modules/
+**/node_modules/
+hexstrike-ai/hexstrike_env/
+john/
+ghcr_extract/
+
+# ---- extracted challenge artifacts (regenerable, not source) ----
+*_extracted/
+*_src/
+results/
+blobs/
+
+# ---- archives / binaries (challenge handouts, build outputs) ----
+*.zip
+*.7z
+*.rar
+*.iso
+*.bin
+*.wld
+.agent.zip
+
+# ---- python caches ----
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+**/.pytest_cache/
+
+# ---- secrets: files with hardcoded live credentials (Firebase key, SSH/app creds) ----
+# NOTE: rotate/revoke these credentials regardless — removing from git does not un-leak them.
+firestore_exploit.py
+full_auto_hack_team_t1.py
+hack_team_t1.py
+extract_firebase_config.py
+cyberspace_deep_recon.py
+cyberspace_exploit.py
+brute_vault_dates.py
+ctf_style_dates.py
+final_vault_exploit.py
+exploit_vault_reset.py
+check_mailbox.py
+final_vaultnet_solve.py
+exploit_vaultnet_complete.py
+crack_insider_hashes.py
+go.py
+exploit.py
+full_exploit.py
+ABSOLUTE_FINAL_FLAG_CHECK.py
+CHECK_WATCHER_RUNNING.py
+FINAL_COMPLETE_SOLVE.py
+FINAL_DESPERATE_CHECK.py
+GET_FINAL_FLAG_NOW.py
+GET_THE_FLAG_NOW.py
+
+# ---- more files carrying the Firebase key / team-t1 assessment ----
+SKIPFISH_CORRECT_COMMANDS.txt
+SKIPFISH_VULNERABILITY_REPORT.md
+TEAM_T1_ASSESSMENT_REPORT.md
+run_skipfish_team_t1.sh
+team_t1_bundle.js
+sk_client.js
+timoplayzz_channel.html
+selenium_hack_team_t1.py
+hackwars_cookie_exploit.py
+hackwars_stealth_exploit.py
+
+# ---- scratch exploit scripts & captured HTML (contain assorted creds; not project source) ----
+*_exploit.py
+*exploit*.py
+solve_*.py
+*quantumvault*.py
+*vaultnet*.py
+*.html
+QUANTUMVAULT_*.md
+VAULTNET_*.md
+
+# ---- large wordlists / dumps ----
+rockyou.txt
+*.wordlist
+
+# ---- large binary challenge artifacts (GitHub rejects >100MB; these are not source) ----
+*.onnx
+*.apk
+*.pcap
+*.dmtcp
+*.raw
+*.db
+*.wav
+*.mp3
+*.img
+*.dll
+*.exe
+*.gz
+*.dtb
+*.dump
+*.mem
+*.vmem
+*.E01
+disk_files/
+tp_files/
+temporal_paradox/
+timeseries_trap/
+primecalc/
+prime_calc/
+SDL2_temp/
+game/
+greetings/
+greetings2/
+chall_media/
+# large images (spectrograms / edge maps); keep small writeup images if any are added deliberately
+spectrogram_*.png
+edges_binary.jpg
+*.apk
+
+# ---- scan bookkeeping (temp) ----
+_staged.txt
+_keyhits.txt
+_result.txt
+_summary.txt
+
+# ---- generic secret file patterns ----
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+**/serviceAccount*.json
+**/service_account*.json

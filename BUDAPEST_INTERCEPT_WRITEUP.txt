@@ -1,0 +1,223 @@
+The Budapest Intercept - Writeup
+
+Flag: Kaal{l3dg3r acc3$$ granted m2}
+
+Description
+
+In 2014, during the collapse of S.H.I.E.L.D., Natasha Romanoff dumped all of S.H.I.E.L.D.'s and Hydra's secrets onto the public internet. While most of the data was heavily encrypted, analysts managed to reconstruct a fragmented email thread from a private server located in Budapest. The emails discussed the transportation and sale of black widows, with a high-ranking official suspected of involvement. The task was to decrypt the email thread and uncover the ledger key of the Person of Interest.
+
+Solution
+
+Step 1: Understanding the Challenge Context
+
+This challenge presented a scenario based on the Marvel Cinematic Universe, specifically referencing the events of Captain America: The Winter Soldier where Black Widow releases classified information. The challenge involved analyzing PDF documents containing encrypted or obscured email messages.
+
+The mention of "Budapest" is a recurring reference in the MCU, particularly between Black Widow and Hawkeye, adding thematic depth to the challenge. The "ledger" reference connects to Black Widow's backstory about her red ledger and the debts she owes.
+
+Step 2: PDF Document Analysis
+
+The challenge provided PDF files containing the reconstructed email thread. These PDFs appeared to contain email messages, but the text wasn't easily extractable through standard PDF text extraction methods. This suggested the content might be:
+
+- Scanned images rather than text layers
+- Encrypted or encoded text
+- Text embedded in images requiring OCR
+- Handwritten or stylized fonts
+
+Initial attempts to copy-paste text from the PDF or use standard PDF readers likely failed, indicating that Optical Character Recognition (OCR) would be necessary.
+
+Step 3: Image Extraction from PDF
+
+The first technical step was extracting images from the PDF pages. PDF documents can contain text as images, especially if they were created from scans or screenshots. We needed to convert each PDF page into an image format suitable for OCR processing.
+
+This could be accomplished using various tools:
+- pdf2image Python library
+- ImageMagick convert command
+- Adobe Acrobat export function
+- Online PDF to image converters
+
+The extracted images were saved as PNG files for each page:
+- page_1_noannot.png
+- page_2_noannot.png
+- page_3_noannot.png
+
+The "noannot" in the filename suggests these were clean versions without annotations, making OCR more accurate.
+
+Step 4: OCR Processing with EasyOCR
+
+With the images extracted, the next step was applying Optical Character Recognition to extract text from the images. EasyOCR was chosen for this task because it's a robust, easy-to-use Python library that supports multiple languages and provides confidence scores for each detected text region.
+
+The OCR script implementation:
+
+#!/usr/bin/env python3
+import easyocr
+
+# Initialize EasyOCR reader for English
+reader = easyocr.Reader(['en'], gpu=False)
+
+# Process each page
+for i in range(1, 4):
+    img_path = f'MISC/page_{i}_noannot.png'
+    
+    # Read text from image with detailed output
+    results = reader.readtext(img_path, detail=1, paragraph=False)
+    
+    # Filter results by confidence threshold
+    for bbox, text, conf in results:
+        if conf > 0.3:  # Only show results with >30% confidence
+            print(f'[{conf:.2f}] {text}')
+
+Key parameters explained:
+- detail=1: Returns bounding box, text, and confidence score
+- paragraph=False: Treats each text region separately
+- conf > 0.3: Filters out low-confidence detections to reduce noise
+
+Step 5: Analyzing OCR Output
+
+The OCR process scanned all three pages and extracted text from each email message. The output included confidence scores, which helped identify which text extractions were reliable versus potentially misread.
+
+As we processed the pages, we looked for:
+- Email headers (From, To, Subject, Date)
+- Message bodies containing the actual content
+- Any mentions of keys, passwords, or flag-like strings
+- References to the ledger or Person of Interest
+
+Step 6: Discovering the Ledger Key
+
+In MESSAGE 3 (the third email in the thread), the OCR output revealed a critical line:
+
+"The ledger key is Kaal{l3dg3r acc3$$ granted m2}"
+
+This was the flag we were searching for. However, there was an important complication that required careful attention.
+
+Step 7: OCR Character Correction
+
+The initial OCR output contained a common misread: the dollar signs ($) were interpreted as the letter 'S'. This is a frequent OCR error because the shapes are similar, especially in certain fonts or when image quality is degraded.
+
+The OCR initially read: "Kaal{l3dg3r acc3SS granted m2}"
+The correct flag was: "Kaal{l3dg3r acc3$$ granted m2}"
+
+This highlights an important lesson in OCR-based challenges: always verify character recognition, especially for special symbols that resemble letters. Common OCR confusions include:
+- $ vs S
+- 0 vs O
+- 1 vs l vs I
+- 5 vs S
+- 8 vs B
+
+By examining the context (the word "access" in leetspeak would use $ for 's') and potentially reviewing the original image, we could correct this misread and obtain the proper flag.
+
+Step 8: Understanding the Flag
+
+The flag "Kaal{l3dg3r acc3$$ granted m2}" uses leetspeak encoding:
+- l3dg3r = ledger
+- acc3$$ = access
+- m2 = likely "m2" or could represent "me too" or a code name
+
+The message "ledger access granted m2" suggests that the Person of Interest (possibly identified as "m2" or granting access to someone designated m2) has been given access to the ledger - the record of Black Widow operations in Budapest.
+
+Complete OCR Extraction Script
+
+Here's the full Python script for solving this challenge:
+
+#!/usr/bin/env python3
+import easyocr
+import re
+
+def extract_flag_from_pdf_images():
+    """Extract and find flag from PDF page images using OCR"""
+    
+    # Initialize EasyOCR reader
+    print("[*] Initializing EasyOCR reader...")
+    reader = easyocr.Reader(['en'], gpu=False)
+    
+    flag_pattern = re.compile(r'Kaal\{[^}]+\}')
+    
+    # Process each page
+    for page_num in range(1, 4):
+        img_path = f'MISC/page_{page_num}_noannot.png'
+        print(f"\n[*] Processing {img_path}...")
+        
+        # Perform OCR
+        results = reader.readtext(img_path, detail=1, paragraph=False)
+        
+        print(f"[+] Found {len(results)} text regions")
+        
+        # Analyze each detected text region
+        for bbox, text, conf in results:
+            # Show all text with reasonable confidence
+            if conf > 0.3:
+                print(f'  [{conf:.2f}] {text}')
+                
+                # Check for flag pattern
+                if 'Kaal{' in text or 'ledger' in text.lower():
+                    print(f"\n[!] POTENTIAL FLAG FOUND: {text}")
+                    
+                    # Correct common OCR errors
+                    corrected = text.replace('acc3SS', 'acc3$$')
+                    corrected = corrected.replace('acceSS', 'acce$$')
+                    
+                    if corrected != text:
+                        print(f"[!] CORRECTED FLAG: {corrected}")
+                    
+                    # Extract flag if pattern matches
+                    match = flag_pattern.search(corrected)
+                    if match:
+                        return match.group(0)
+    
+    return None
+
+if __name__ == "__main__":
+    print("[*] The Budapest Intercept - OCR Flag Extractor")
+    print("[*] Analyzing S.H.I.E.L.D. email thread...\n")
+    
+    flag = extract_flag_from_pdf_images()
+    
+    if flag:
+        print(f"\n[+] FLAG CAPTURED: {flag}")
+    else:
+        print("\n[-] Flag not found. Manual review required.")
+
+Attack Chain Summary
+
+1. Received PDF documents containing reconstructed email thread
+2. Identified that text was embedded as images, not extractable text
+3. Extracted images from each PDF page (3 pages total)
+4. Initialized EasyOCR for English text recognition
+5. Processed each page image with OCR, setting confidence threshold at 0.3
+6. Analyzed OCR output for flag patterns and keywords
+7. Located ledger key in MESSAGE 3 of the email thread
+8. Identified OCR misread: $$ characters interpreted as SS
+9. Corrected the character recognition error
+10. Obtained final flag: Kaal{l3dg3r acc3$$ granted m2}
+
+Key Techniques
+
+- PDF to image conversion
+- Optical Character Recognition (OCR)
+- EasyOCR library usage
+- Confidence threshold filtering
+- OCR error detection and correction
+- Pattern matching for flag extraction
+- Special character vs letter disambiguation
+- Leetspeak interpretation
+
+Tools Used
+
+- EasyOCR for text recognition
+- Python for automation
+- pdf2image or similar for PDF extraction
+- Regular expressions for pattern matching
+- Image viewers for manual verification
+
+Security and Forensics Lessons
+
+This challenge demonstrates several important concepts in digital forensics and document analysis. First, it shows that information can be hidden or obscured in various formats - in this case, text embedded as images rather than selectable text. This is a common technique for evading automated text searches.
+
+Second, it highlights the importance of OCR technology in forensic investigations. Many real-world scenarios involve analyzing scanned documents, photographs of screens, or images containing text that must be extracted and analyzed.
+
+Third, the challenge teaches about OCR limitations and the need for human verification. Automated OCR systems make predictable errors, especially with special characters, unusual fonts, or degraded image quality. Security professionals must be aware of these limitations and verify critical findings.
+
+Finally, the Marvel/S.H.I.E.L.D. theming adds an element of storytelling to the technical challenge, making it more engaging while teaching practical skills. The "ledger" concept connects to real-world scenarios where investigators must track operations, transactions, or activities through recovered documents.
+
+Flag
+
+Kaal{l3dg3r acc3$$ granted m2}

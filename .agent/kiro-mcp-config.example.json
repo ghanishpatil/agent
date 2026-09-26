@@ -1,0 +1,22 @@
+{
+  "_comment": "Copy this block into .kiro/settings/mcp.json (workspace) or ~/.kiro/settings/mcp.json (user). The .kiro/settings path is write-protected for the agent, so an operator must place it manually. Adjust PYTHONPATH to the absolute path of .agent/src on this machine.",
+  "mcpServers": {
+    "ctf-agent": {
+      "command": "python",
+      "args": ["-m", "ctf_runtime.mcp_server"],
+      "env": {
+        "PYTHONPATH": "f:\\mission-git-hackss\\mission-git-hackss\\.agent\\src"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "ctf_state",
+        "ctf_hypotheses",
+        "ctf_evidence",
+        "ctf_progress",
+        "ctf_result",
+        "ctf_sessions",
+        "ctf_trust_boundary"
+      ]
+    }
+  }
+}

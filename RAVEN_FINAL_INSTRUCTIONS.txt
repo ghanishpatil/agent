@@ -1,0 +1,98 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                    RAVEN CHALLENGE - FINAL SOLUTION                  ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+CHALLENGE SUMMARY:
+------------------
+Author: catty_batty4 (Haardik Bhagtani)
+Category: OSINT (Miscellaneous)
+Flag Format: Kaal{...}
+Difficulty: Medium (300 points)
+
+KEY CLUES DISCOVERED:
+----------------------
+1. Image Metadata Comment:
+   "What you see is only part of it—the rest lies in where author 
+   chose to exist socially."
+
+2. QR Code Message:
+   "There are 2 season and 5 level!!! All The Best!!!"
+
+CONFIRMED ACTIVE PROFILES:
+--------------------------
+✓ Instagram: https://www.instagram.com/catty_batty4/
+✓ Twitter/X: https://twitter.com/catty_batty4
+
+SOLUTION APPROACH:
+------------------
+This is an OSINT challenge. The flag pieces are hidden across the 
+author's social media profiles.
+
+"2 seasons" = 2 social media platforms
+"5 levels" = 5 posts/pieces to collect
+
+MANUAL STEPS REQUIRED:
+----------------------
+1. Open a web browser (Chrome/Firefox)
+
+2. Visit Instagram profile:
+   https://www.instagram.com/catty_batty4/
+   - Check all posts
+   - Read captions
+   - Check bio
+   - Look for anything with "Kaal{" or flag-like text
+
+3. Visit Twitter profile:
+   https://twitter.com/catty_batty4
+   - Check all tweets
+   - Check pinned tweet
+   - Read bio
+   - Look for flag pieces
+
+4. Document all flag pieces you find
+
+5. Use the helper script to combine pieces:
+   python combine_flag_pieces.py
+
+WHAT TO LOOK FOR:
+-----------------
+- Posts mentioning "Raven"
+- Posts with "Kaal{" text
+- Numbered posts (1-5 for "5 levels")
+- Encoded text in captions
+- Bio sections with hidden text
+- Pinned posts
+
+POSSIBLE FLAG SCENARIOS:
+------------------------
+Scenario 1: Split flag across platforms
+  Instagram: "Kaal{first_part_"
+  Twitter: "second_part}"
+  Combined: "Kaal{first_part_second_part}"
+
+Scenario 2: Sequential posts
+  Post 1: "K"
+  Post 2: "a"
+  Post 3: "a"
+  Post 4: "l"
+  Post 5: "{flag_content}"
+
+Scenario 3: Encoded in bio/description
+  Bio might contain base64, hex, or other encoding
+
+FILES CREATED FOR YOU:
+----------------------
+1. solve_raven_challenge.py - Initial analysis script
+2. solve_raven_osint.py - Automated OSINT scanner
+3. combine_flag_pieces.py - Helper to combine flag pieces
+4. RAVEN_SOLUTION_GUIDE.md - Detailed solution guide
+5. This file - Quick reference
+
+NEXT ACTION:
+------------
+→ Manually visit the Instagram and Twitter profiles
+→ Document all flag pieces
+→ Run: python combine_flag_pieces.py
+→ Submit the flag!
+
+Good luck! The flag is waiting for you on social media! 🎯

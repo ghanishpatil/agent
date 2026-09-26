@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 57288,
+  "content_sha256": "cf33949720cd76fe5108e29c5552892a73cd83347e12afe60ce75a919a578a69",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/frames-and-stories-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:21.425218+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "content_length_bytes": 242565,
+  "content_sha256": "2b855240ac04e400f6b4d318dc1dc478e8059bc3ff77b5839901d6e9ebd6df0e",
+  "content_type": "text/html; charset=utf-8",
+  "error": null,
+  "final_url": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/United_States_Play_Store.md",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [
+    {
+      "code": 301,
+      "from": "https://github.com/aencode/domectf/blob/master/c0c0n_xii/United_States_Play_Store.md",
+      "to": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/United_States_Play_Store.md"
+    }
+  ],
+  "retrieved_at": "2026-09-25T07:22:10.919594+00:00",
+  "stored_raw_differs_from_refetch": true
+}

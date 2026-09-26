@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-09-25T05:59:53.261439+00:00",
+  "records": [
+    {
+      "browser_version": "149.0.7827.55",
+      "content_sha256": "136f5cfe3fb83cdf575144f97ac7a57fbfbb2ce45bf713b2d57050f2ddab7cbb",
+      "error": "",
+      "final_url": "https://jia.je/ctf-writeups/puppeteer/index.html",
+      "html_artifact": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\_jiaje_js_cache\\ctf-writeups_puppeteer_index.rendered.html",
+      "html_artifact_sha256": "6f0ea30f8f2520e4ccf802929eae3f6abeaeb330c8193a6fc54f0f84e741f1f2",
+      "http_status": 200,
+      "ok": true,
+      "rendered_html_bytes": 36763,
+      "rendered_text_len": 860,
+      "renderer": "playwright-chromium",
+      "renderer_version": "1.61.0",
+      "retrieved_at": "2026-09-25T05:59:54.360888+00:00",
+      "text_artifact": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\_jiaje_js_cache\\ctf-writeups_puppeteer_index.rendered.txt",
+      "text_artifact_sha256": "334796eb9b6265c3115adb19918f34199edc165acde79c7608d8a23fe19d2b51",
+      "url": "https://jia.je/ctf-writeups/puppeteer/index.html",
+      "writeup_link_candidates": 15
+    },
+    {
+      "browser_version": "149.0.7827.55",
+      "content_sha256": "5b1a5f9aa90510dbf82da81a97309d34f593bb6cfa82b0141460c26437c410f6",
+      "error": "",
+      "final_url": "https://jia.je/ctf-writeups/summer2026/index.html",
+      "html_artifact": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\_jiaje_js_cache\\ctf-writeups_summer2026_index.rendered.html",
+      "html_artifact_sha256": "11e404812a9c3804ee7725ab8bb6467bab2e4b71a45def9bf48768305c402092",
+      "http_status": 200,
+      "ok": true,
+      "rendered_html_bytes": 33169,
+      "rendered_text_len": 366,
+      "renderer": "playwright-chromium",
+      "renderer_version": "1.61.0",
+      "retrieved_at": "2026-09-25T06:00:00.576151+00:00",
+      "text_artifact": "F:\\mission-git-hackss\\mission-git-hackss\\.agent\\knowledge\\_jiaje_js_cache\\ctf-writeups_summer2026_index.rendered.txt",
+      "text_artifact_sha256": "7752ef30fa9408aa5f2beafc141b481fd4aadd3a625d56f092cd5744db735a06",
+      "url": "https://jia.je/ctf-writeups/summer2026/index.html",
+      "writeup_link_candidates": 11
+    }
+  ],
+  "urls": [
+    "https://jia.je/ctf-writeups/puppeteer/index.html",
+    "https://jia.je/ctf-writeups/summer2026/index.html"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 64917,
+  "content_sha256": "a25c645522c1d4bd5b72847399ec2170892592f049ab219402aa67e95b74ccc9",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/stones-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:43.811677+00:00"
+}

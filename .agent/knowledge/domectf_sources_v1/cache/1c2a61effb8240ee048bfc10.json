@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 58317,
+  "content_sha256": "8eaa9a9f55354034430fe8e3c933e75e4da548067295fe19517fe3ccead1dc4a",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/neos-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:36.557825+00:00"
+}

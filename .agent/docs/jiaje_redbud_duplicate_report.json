@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-09-25T06:38:43.516703+00:00",
+  "internal_redbud": {
+    "duplicate_count": 1,
+    "matches": [
+      {
+        "duplicate_of": "ae14d5a570e07f93",
+        "reason": "near-duplicate token overlap",
+        "record_id": "6ffb8ba9750eff36",
+        "similarity": 0.944
+      }
+    ],
+    "records": 22
+  },
+  "policy": "duplicates are reported and provenance-preserved; none are discarded",
+  "vs_jiaje_v1": {
+    "duplicate_count": 0,
+    "duplicate_rate": 0.0,
+    "jiaje_v1_records": 4,
+    "matches": []
+  },
+  "vs_local_writeups": {
+    "duplicate_count": 0,
+    "duplicate_rate": 0.0,
+    "local_records": 32,
+    "matches": []
+  }
+}

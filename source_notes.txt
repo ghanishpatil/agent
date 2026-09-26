@@ -1,0 +1,57 @@
+================================================================================
+  ACMECORP INTERNAL WIKI — ENGINEERING NOTES
+  Last edited: 2024-01-14 | Author: dev-prakash | Classification: INTERNAL
+================================================================================
+
+## WebhookPinger — Architecture Notes
+
+  Hey team, writing this up before I go on leave so someone can maintain this.
+
+  The pinger service is pretty straightforward. You submit a URL via the API
+  and our backend dispatches an HTTP GET to it. We use this internally to
+  verify vendor webhook endpoints before we sign contracts with them.
+
+  The service runs alongside a few other internal tools on the same box.
+  Don't worry about those — they're not exposed externally.
+
+
+## Security — SSRF Protection
+
+  After the incident in Q3 (don't ask), Raj added a blocklist to prevent
+  people from pinging internal addresses. It checks the hostname before
+  sending the request. Blocks the usual suspects — localhost, 127.0.0.1,
+  that kind of thing.
+
+  Honestly it was a bit rushed. I flagged it in the PR review but we were
+  shipping that week so 🤷. Raj said he'd come back to it. He didn't.
+
+
+## Known Behaviour
+
+  - The dispatcher will follow redirects if the target returns a 3xx.
+    We added this because some vendors do URL shorteners for their hooks.
+    Seems fine, it's just following the Location header, nothing weird.
+
+  - We attach a few internal headers to every outbound request for
+    traceability. Audit team asked for it. Not a big deal since we're
+    only ever talking to trusted vendor endpoints... right?
+
+  - Max redirect depth is 2. Added that after an infinite loop in staging
+    took down the box for 20 mins lmao.
+
+
+## TODO (Raj, whenever you're back from Goa)
+
+  - [ ] revisit the SSRF filter, I have a feeling it's not airtight
+  - [ ] maybe don't forward ALL headers on redirect? idk check with security
+  - [ ] document what ports the internal services run on (I keep forgetting)
+
+
+## Contact
+
+  Slack: #backend-infra
+  On-call: dev-prakash (don't call me, I'm on leave)
+
+================================================================================
+  ACMECORP INTERNAL WIKI — DO NOT SHARE EXTERNALLY
+================================================================================

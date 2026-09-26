@@ -1,0 +1,21 @@
+# CTF environment — run with:  docker compose -f ctf-env/docker-compose.yml run --rm ctf
+# The whole workspace is mounted at /work so files created here are visible in Windows and vice-versa.
+services:
+  ctf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ctf-env:latest
+    container_name: ctf-env
+    stdin_open: true          # -i
+    tty: true                 # -t
+    working_dir: /work
+    volumes:
+      - "..:/work"            # mounts F:\mission-git-hackss\mission-git-hackss at /work
+    # Uncomment to allow the container to reach challenge hosts on your LAN/host:
+    # network_mode: "host"    # (Linux only; on Windows use default bridge + host.docker.internal)
+    cap_add:
+      - SYS_PTRACE            # needed for gdb / ptrace-based debugging
+    security_opt:
+      - seccomp:unconfined    # needed for some pwn/debug scenarios
+    command: /bin/bash

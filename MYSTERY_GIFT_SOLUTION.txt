@@ -1,0 +1,61 @@
+================================================================================
+MYSTERY GIFT CHALLENGE - SOLUTION
+================================================================================
+
+Website: https://timely-toffee-3de65d.netlify.app
+
+SOLUTION STEPS:
+---------------
+
+1. PAGE 1 (index.html):
+   - Click the gift box 4 times
+   - Cookie is set: auth=5f4dcc3b5aa765d61d8327deb882cf99 (MD5 of "password")
+   - Redirects to page2.html
+
+2. PAGE 2 (page2.html):
+   - Enter key that has MD5: 0cc175b9c0f1b6a831c399e269772661
+   - This MD5 is for the letter "a"
+   - Enter "a" and submit
+   - Redirects to page3.html?auth=YQ== (base64 of "a")
+
+3. PAGE 3 (page3.html):
+   - Contains the real flag among fake flags
+
+================================================================================
+FLAG: CTF{I_LOVE_YOU}
+================================================================================
+
+FAKE FLAGS (ignore these):
+- CTF{FAKE_FLAG_1}
+- CTF{FAKE_FLAG_2}
+- CTF{FAKE_FLAG_3}
+- CTF{FAKE_FLAG_4}
+
+REAL FLAG: CTF{I_LOVE_YOU}
+
+================================================================================
+TECHNICAL DETAILS:
+================================================================================
+
+Anti-Debugging Techniques Used:
+- DevTools detection
+- Right-click disabled
+- F12/Ctrl+Shift+I blocked
+- Window size monitoring
+- Console logging traps
+
+Obfuscation:
+- Fake MD5 hashes
+- Fake cookies
+- Fake functions
+- Matrix rain effect
+- Multiple red herrings
+
+The challenge tests:
+- JavaScript analysis
+- MD5 cracking
+- Base64 encoding
+- Cookie inspection
+- Multi-page navigation
+
+================================================================================

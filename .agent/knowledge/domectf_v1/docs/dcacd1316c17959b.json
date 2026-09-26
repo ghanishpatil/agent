@@ -1,0 +1,115 @@
+{
+  "content_hash": "0e90db7b9a41ec3e3acc93bd2c5248a49731623fc6063fe84c41cb0b43f7176b",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "explicit",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "City",
+    "points": null,
+    "tags": [
+      "Hash Attack",
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "01285bcc48d162a19dd8d02cfd74405765527c2a4cc5ca7aa876c998ef63a35b",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_city-writeup.html.html",
+    "extra": {
+      "author": "Manindar Mohan",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/city-writeup.html",
+      "challenge": "City",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_city-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/city-writeup.html"
+  },
+  "record_id": "dcacd1316c17959b",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "City is a pwn challenge that was part of DOME CTF 2020 and the participant is given an executable and an image.",
+  "techniques": [
+    {
+      "category": "crypto",
+      "confidence": 0.85,
+      "evidence": "nner. As the password, we have to give 100 strings that are hashed with SHA-512 and always having 4 zero\u2019s as the first two",
+      "keywords": [
+        "hash"
+      ],
+      "name": "Hash Attack",
+      "technique_id": "hash-attack"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "City Writeup",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: \u201cWe found a file from the city terminal office. Hackers are using this file to hack into the office. Collect the secret data from the city terminal office before it ends up in the wrong hands.\u201d"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: The participant is given an executable and image of Secretariat of Kerala which is situated in Trivandrum.\n While running the init_connect file, the program asks to enter the city name which is Trivandrum. Upon giving the city name, the program connects to the city server and asks for the unbreakable password.\n\n Inspecting the packets from the machine we will come to see that a connectio"
+      }
+    ]
+  }
+}

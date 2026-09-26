@@ -1,0 +1,169 @@
+{
+  "challenge_set": [
+    {
+      "case_id": "known-xor",
+      "failures": [],
+      "kind": "KNOWN",
+      "status": "SOLVED"
+    },
+    {
+      "case_id": "novel-ssti",
+      "failures": [],
+      "kind": "NOVEL",
+      "status": "SOLVED"
+    },
+    {
+      "case_id": "adversarial-decoy",
+      "failures": [],
+      "kind": "ADVERSARIAL",
+      "status": "SOLVED"
+    },
+    {
+      "case_id": "heldout-classical",
+      "failures": [],
+      "kind": "HELD_OUT",
+      "status": "SOLVED"
+    },
+    {
+      "case_id": "environment-recovery",
+      "failures": [],
+      "kind": "ADVERSARIAL",
+      "status": "SOLVED"
+    },
+    {
+      "case_id": "unavailable-tool",
+      "failures": [],
+      "kind": "ADVERSARIAL",
+      "status": "BLOCKED"
+    }
+  ],
+  "configuration": {
+    "available_tools": [
+      "decode_tool",
+      "flag_verifier",
+      "http_probe"
+    ],
+    "external_writeups_ingested": false,
+    "fine_tuned": false,
+    "model": "deterministic specialist brain; no external LLM configured"
+  },
+  "generated_at": "2026-09-25T03:39:08.515844+00:00",
+  "git": {
+    "dirty": null,
+    "revision": "unavailable"
+  },
+  "historical_regressions": "12/12 pass",
+  "knowledge_attribution": [
+    [
+      "known-xor",
+      [
+        "DIRECT_MECHANISM_REASONING",
+        "SPECIALIST_KNOWLEDGE",
+        "EXISTING_MEMORY",
+        "CHALLENGE_ARTIFACT",
+        "KNOWN_TECHNIQUE"
+      ]
+    ],
+    [
+      "novel-ssti",
+      [
+        "DIRECT_MECHANISM_REASONING",
+        "SPECIALIST_KNOWLEDGE",
+        "EXISTING_MEMORY",
+        "CHALLENGE_ARTIFACT",
+        "KNOWN_TECHNIQUE"
+      ]
+    ],
+    [
+      "adversarial-decoy",
+      [
+        "DIRECT_MECHANISM_REASONING",
+        "SPECIALIST_KNOWLEDGE",
+        "EXISTING_MEMORY",
+        "CHALLENGE_ARTIFACT",
+        "KNOWN_TECHNIQUE"
+      ]
+    ],
+    [
+      "heldout-classical",
+      [
+        "DIRECT_MECHANISM_REASONING",
+        "SPECIALIST_KNOWLEDGE",
+        "EXISTING_MEMORY",
+        "CHALLENGE_ARTIFACT",
+        "KNOWN_TECHNIQUE"
+      ]
+    ],
+    [
+      "environment-recovery",
+      [
+        "DIRECT_MECHANISM_REASONING",
+        "SPECIALIST_KNOWLEDGE",
+        "EXISTING_MEMORY",
+        "CHALLENGE_ARTIFACT",
+        "KNOWN_TECHNIQUE"
+      ]
+    ],
+    [
+      "unavailable-tool",
+      [
+        "DIRECT_MECHANISM_REASONING",
+        "SPECIALIST_KNOWLEDGE",
+        "EXISTING_MEMORY",
+        "CHALLENGE_ARTIFACT",
+        "KNOWN_TECHNIQUE"
+      ]
+    ]
+  ],
+  "memory": {
+    "files": {
+      "README.md": "862dd1976b85e06a5ea9eb62af88ae8092cf7ac65e5009c614ec6b74b37ca184",
+      "architecture_recommendation.md": "6b9529e5df839ee5b1397991ca5c75b9a0fb608a320641f5a46972877f73616c",
+      "categories\\category_playbooks.md": "82d01f18e435141c418eb0fdf78106fa4feb4bb804a966698fc798daf3a9bd39",
+      "failures\\README.md": "9ec53d06b8a48249238bb2519da22fd0b5f5de802aead0c45e3123fd068e2f2b",
+      "failures\\failures.jsonl": "4e320a26f5f5f701922ea2e346c34853a73627d5a89972552e3938fe5c3da272",
+      "file_classification.md": "adf373b3d722905843ba81579f18657e72bbfe36c3fe3c07a15089cc70b95b7b",
+      "knowledge\\README.md": "5742eb7b3033f90a67eff836b8a204f9cde3b06c6729921b2ce7b388c244a29f",
+      "knowledge\\technique_memory.jsonl": "b38ded521a68bf5428214f8627d2e11a7b1cc59e9b65f6f76b63a08d5111e8e2",
+      "legacy_conflicts.md": "016621edd5d175c0eb8890a4905d3df13b2ce2a34a091dfbaacfebddd5268e9d",
+      "memory_schema\\schemas.md": "bab7bfa1fa26e848a4084799241c611d1017c6756618c61e10c5f443c5c831b6",
+      "tools\\README.md": "4725d85135be10d7943fc185f06582ddeb499629d9149e1f6ee9e22732515ab4",
+      "tools\\tool_memory.jsonl": "2c55541e35d7fdcc40d4943e5932cace99045c7f2e826d8cf74c89e90b275ec0",
+      "trajectories\\README.md": "27e83a016b86dc1252dcb05a064b09515294616a45d29443c9386c965c1a11ce",
+      "trajectories\\trajectories.jsonl": "4cb5b2ca9ccda72ffda619e967182f27f61abd327186fd6eda14684b289b9d42",
+      "workspace_inventory.md": "17041ec99a8efc4f5f4843b2aaaaa17affa19105ad753d76aaa26135591cf929"
+    },
+    "root": "F:\\mission-git-hackss\\mission-git-hackss\\.agent_audit"
+  },
+  "metrics": {
+    "average_actions_per_solve": 2.8,
+    "average_reasoning_iterations": 2.8333333333333335,
+    "average_resource_tool_cost": 2.6666666666666665,
+    "average_time_to_verified_solution_ms": 368.4,
+    "blind_retry_rate": 0.0,
+    "budget_violations": 0,
+    "candidate_verification_success": 1.0,
+    "case_count": 6,
+    "dead_end_recovery_rate": 1.0,
+    "duplicate_action_rate": 0.36,
+    "environmental_failure_recovery_rate": 1.0,
+    "false_disproof_rate": 0.0,
+    "false_verification_rate": 0.0,
+    "median_actions_per_solve": 3,
+    "solve_rate": 0.8333333333333334,
+    "specialist_selection_accuracy": 1.0,
+    "stop_correctness": 1.0,
+    "terminal_state_correctness": 1.0,
+    "tool_failure_recovery_rate": 1.0,
+    "useful_specialist_proposal_rate": 1.0,
+    "verified_solve_rate": 0.8333333333333334
+  },
+  "platform": "Windows-10-10.0.26200-SP0",
+  "protected_integrity": {
+    ".agent_audit": "sha256:9f9ccad7dc86275c06075c37be6c4edb8784a279216f856560f21421fb7608b1;files=15",
+    ".kiro": "sha256:139c191fa04bc30dd00f64e526f0c5549b7c668dadb02430aafd4e8e0eb07345;files=8",
+    "writeups": "sha256:9015ffb503d48d756251b2dd1a0226d1c80882e0160f987bff0c6a1aa72221d5;files=32"
+  },
+  "python": "3.10.7",
+  "test_count": 264
+}

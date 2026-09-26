@@ -1,0 +1,39 @@
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:16 OPEN_MAX:1048576
+
+Scanning the drive for archives:
+1 file, 3155 bytes (4 KiB)
+
+Listing archive: taptap_public.zip
+
+--
+Path = taptap_public.zip
+Type = zip
+Physical Size = 3155
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+2026-09-10 08:37:30 .....         5502         2973  chall.py
+------------------- ----- ------------ ------------  ------------------------
+2026-09-10 08:37:30               5502         2973  1 files
+=== try extract with password infected ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:16 OPEN_MAX:1048576
+
+Scanning the drive for archives:
+1 file, 3155 bytes (4 KiB)
+
+Extracting archive: taptap_public.zip
+--
+Path = taptap_public.zip
+Type = zip
+Physical Size = 3155
+
+Everything is Ok
+
+Size:       5502
+Compressed: 3155
+=== files ===
+-rw-r--r-- 1 root root 5502 Sep 10 08:37 taptap_x/chall.py

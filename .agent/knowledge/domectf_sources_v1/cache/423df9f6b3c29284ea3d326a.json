@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 48242,
+  "content_sha256": "02b6eab0ce62981794147a8bb3c364928f23c5d3ec852612e69419eb33284642",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/foundation-palette-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:38.018633+00:00"
+}

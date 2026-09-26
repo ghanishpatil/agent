@@ -1,0 +1,65 @@
+{
+  "content_hash": "6efbe7f0b65c8e6ac728371e068d424a97b7ce16b57bc18a75834cd6c269c660",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "inferred",
+    "category": "missing",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "missing",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "missing",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "missing",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "",
+    "difficulty": "",
+    "event": "c0c0n XII",
+    "flag_format": "",
+    "flags": [],
+    "name": "Remember CTF",
+    "points": null,
+    "tags": []
+  },
+  "provenance": {
+    "content_sha256": "d10fac00dadb591d8b44b5e65abdff77f5c0bf9a26cd2b04d74723d1a6951803",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__github.com_aencode_domectf_blob_master_c0c0n_xii_France_Remember.md.html",
+    "extra": {
+      "author": "Ashish Rana",
+      "canonical_url": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/France_Remember.md",
+      "challenge": "Remember CTF",
+      "event": "c0c0n XII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__github.com_aencode_domectf_blob_master_c0c0n_xii_France_Remember.md.html",
+      "source_origin": "explicit_reference",
+      "year": "2019"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://github.com/aencode/domectf/blob/master/c0c0n_xii/France_Remember.md"
+  },
+  "record_id": "c91c61ae35def2d0",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "d0mectf organized by AppFabs. Contribute to AshishRanaX/domectf development by creating an account on GitHub.",
+  "techniques": [],
+  "title": "domectf/c0c0n_xii/France_Remember.md at master \u00b7 AshishRanaX/domectf \u00b7 GitHub",
+  "trajectory": {
+    "completeness": 0.0,
+    "steps": []
+  }
+}

@@ -1,0 +1,6 @@
+This is a simple crypto challenge.
+
+The flag is encoded in base64:
+ZmxhZ3t0aGlzX2lzX2FfdGVzdF9mbGFnfQ==
+
+Can you decode it?

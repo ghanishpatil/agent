@@ -1,0 +1,83 @@
+{
+  "FAIL-001": {
+    "kind": "verification",
+    "candidate": "IATCQ{collision}",
+    "source": "weak-checker",
+    "execution": {
+      "action_id": "FAIL-001-action",
+      "tool": "trusted_deriver",
+      "exit_code": 0,
+      "metadata": {
+        "verified_candidate": "IATCQ{collision}",
+        "verification_passed": true,
+        "verification_method": "WEAK_CHECKER_COLLISION",
+        "verification_basis": "32-bit checker accepted a collision"
+      }
+    },
+    "policy": {"deterministic_tools": ["trusted_deriver"]}
+  },
+  "FAIL-002": {
+    "kind": "verification",
+    "candidate": "HTF{plausible}",
+    "source": "readable-decode",
+    "execution": {"action_id": "FAIL-002-action", "tool": "analysis", "exit_code": 0, "stdout": "HTF{plausible}"},
+    "policy": {}
+  },
+  "FAIL-003": {
+    "kind": "anti_spray",
+    "candidate": "flag{format_variant}",
+    "source": "decoded-metadata",
+    "execution": {"action_id": "FAIL-003-action", "tool": "http_request", "http_status": 422, "response_body": "rejected flag{format_variant}"}
+  },
+  "FAIL-004": {
+    "kind": "verification",
+    "candidate": "flag{invented}",
+    "source": "model-output",
+    "execution": {
+      "action_id": "FAIL-004-action",
+      "tool": "trusted_deriver",
+      "exit_code": 0,
+      "metadata": {
+        "verified_candidate": "flag{invented}",
+        "verification_passed": true,
+        "verification_method": "MODEL_SUGGESTION",
+        "verification_basis": "model assertion"
+      }
+    },
+    "policy": {"deterministic_tools": ["trusted_deriver"]}
+  },
+  "FAIL-005": {
+    "kind": "classification",
+    "execution": {"action_id": "FAIL-005-action", "tool": "http_request", "http_status": 200},
+    "impact_context": {"hypothesis_id": "h", "test_inconclusive": true}
+  },
+  "FAIL-006": {"kind": "no_observation"},
+  "FAIL-007": {"kind": "no_observation"},
+  "FAIL-008": {
+    "kind": "classification",
+    "execution": {"action_id": "FAIL-008-action", "tool": "z3", "timed_out": true},
+    "impact_context": {"hypothesis_id": "h"}
+  },
+  "FAIL-009": {
+    "kind": "classification",
+    "execution": {"action_id": "FAIL-009-action", "tool": "powershell", "environment_available": false},
+    "impact_context": {"hypothesis_id": "h"}
+  },
+  "FAIL-010": {
+    "kind": "verification",
+    "candidate": "IATCQ{behavioral_match}",
+    "source": "emulator-match",
+    "execution": {"action_id": "FAIL-010-action", "tool": "analysis", "exit_code": 0, "stdout": "200/200 behavior matches"},
+    "policy": {}
+  },
+  "FAIL-011": {
+    "kind": "classification",
+    "execution": {"action_id": "FAIL-011-action", "tool": "analysis"},
+    "impact_context": {"hypothesis_id": "h", "prerequisites_met": false}
+  },
+  "FAIL-012": {
+    "kind": "classification",
+    "execution": {"action_id": "FAIL-012-action", "tool": "http_request", "http_status": 429},
+    "impact_context": {"hypothesis_id": "h"}
+  }
+}

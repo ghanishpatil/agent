@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 61425,
+  "content_sha256": "b2b3876e94b2329a0314dc7d5e66d34898407008cf4746ab4373f3cc73feb0ff",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/lockbox-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:16.209342+00:00"
+}

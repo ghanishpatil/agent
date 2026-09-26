@@ -1,0 +1,106 @@
+{
+  "content_hash": "e86dd7374e4cae600cc97e77e7b6784d9355c0e3c6e02f4ea8f84a2ef63baaa3",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [
+      "domectf{WR5t4bJUIHIjdlz9QtX8HOgJeI6guMUL}"
+    ],
+    "name": "Assemble",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "7a86809670dbacc365ca2dd336eb6f776e2f980294a09bb94ed3b7eacbdb0f81",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_assemble-writeup.html.html",
+    "extra": {
+      "author": "Gincy Mol A G",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/assemble-writeup.html",
+      "challenge": "Assemble",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_assemble-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/assemble-writeup.html"
+  },
+  "record_id": "3e00ec9c807f0a08",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "The Assemble challenge provides a zip file and you have to find the flag from it.",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Assemble Writeup",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.7,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 0,
+        "source_heading": "",
+        "text": "solution code block present"
+      },
+      {
+        "confidence": 0.7,
+        "kind": "VERIFICATION",
+        "order": 1,
+        "source_heading": "",
+        "text": "flag present: domectf{WR5t4bJUIHIjdlz9QtX8HOgJeI6guMUL}"
+      }
+    ]
+  }
+}

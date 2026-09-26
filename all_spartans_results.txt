@@ -1,0 +1,34 @@
+SPARTANS CHALLENGE - ALL DECRYPTION RESULTS
+============================================
+
+Encrypted: KLJDPWHZZAJQEEBAQP
+
+Key: OLDFRIENDSREUNION
+After Playfair: MONOMXUTVHSKIIAHPM
+After ROT-3: JLKLJURQSEPHFFXEMJ
+After ROT-5: EGFGEPMLNZKCAASZHE
+
+Rail Fence Results:
+- Rails=2: EZGKFCGAEAPSMZLHNE
+- Rails=3: EPSMGLZNFZHKGCEAEA
+- Rails=4: EGZZKEGPCHAMFLAESN
+- Rails=5: EGNAHAZEGPKSEZCMFL
+
+None of these are readable English words.
+
+POSSIBLE FLAGS TO TRY:
+1. Kaal{EZGKFCGAEAPSMZLHNE}
+2. Kaal{EPSMGLZNFZHKGCEAEA}
+3. Kaal{EGZZKEGPCHAMFLAESN}
+4. Kaal{EGNAHAZEGPKSEZCMFL}
+5. Kaal{MONOMXUTVHSKIIAHPM}
+
+Or maybe the challenge is unsolvable with current approach and I need to reconsider the cipher order or keys.
+
+The hints suggest:
+- Rail Fence (up/down, jump fence)
+- ROT5 then ROT3 (or ROT8)
+- Playfair
+- Remove fillers between repeated letters
+
+But none of the combinations produce readable text.

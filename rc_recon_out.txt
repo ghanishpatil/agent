@@ -1,0 +1,77 @@
+=== GET / -> 200 (2715 bytes) ct=text/html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A reverse CAPTCHA: prove you're a robot by solving timed challenges.">
+    <title>Reverse CAPTCHA</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="captcha" aria-label="Reverse CAPTCHA">
+      <div class="popup-wrapper" id="popup-wrapper">
+        <form class="popup" id="popup" role="dialog" aria-labelledby="challenge-title" aria-describedby="challenge-instruction challenge-format">
+          <div class="popup-header" id="popup-header" aria-live="polite">
+            <div class="popup-header-text">
+              <h3 id="challenge-instruction"></h3>
+              <h1 id="challenge-title"></h1>
+              <h4 id="challenge-format"></h4>
+            </div>
+          </div>
+          <div class="challenge">
+            <input id="challenge-input" class="challenge-input" type="text" aria-label="Challenge answer" autocomplete="off" spellcheck="false" autocapitalize="off">
+          </div>
+          <div class="popup-footer">
+            <div class="timer" role="timer" aria-label="Time remaining">
+              <svg viewBox="0 0 54 54" aria-hidden="true">
+                <circle class="timer-track" cx="27" cy="27" r="24"></circle>
+                <circle clas
+--- headers --- {'Date': 'Fri, 11 Sep 2026 10:56:28 GMT', 'Content-Type': 'text/html', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'CF-Cache-Status': 'HIT', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=8gJtwqAyN68qt1UYz1mDS0vJgZVVtVU40bsMfKuNoEIQW2SivA4FoTniiGYX%2BalUNt6ib3dwTeOySMMkSQiEKZSdsF5oOSwPqxPGDJ5C4zs94XPVTSeppJulZkvzZy6iCxP8B%2BQP%2B0oZ7KKMa3Oq%2BR4QteA2aTjIwA%3D%3D"}]}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a39625635c10fe1a-SIN', 'alt-svc': 'h3=":443"; ma=86400'}
+
+=== GET /robots.txt -> 200 (1248 bytes) ct=text/plain; charset=utf-8
+# As a condition of accessing this website, you agree to abide by the following
+# content signals:
+
+# (a)  If a content-signal = yes, you may collect content for the corresponding
+#      use.
+# (b)  If a content-signal = no, you may not collect content for the
+#      corresponding use.
+# (c)  If the website operator does not include a content signal for a
+#      corresponding use, the website operator neither grants nor restricts
+#      permission via content signal with respect to the corresponding use.
+
+# The content signals and their meanings are:
+
+# search:   building a search index and providing search results (e.g., returning
+#           hyperlinks and short excerpts from your website's contents). Search does not
+#           include providing AI-generated search summaries.
+# ai-input: inputting content into one or more AI models (e.g., retrieval
+#           augmented generation, grounding, or other real-time taking of content for
+#           generative AI search answers).
+# ai-train: training or fine-tuning AI models.
+
+# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF
+# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT
+# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.
+
+--- headers --- {'Date': 'Fri, 11 Sep 2026 10:56:28 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=WdL7IszKvYTWMs58I8XiCNjSfq5JLeYzVz9fLdsQEBm9bPbR9ysUO1I99Kdloi6ZJ3E8TjUB908nfaKyZBb0gLf90SpfhoKZwuHkkDrssXK8r2aoOAb4%2F%2Bj1vDV4coVYVR5uRNZfXDRbkspTUYXNA%2Fne7bB6DrwOWQ%3D%3D"}]}', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a3962563edb7fe1a-SIN', 'alt-svc': 'h3=":443"; ma=86400'}
+
+=== GET /flag -> 404 (0 bytes) ct=None
+
+--- headers --- {'Date': 'Fri, 11 Sep 2026 10:56:28 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=andZOHrcHXdVecZXruIiqLr5ayRWreiX7yps9e9aTKTzpgmWQtsiCvnk41pH8jvu74totJJNdHeCGlIDleSXRnX%2Bytpb7Em6G4fIipefE%2BZVLC%2B%2FS%2BJuVAgiObEuV%2BauFoINfPMghujDg%2FkK4rxx28x33BxjZBiBsA%3D%3D"}]}', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': 'a39625646edbfe1a-SIN', 'alt-svc': 'h3=":443"; ma=86400'}
+
+=== GET /captcha -> 404 (0 bytes) ct=None
+
+--- headers --- {'Date': 'Fri, 11 Sep 2026 10:56:28 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=bRa0g0mjcxpNlHQeRuxZ9naienHBKpD6qPimCbaMcbfjUSyvMxWifxFd7e1uY9z6vHKamFr9ItwmNKaN%2BLqZoUxWtH8xUHbg7T%2B7BIDLK2yilji3fqaeEEwfXg3m3XWkO34mwforoTlnuIdTRl1usHqKz3Twn1NRRw%3D%3D"}]}', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': 'a3962564dff3fe1a-SIN', 'alt-svc': 'h3=":443"; ma=86400'}
+
+=== GET /api -> 404 (0 bytes) ct=None
+
+--- headers --- {'Date': 'Fri, 11 Sep 2026 10:56:29 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=FVd0NVMKkMS%2BxhW9%2F3JdzFids7yUkq0Dw5xFD15CwAN5UHWULWOELpVaUhJOXysjnoplspFhVIMxTNu6PTCWAP6clH8SEfRJbq4SWr%2B7PP7C4pdEqmb9J9%2Bp4v%2Bjp%2Bd2Ma%2FeNAPYmNefgjbi123PkyytiwPtpexYOg%3D%3D"}]}', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': 'a39625654932fe1a-SIN', 'alt-svc': 'h3=":443"; ma=86400'}
+
+=== GET /challenge -> 404 (0 bytes) ct=None
+
+--- headers --- {'Date': 'Fri, 11 Sep 2026 10:56:29 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Tluqb6gIZ3Wvfts7edlcW7oXW9o3onWFKEFDagwfBaSQ4bSQu2BGoZ3gttY5y%2BgwgnqdX4zrzR0nVmLBLwLxuA0FjXSS3wxUsN5VWmHEnfrn6ZbAy8tSYOsNhqaXxYg068qf8QlTQecUJSvDhPnFj7DuCndR5eFLlg%3D%3D"}]}', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': 'a3962565ca39fe1a-SIN', 'alt-svc': 'h3=":443"; ma=86400'}
+

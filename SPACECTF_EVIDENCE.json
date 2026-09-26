@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-05-24T01:29:21.482396",
+  "target": "https://cyberspacevr.in",
+  "findings": [
+    {
+      "vulnerability": "Mass Assignment - Improper Input Validation",
+      "severity": "MEDIUM",
+      "endpoint": "/v1/auth/register",
+      "request": {
+        "method": "POST",
+        "payload": {
+          "email": "evidence_1779566361@test.com",
+          "password": "Test123!",
+          "username": "evidence_1779566361",
+          "role": "admin",
+          "is_admin": true,
+          "superuser": true
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "body": "{\"data\":{\"access_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4OTVmOGQzNy1lYThhLTQ2NTEtYWNlYi1kNWM4ZDQzYzk4OTYiLCJyb2xlIjoidXNlciIsImV4cCI6MTc3OTU2NzI2NCwiaWF0IjoxNzc5NTY2MzY0fQ.IDjPyq6ZKIikyNjI_3n3SbV9pRIG1ckegAFc97BPIW8\",\"refresh_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4OTVmOGQzNy1lYThhLTQ2NTEtYWNlYi1kNWM4ZDQzYzk4OTYiLCJleHAiOjE3ODAxNzExNjQsImlhdCI6MTc3OTU2NjM2NCwianRpIjoiOGRkOGQwNjQtNDBiZi00ZTVjLThlYjItZjVlOTRhMmU3MWFkIn0.sGKKDRvG3UpngBvRWsDPu9QrggE7W8V919O7TUQftiY\""
+      },
+      "description": "API accepts privileged fields in registration without rejecting the request"
+    },
+    {
+      "vulnerability": "Missing Rate Limiting",
+      "severity": "MEDIUM",
+      "endpoint": "All API endpoints",
+      "test_results": {
+        "requests_sent": 20,
+        "successful": 20,
+        "rate_limited": false
+      },
+      "description": "No rate limiting detected on API endpoints, vulnerable to brute force"
+    },
+    {
+      "vulnerability": "Username Enumeration via Error Messages",
+      "severity": "LOW",
+      "endpoint": "/v1/auth/register",
+      "description": "Error messages reveal whether usernames exist",
+      "example": "{\"message\":\"username taken\",\"success\":false}"
+    }
+  ]
+}

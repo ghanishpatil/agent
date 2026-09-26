@@ -1,0 +1,29 @@
+Skip to content
+CTF Writeups by @jiegec
+Redbud Summer 2026
+Search
+ GitHub
+23
+3
+Home
+Writeups by Solution
+Pyjail
+Redbud Puppeteer
+Redbud Summer 2026
+On this page
+Pwn
+Redbud 2026 暑假课堂练习
+Pwn
+ret2shellcode
+ret2shellcode-orw
+baby_rop
+babysyscall
+jarvisoj_x64
+stack_pivot
+setcontext
+jupiter
+paragraph
+Cite This
+Comments
+Copyright © 2025-2026 Jiajie Chen
+Made with Zensical

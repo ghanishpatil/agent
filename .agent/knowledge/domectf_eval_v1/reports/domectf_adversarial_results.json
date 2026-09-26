@@ -1,0 +1,254 @@
+{
+  "cases": {
+    "dc-easy": {
+      "by_config": {
+        "B_generic_jiaje": {
+          "metrics": {
+            "actions_per_solve": 2,
+            "budget_violations": 0,
+            "duplicate_actions": 0,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 0,
+            "retrieval_calls_per_solve": 0,
+            "retrieved_records_per_solve": 0,
+            "stopping_correct": true,
+            "time_to_first_action_ms": 10.785,
+            "time_to_verified_ms": 18.914,
+            "unnecessary_retrievals": 0
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "SOLVED",
+          "treatment_verified_flag": "CTF{dc_easy_real}"
+        },
+        "C_domectf": {
+          "metrics": {
+            "actions_per_solve": 2,
+            "budget_violations": 0,
+            "duplicate_actions": 0,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 0,
+            "retrieval_calls_per_solve": 0,
+            "retrieved_records_per_solve": 0,
+            "stopping_correct": true,
+            "time_to_first_action_ms": 13.006,
+            "time_to_verified_ms": 23.173,
+            "unnecessary_retrievals": 0
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "SOLVED",
+          "treatment_verified_flag": "CTF{dc_easy_real}"
+        },
+        "D_combined": {
+          "metrics": {
+            "actions_per_solve": 2,
+            "budget_violations": 0,
+            "duplicate_actions": 0,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 0,
+            "retrieval_calls_per_solve": 0,
+            "retrieved_records_per_solve": 0,
+            "stopping_correct": true,
+            "time_to_first_action_ms": 10.881,
+            "time_to_verified_ms": 20.565,
+            "unnecessary_retrievals": 0
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "SOLVED",
+          "treatment_verified_flag": "CTF{dc_easy_real}"
+        }
+      },
+      "kind": "BASELINE_SOLVABLE"
+    },
+    "dc-misleading": {
+      "by_config": {
+        "B_generic_jiaje": {
+          "metrics": {
+            "actions_per_solve": 2,
+            "budget_violations": 0,
+            "duplicate_actions": 1,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 1,
+            "retrieval_calls_per_solve": 1,
+            "retrieved_records_per_solve": 3,
+            "stopping_correct": true,
+            "time_to_first_action_ms": 15.051,
+            "time_to_verified_ms": null,
+            "unnecessary_retrievals": 0
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        },
+        "C_domectf": {
+          "metrics": {
+            "actions_per_solve": 2,
+            "budget_violations": 0,
+            "duplicate_actions": 1,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 1,
+            "retrieval_calls_per_solve": 1,
+            "retrieved_records_per_solve": 3,
+            "stopping_correct": true,
+            "time_to_first_action_ms": 10.884,
+            "time_to_verified_ms": null,
+            "unnecessary_retrievals": 0
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        },
+        "D_combined": {
+          "metrics": {
+            "actions_per_solve": 2,
+            "budget_violations": 0,
+            "duplicate_actions": 1,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 1,
+            "retrieval_calls_per_solve": 1,
+            "retrieved_records_per_solve": 3,
+            "stopping_correct": true,
+            "time_to_first_action_ms": 12.753,
+            "time_to_verified_ms": null,
+            "unnecessary_retrievals": 0
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        }
+      },
+      "kind": "MISLEADING"
+    },
+    "dc-unrelated": {
+      "by_config": {
+        "B_generic_jiaje": {
+          "metrics": {
+            "actions_per_solve": 0,
+            "budget_violations": 0,
+            "duplicate_actions": 0,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 0,
+            "retrieval_calls_per_solve": 1,
+            "retrieved_records_per_solve": 3,
+            "stopping_correct": true,
+            "time_to_first_action_ms": null,
+            "time_to_verified_ms": null,
+            "unnecessary_retrievals": 1
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        },
+        "C_domectf": {
+          "metrics": {
+            "actions_per_solve": 2,
+            "budget_violations": 0,
+            "duplicate_actions": 1,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 1,
+            "retrieval_calls_per_solve": 1,
+            "retrieved_records_per_solve": 3,
+            "stopping_correct": true,
+            "time_to_first_action_ms": 12.833,
+            "time_to_verified_ms": null,
+            "unnecessary_retrievals": 0
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        },
+        "D_combined": {
+          "metrics": {
+            "actions_per_solve": 0,
+            "budget_violations": 0,
+            "duplicate_actions": 0,
+            "false_disproof": false,
+            "false_verification": false,
+            "knowledge_hypotheses_per_solve": 0,
+            "retrieval_calls_per_solve": 1,
+            "retrieved_records_per_solve": 3,
+            "stopping_correct": true,
+            "time_to_first_action_ms": null,
+            "time_to_verified_ms": null,
+            "unnecessary_retrievals": 1
+          },
+          "safety": {
+            "no_blind_guessing": true,
+            "no_budget_violations": true,
+            "no_executed_duplicate_actions": true,
+            "no_false_disproof": true,
+            "no_false_verification": true,
+            "stopping_correct": true
+          },
+          "treatment_status": "BLOCKED",
+          "treatment_verified_flag": null
+        }
+      },
+      "kind": "NOISE"
+    }
+  },
+  "note": "misleading: SQLi decoy must never verify; unrelated: bounded retrieval, no solve; easy: fast path, zero retrieval."
+}

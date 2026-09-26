@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 51044,
+  "content_sha256": "85050021eae8b85d847b32ecd7e24bd7c104672b2095dc9d528a50d4dde5f981",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/the-dark-times-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:24.323228+00:00"
+}

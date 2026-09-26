@@ -1,0 +1,104 @@
+{
+  "content_hash": "b15d9af6115461ce186458f478e6204453d00ef719d7d24138805025047d6d7a",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "Time Zone",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "a7718e1ed8cf2dce116534ae59cbf041f626bd074331ecad4d54200ec92923da",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_timezone-writeup.html.html",
+    "extra": {
+      "author": "Anees P K",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/timezone-writeup.html",
+      "challenge": "Time Zone",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_timezone-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/timezone-writeup.html"
+  },
+  "record_id": "1a18e930006bbff3",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "All you have is an ecommerce front end for the Time Zone challenge. How will you complete it?",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 1.0,
+      "evidence": "ow that there\u2019s a sandbox escape vulnerability. So you can drop a shell. Now how do you drop a shell? If you\u2019re familiar",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Time Zone Writeup",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Looks like a fancy watch store, god knows what else they\u2019re selling!"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: Accessing the URL gives you an ecommerce frontend. By analysing and running tools against the URL you may not find anything useful. Let\u2019s fire up the browser inspection panel and look if the site has any cookies.\n\n We can see that there\u2019s a path and u values. So try appending the path to the URL and let\u2019s see what happens!\n\n Aha! A Jenkins server is running along with the watch store. An"
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+# Phase 5 Freeze Manifest
+
+This records the exact frozen state of the Phase 5 autonomous solver. The external
+knowledge / ingestion project (this next phase) must not modify any file listed here.
+Any change to the aggregate fingerprint below invalidates the baseline comparison.
+
+- Frozen package: `src/ctf_agent/` (45 Python files)
+- Aggregate fingerprint (SHA-256 over sorted relpath + file digest):
+  `ead35256c11e882157688410a9618de1e45c3f80a57f4bfb4be7728ebdffdb88`
+- Test count at freeze: 264 passed
+- Historical regressions at freeze: 12/12 pass
+- Baseline artifact: `docs/phase5_baseline.json`
+- Results artifact: `docs/phase5_results.json`
+- Python: 3.10.7 · Platform: Windows-10-10.0.26200-SP0
+
+## Freeze rule
+
+The ingestion subsystem is additive and lives outside `ctf_agent`:
+- `src/ctf_bench/` — frozen benchmark (single source of truth for the challenge set)
+- `src/ctf_ingest/` — external-writeup ingestion pipeline
+- `.agent/knowledge/` — generated knowledge store artifacts
+
+`ctf_agent` must not import `ctf_ingest`. Retrieval is NOT wired into the solver in
+this phase. The baseline-vs-augmented experiment runs the SAME frozen benchmark against
+the SAME frozen solver; only the advisory knowledge available to the reasoning source
+may change, and only in a later, explicitly-approved integration step.
+
+## Per-file SHA-256 (relative to `src/`)
+
+```
+2e0f89f961bff963a855f4144665c793eac8a4e077243a2ecda65ee91947052e  ctf_agent/__init__.py
+fcabb5beddefaa82fb6fb5093bfbda92ecee4e6e28b13e0bb621e12349ffedcd  ctf_agent/adapters/__init__.py
+987ef9ba01ea0a78fac576b4fdd1a80473413b0ed7df65980b9bd9fd5b080352  ctf_agent/adapters/base.py
+a679001ee7e1b792e9e60a077cdf4705f6027cafc0ce706001a31edc5f28babe  ctf_agent/adapters/file_adapter.py
+6026d623a5ac409a8d302164cdfebec318be7985bc4a1f7c81033775ba1d6637  ctf_agent/adapters/http_adapter.py
+596d73b5026de8cef7bc3b0141851cc02a4d9a3423da0cf10a89c5cfb430f87c  ctf_agent/adapters/subprocess_adapter.py
+ef7c3bbd396df800fdc2f1fe051e312cd56c9d3a769cb94c1ff9b20c7a4311db  ctf_agent/autonomy/__init__.py
+a7413137809dec34c0915d0033d8cd69096db46471e4374d169f051fed5551b5  ctf_agent/autonomy/baseline.py
+8f388cdbd1aeca9281d440d896266f53f5d30ad0de07beef13e3aad707c30d23  ctf_agent/autonomy/contracts.py
+607164bdab601c821e301b1ec1107fca15e9182cbc03bcb5dd326693946bfb6a  ctf_agent/autonomy/control.py
+b655ccc6f39f303de8af7df75bf6499141141e21ce5485a86b50166a99c4bc30  ctf_agent/autonomy/evaluation.py
+99c149e54a9e8e07c3175c229627d0b0fcbc7e195121b5f975e66fea55977a19  ctf_agent/autonomy/reasoning.py
+9ac25434e12162490374284b3c501adbf67ae9905c71907ba603e4ecdb17f2b5  ctf_agent/autonomy/resources.py
+c1ef00c66876e546e224120fd156b4278a3157e490d140ac4b7183ec74540e40  ctf_agent/autonomy/solver.py
+6c550f7b8ebf6262cec41487e6b2563e229bdc2751bf867db1d105087704be73  ctf_agent/autonomy/understanding.py
+84a1782919e0557343c948caa557df03e3bd084404f3e1b9856f09d20cd056ad  ctf_agent/classifier.py
+f23ebdaada21ada2f901a32dd061593980878aad53d1d934646de9191d6f0bae  ctf_agent/context.py
+7c1c8a91eda526f69238e72682bb15d38b1a38aed5467d3fb534399647a3b456  ctf_agent/deduplication.py
+eeaec561188bb0713c82ad5f56dfe69c38e733b192c8c15f605130c6457f885b  ctf_agent/evidence.py
+5336176ddf49c848c7bcee74fe3371b9018385cb0a9f79d603f9aa1cff68e8f5  ctf_agent/failure_memory.py
+d0d633950a86642ce83dffe98465b9d766ca9b29c1aeaeb6fde695139df1e9c0  ctf_agent/hypothesis.py
+1486c9b4898ee5df688c1a1f1230c6eec3b4c5aca129119ca079cd7d625cca22  ctf_agent/hypothesis_engine.py
+304e3142008ee78cb8906c33879917791c56a58043fa3cf87f8bdba1853e699b  ctf_agent/impact.py
+33af0f27ec7a7fe17425bb544b588d3a9f4fccd4d78232e5781ffe875d0f7759  ctf_agent/journal.py
+70a99c6eb739800774f75e8db8ff2a172694d9891f5e079d5b57b7783726656b  ctf_agent/kernel.py
+226690441df299def613cdb8bda4fbe510f3fffd7949f52dd245b1681b6d2114  ctf_agent/llm_boundary.py
+fcdbc62d2480238e84b145db0adc4e8aef8cb2c76355d277129992bff3119697  ctf_agent/loop.py
+81d47e8e71c83898a257a0652d682277abd63022e8cd9972a59f38b6ca0d0efe  ctf_agent/memory_retrieval.py
+6b33c105315ea50481ef0a1e2958bdde4b2540c8fb76e0c073278fc7f90b284b  ctf_agent/metrics.py
+3242082d9cf2bd1b5efd758a42c7444cbd5ce873cb182286c37bbe788e70cc0c  ctf_agent/models.py
+80162e16adb2e268dde62a66a9fff94dea8ca682e5817128c976ebee30e8c31c  ctf_agent/planner.py
+c2cd1e410103d5b0ba4435918f545d37b08df51f59f0b42c0fd3d2fddd3cd89a  ctf_agent/proposals.py
+a7b6b8f13e87d21db981d6f2339aebf05fbf87ec3fce8be872290ec807cc70ba  ctf_agent/regression.py
+37b5b12aac47b1089973708cfb4252164dc3c2ef22a16550adb20ec98715f0b8  ctf_agent/specialists/__init__.py
+ab2e9604d6376c328326523c53c88f77d7831e575c74e77e4ad9e69ade8bbbf6  ctf_agent/specialists/base.py
+e88530ef84ae229e8fae8432bee8c6878dba14226085112856e0b49bba967452  ctf_agent/specialists/brain.py
+a57dab050e85720dd08070009e5ea8c2e2832f9e7ce03838a5a36ce12ce51a31  ctf_agent/specialists/crypto.py
+f0917ca475ac32fdfa2ee5bd29e08f077b44ea1dc1cd96be1268296e5742989e  ctf_agent/specialists/forensics.py
+46985fe7b5f7b5be62b21250b669c158ee9cb3848883fe4f684dc6502d4273b0  ctf_agent/specialists/metrics.py
+40bc4524b0faf89669e337c8ebad51813199a6bc2ecb670777b5813d615b9e39  ctf_agent/specialists/pwn.py
+2fafa6c81d185fd8b32fd5ce2c1022b0128c5f8c3d5fcf020296c5c6a55ca507  ctf_agent/specialists/registry.py
+378c55711cc45ba60b0f3c5e4a4aee866defb6714071f8e0419ec91aed12ab10  ctf_agent/specialists/reverse.py
+bde312cd091edbab0cdc324c0302b70bac454cee09cb18f607a00e504e184932  ctf_agent/specialists/selection.py
+a4bfbbadf4a3ceb9239691aa0cb983603263feaf7e2f185af3ddb2e569abcac9  ctf_agent/specialists/web.py
+9363926070945f519363bdeaa5c0c42219423e739b93216970b48e7769a8f1c0  ctf_agent/verification.py
+```

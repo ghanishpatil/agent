@@ -1,0 +1,101 @@
+{
+  "content_hash": "a65351e2767a909076d55e84c527756d4bb69e78cd52c1956fbd4ab1162bb45b",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "missing",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "crypto",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "The Retrospect",
+    "points": null,
+    "tags": [
+      "Hash Attack",
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "efe5455da99dbbb46559529dd671cfe181541488c5b9c36e2fae6263014405df",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_the-retrospect-writeup.html.html",
+    "extra": {
+      "author": "Nasim Sulaiman",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/the-retrospect-writeup.html",
+      "challenge": "The Retrospect",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_the-retrospect-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/the-retrospect-writeup.html"
+  },
+  "record_id": "e3862aca4b233e68",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "The Retrospect challenge had the following story: \u201cOur website got attacked but we don\u2019t know what kind of attacks they are. There\u2019s no room for error.\u201d The challenge contains 3 csv files, a training data set, a feature data file and the data set for prediction which contains our flag....",
+  "techniques": [
+    {
+      "category": "crypto",
+      "confidence": 0.85,
+      "evidence": "output will be a column of 138 values. The 138 values are hashed to 32 using MD5 hash and this is our flag. Written by",
+      "keywords": [
+        "hash",
+        "md5"
+      ],
+      "name": "Hash Attack",
+      "technique_id": "hash-attack"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "The Retrospect Writeup",
+  "trajectory": {
+    "completeness": 0.0,
+    "steps": []
+  }
+}

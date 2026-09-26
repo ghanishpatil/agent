@@ -1,0 +1,47 @@
+{
+  "average_trajectory_completeness": 0.244,
+  "by_category": {
+    "crypto": 10,
+    "forensics": 2,
+    "misc": 1,
+    "pwn": 8,
+    "reverse": 1
+  },
+  "by_source_type": {
+    "HTTP": 22
+  },
+  "by_technique": {
+    "aes-mode-attack": 1,
+    "audio-stego": 1,
+    "buffer-overflow": 1,
+    "classical-cipher": 1,
+    "dynamic-analysis": 5,
+    "ecdsa-nonce-reuse": 1,
+    "encoding-multi": 1,
+    "format-string": 2,
+    "hash-attack": 2,
+    "prng-gf2bv": 3,
+    "prng-glibc-random": 2,
+    "prng-lcg": 2,
+    "prng-mt19937": 2,
+    "prng-xoshiro": 1,
+    "pyjail-escape": 1,
+    "ret2shellcode": 2,
+    "rop": 11,
+    "rsa-attack": 4,
+    "rsa-coppersmith": 1,
+    "srop-setcontext": 1,
+    "stack-pivot": 1,
+    "static-analysis": 2,
+    "steganography": 3,
+    "syscall-orw": 4,
+    "xor-cipher": 4
+  },
+  "duplicate_records": 0,
+  "generated_at": "2026-09-25T06:38:43.490445+00:00",
+  "records_sha256": "fce51b6cab2e59bb6d6b0d69114f60bd04d83d0b07093449574fde16434f7652",
+  "records_with_failures": 0,
+  "schema_version": "1.0",
+  "total_records": 22,
+  "unique_records": 22
+}

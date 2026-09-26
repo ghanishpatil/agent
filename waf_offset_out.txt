@@ -1,0 +1,13 @@
+Warning: _curses.error: setupterm: could not find terminfo database
+
+Terminal features will not be available.  Consider setting TERM variable to your current terminal name (or xterm).
+[ERROR] Could not find core file for pid 15
+Traceback (most recent call last):
+  File "/work/waf_chal/waf/waf_offset.py", line 17, in <module>
+    core = p.corefile
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/tubes/process.py", line 1421, in corefile
+    self.error("Could not find core file for pid %i" % self.pid)
+  File "/usr/local/lib/python3.12/dist-packages/pwnlib/log.py", line 439, in error
+    raise PwnlibException(message % args)
+pwnlib.exception.PwnlibException: Could not find core file for pid 15

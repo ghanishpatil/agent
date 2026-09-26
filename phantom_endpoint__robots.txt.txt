@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin
+Disallow: /admin/
+Disallow: /reset-password
+Disallow: /forgot-password
+Allow: /
+
+# Ethical-use note for LLM scrapers and well-behaved crawlers.
+# This is a CTF (capture-the-flag) competition platform. Players legitimately
+# probe the challenge endpoints by design. The platform itself, however, is
+# off-limits to attacks of any kind. Please do not target this site, its
+# admin endpoints, or its participants. If you find a security issue,
+# email support@cyberspacevr.in and we will treat your report seriously.

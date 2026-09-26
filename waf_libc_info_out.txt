@@ -1,0 +1,44 @@
+[*] '/work/waf_chal/libc.so.6'
+    Arch:       amd64-64-little
+    RELRO:      Full RELRO
+    Stack:      Canary found
+    NX:         NX enabled
+    PIE:        PIE enabled
+    FORTIFY:    Enabled
+libc version str:
+b'GNU C Library (Debian GLIBC 2.41-12+deb13u2) stable release version 2.41.'
+system 0x53110
+str_bin_sh 0x1a5ea4
+__libc_start_main 0x29ce0
+__libc_start_call_main (approx via symbols?)
+__libc_start_main 0x29ce0
+printf 0x59900
+puts 0x805a0
+read 0x103ed0
+open 0x1037b0
+write 0x104960
+execve 0xdde10
+--- one_gadget ---
+0xddf83 execve("/bin/sh", rbp-0x40, r13)
+constraints:
+  address rbp-0x38 is writable
+  rdi == NULL || {"/bin/sh", rdi, NULL} is a valid argv
+  [r13] == NULL || r13 == NULL || r13 is a valid envp
+
+0xfb0a2 posix_spawn(rsp+0x64, "/bin/sh", [rsp+0x40], 0, rsp+0x70, [rsp+0xf0])
+constraints:
+  [rsp+0x70] == NULL || {[rsp+0x70], [rsp+0x78], [rsp+0x80], [rsp+0x88], ...} is a valid argv
+  [[rsp+0xf0]] == NULL || [rsp+0xf0] == NULL || [rsp+0xf0] is a valid envp
+  [rsp+0x40] == NULL || (s32)[[rsp+0x40]+0x4] <= 0
+
+0xfb0aa posix_spawn(rsp+0x64, "/bin/sh", [rsp+0x40], 0, rsp+0x70, r13)
+constraints:
+  [rsp+0x70] == NULL || {[rsp+0x70], [rsp+0x78], [rsp+0x80], [rsp+0x88], ...} is a valid argv
+  [r13] == NULL || r13 == NULL || r13 is a valid envp
+  [rsp+0x40] == NULL || (s32)[[rsp+0x40]+0x4] <= 0
+
+0xfb0af posix_spawn(rsp+0x64, "/bin/sh", rdx, 0, rsp+0x70, r13)
+constraints:
+  [rsp+0x70] == NULL || {[rsp+0x70], [rsp+0x78], [rsp+0x80], [rsp+0x88], ...} is a valid argv
+  [r13] == NULL || r13 == NULL || r13 is a valid envp
+  rdx == NULL || (s32)[rdx+0x4] <= 0

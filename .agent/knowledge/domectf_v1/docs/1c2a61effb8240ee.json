@@ -1,0 +1,113 @@
+{
+  "content_hash": "0393d921553941771566ab5d37d14232237fb68700ae517d091b0a302f85cebf",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "pwn",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [
+      "domectf{mhtpev18p0m68bqx6F87NWh2OwmF1Ahi}"
+    ],
+    "name": "Neos",
+    "points": null,
+    "tags": [
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "8eaa9a9f55354034430fe8e3c933e75e4da548067295fe19517fe3ccead1dc4a",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_neos-writeup.html.html",
+    "extra": {
+      "author": "Anandhu Krishnan",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/neos-writeup.html",
+      "challenge": "Neos",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_neos-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/neos-writeup.html"
+  },
+  "record_id": "1c2a61effb8240ee",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Can you help find the secret that",
+  "techniques": [
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Neos Writeup",
+  "trajectory": {
+    "completeness": 0.2727,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: A new case of Wadiya\u2019s national security arrived at Michael\u2019s table. According to the intelligence report, they used this website to share some national secret. What is the secret?"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: Some lines of HTML are commented in \u201ccontact.html\u201d. The user needs to analyse the code and find something in the javascript code.\n\n In javascript, there is a \u201ccontact.js\u201d file which is different from others.\n\n But the javascript file is minified and there is some code commented.\n You can uncomment and unminify using  https://www.unminify2.com/\n In javascript code\n             $  (  \"#con"
+      },
+      {
+        "confidence": 0.7,
+        "kind": "VERIFICATION",
+        "order": 2,
+        "source_heading": "",
+        "text": "flag present: domectf{mhtpev18p0m68bqx6F87NWh2OwmF1Ahi}"
+      }
+    ]
+  }
+}

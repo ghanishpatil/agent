@@ -1,0 +1,43 @@
+{
+  "duplicate_content_hashes": {},
+  "event_distribution": {
+    "Redbud Puppeteer": 13,
+    "Redbud Summer 2026": 8,
+    "SunshineCTF 2025": 1
+  },
+  "generated_at": "2026-09-25T06:19:25.132935+00:00",
+  "http_status_distribution": {
+    "200": 22
+  },
+  "page_kind_distribution": {
+    "individual_writeup": 22
+  },
+  "rendered_text_len": {
+    "baby_rop": 1969,
+    "babysyscall": 2876,
+    "jarvisoj_x64": 3910,
+    "jupiter": 2240,
+    "paragraph": 9791,
+    "ret2shellcode": 2429,
+    "ret2shellcode-orw": 3983,
+    "setcontext": 7596,
+    "stack_pivot": 3677,
+    "week0/easy-random-1": 4987,
+    "week0/easy-random-2": 3889,
+    "week0/the-old-gods-are-whispering": 732,
+    "week1/easy-pyjail-1": 53242,
+    "week1/easy-random-3": 5191,
+    "week1/easy-re-1": 5636,
+    "week1/rosetta-3": 2180,
+    "week1/rsa-all-in-one": 16310,
+    "week2/easy-random-4": 73927,
+    "week2/ecdsa-nonce-reuse": 63922,
+    "week3/easy-random-5": 2715,
+    "week3/rsa-partial-factorization": 5474,
+    "week4/easy-random-6": 4418
+  },
+  "substantive_writeups": 22,
+  "urls_failed": 0,
+  "urls_requested": 22,
+  "urls_succeeded": 22
+}

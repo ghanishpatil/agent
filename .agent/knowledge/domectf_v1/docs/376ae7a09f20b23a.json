@@ -1,0 +1,179 @@
+{
+  "content_hash": "7e8121686fe85344497a4ed13d399fe2859de15eecb5a5dece892a9b1fd4537b",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "web",
+    "difficulty": "",
+    "event": "c0c0n XII",
+    "flag_format": "",
+    "flags": [
+      "domectf{T5EN7Uxp7KjluznduX8tmXlhc5lX0qHH}",
+      "domectf{VknClfWQ4AK6Oo3L0PkC1WCiDgqrO1HW}",
+      "domectf{RhNI4AZ2bPCl8s0AdBs9HUhM1ggLov3n}",
+      "domectf{CK9eXT3gse0CvIqHODsipohUfXxjgFW}",
+      "domectf{gFuURQ3FR646elvJBtODWHl}",
+      "domectf{6hau2Hd107GbDgiNGOJMw9PNPhAUtaaY}",
+      "domectf{kPIx12IP6u004N6G6S2HheBVxrtWwJaL}"
+    ],
+    "name": "COCON XII DOME CTF Walkthrough",
+    "points": null,
+    "tags": [
+      "Path Traversal",
+      "Hash Attack",
+      "Static Analysis",
+      "SQL Injection",
+      "Insecure Direct Object Reference",
+      "Classical Cipher",
+      "Steganography",
+      "SQL Injection"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "c631242797aaecf2f1c9df17098f9c9302cbf16b4e1f7e432511dbe20389c846",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__rahulr.in_C0C0N-XII-CTF-Walkthrough.html",
+    "extra": {
+      "author": "Rahul R",
+      "canonical_url": "https://rahulr.in/C0C0N-XII-CTF-Walkthrough/",
+      "challenge": "",
+      "event": "c0c0n XII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__rahulr.in_C0C0N-XII-CTF-Walkthrough.html",
+      "source_origin": "explicit_reference",
+      "year": "2019"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://rahulr.in/C0C0N-XII-CTF-Walkthrough/"
+  },
+  "record_id": "376ae7a09f20b23a",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "This is the walkthrough for the challenges that were provided as a part of COCON",
+  "techniques": [
+    {
+      "category": "web",
+      "confidence": 1.0,
+      "evidence": "ename When we change the parameter data to profile.php?name=../../../../../../../../../var/log/auth var/log/auth is the e",
+      "keywords": [
+        "../"
+      ],
+      "name": "Path Traversal",
+      "technique_id": "path-traversal"
+    },
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "users.dat So, when adding a user, the username is md5 hashed and the password is base64 encoded then appended to the",
+      "keywords": [
+        "hash",
+        "md5"
+      ],
+      "name": "Hash Attack",
+      "technique_id": "hash-attack"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.7,
+      "evidence": "page for which we didn\u2019t have any credentials so we started decompiling the app. After decompilation, we found a file called log",
+      "keywords": [
+        "decompil"
+      ],
+      "name": "Static Analysis",
+      "technique_id": "static-analysis"
+    },
+    {
+      "category": "web",
+      "confidence": 0.55,
+      "evidence": "e hyperlinks we can see a login page which is vulnerable to SQL Injection. We can now login to the application using the password t",
+      "keywords": [
+        "sql injection"
+      ],
+      "name": "SQL Injection",
+      "technique_id": "sql-injection"
+    },
+    {
+      "category": "web",
+      "confidence": 0.55,
+      "evidence": "lder Sector443 CTF Walkthrough Newer From Multiple IDORs leading to Code Execution on a different Host Container",
+      "keywords": [
+        "idor"
+      ],
+      "name": "Insecure Direct Object Reference",
+      "technique_id": "idor"
+    },
+    {
+      "category": "crypto",
+      "confidence": 0.55,
+      "evidence": "ives out a string that is either reversed or encrypted with rot13 by recursively decoding this message and at the end, the fl",
+      "keywords": [
+        "rot13"
+      ],
+      "name": "Classical Cipher",
+      "technique_id": "classical-cipher"
+    },
+    {
+      "category": "forensics",
+      "confidence": 0.55,
+      "evidence": "Sabbath\u2019s Ironman after messing with the file I tried audiosteg on it which gave out another wav file. When played it so",
+      "keywords": [
+        "steg"
+      ],
+      "name": "Steganography",
+      "technique_id": "steganography"
+    },
+    {
+      "category": "web",
+      "confidence": 0.55,
+      "evidence": "e hyperlinks we can see a login page which is vulnerable to SQL Injection. We can now login to the application using the password t",
+      "keywords": [
+        "sql injection"
+      ],
+      "name": "SQL Injection",
+      "technique_id": "sqli"
+    }
+  ],
+  "title": "COCON XII DOME CTF Walkthrough",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 0,
+        "source_heading": "COCON XII DOME CTF Walkthrough",
+        "text": "COCON XII DOME CTF Walkthrough: This is the walkthrough for the challenges that were provided as a part of COCON's DomeCTF\n   Before we start reading can we just admire the Badge that was given as a part of DOME CTF.\n\n In this challenge, we were given a message.txt file that contained a long base64 string when decoded gives out a string that is either reversed or encrypted with rot13 by recursivel"
+      },
+      {
+        "confidence": 0.7,
+        "kind": "VERIFICATION",
+        "order": 1,
+        "source_heading": "",
+        "text": "flag present: domectf{T5EN7Uxp7KjluznduX8tmXlhc5lX0qHH}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+=== file atlas-sync ===
+atlas-sync: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, for GNU/Linux 3.2.0, stripped
+=== file atlas-sync.core ===
+atlas-sync.core: ELF 64-bit LSB core file, x86-64, version 1 (SYSV), SVR4-style, from '/usr/local/sbin/atlas-sync --worker', real uid: 0, effective uid: 0, real gid: 0, effective gid: 0, execfn: './atlas-sync', platform: 'x86_64'
+=== no-arg run (qemu, 5s) ===
+EXIT=2
+=== --help ===
+EXIT=2
+=== strings that look like usage/flag ===
+@@atlas-sync
+context metadata scrubbed
+session retired
+result->attached_threads == 0
+result == NULL
+Numerical result out of range
+Required key not available
+Key has expired
+Key has been revoked
+Key was rejected by service
+result->allocated >= size
+[atlas/session/v3
+result <= GL(dl_tls_max_dtv_idx) + 1
+result == GL(dl_tls_max_dtv_idx) + 1
+%s: out of memory to store relocation results for %s
+ENOKEY
+EKEYEXPIRED
+EKEYREVOKED
+EKEYREJECTED

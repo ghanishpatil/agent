@@ -1,0 +1,153 @@
+# Dark Cover — Custom Bytecode VM (hyperstate4) — WORKING WRITEUP
+
+Category: Reverse Engineering (Medium)   Flag format: IATCQ{}
+File: Custom VM/hyperstate/hyperstate4   (ELF64 PIE, stripped, 14504 bytes)
+
+Status: VM fully reverse-engineered and verified against the real binary.
+Open item: recovering the author's exact 32-char flag string (see "Open problem").
+
+====================================================================
+1. RECON
+====================================================================
+- `file`: ELF64 LSB PIE, x86-64, dynamically linked, stripped.
+- Imports: puts, printf, strlen, clock_gettime, ptrace, __libc_start_main.
+- Sections of interest:
+    .text   0x10c0 size 0x5b5   (interpreter/code)
+    .rodata 0x2000 size 0x27b   (jump table + encrypted blob + strings)
+    .data   0x4028
+    .bss    0x4040 size 0x180   (VM program + sbox land here after decrypt)
+- Strings: "Usage: %s <flag_key>", "[-] ACCESS DENIED. Invalid key.",
+           "[+] ACCESS GRANTED. Flag accepted!"
+
+====================================================================
+2. main() @ 0x10c0
+====================================================================
+- Requires argc == 2 (the passphrase is argv[1]).
+- Anti-debug: ptrace(PTRACE_TRACEME=0,...); if result == -1 (already traced) -> DENIED.
+- Timing guard: clock_gettime around a ~2,000,000-iteration busy loop; if elapsed
+  exceeds a threshold (single-step/instrumentation) -> DENIED. (Does NOT feed verify.)
+- Calls prepare() @ 0x12c0  (decrypts VM data into globals).
+- Calls verify(argv[1]) @ 0x1460.
+    0x118a test eax,eax ; 0x118c je -> DENIED(0x2238) ; else GRANTED(0x2258)
+  => verify() returns 1 => "ACCESS GRANTED"; returns 0 => "ACCESS DENIED".
+
+====================================================================
+3. prepare() @ 0x12c0 — runtime self-decryption (LCG keystream)
+====================================================================
+Decrypts a 349-byte (0x15d) blob at .rodata:0x20c0 with a glibc-style LCG:
+
+    seed = 0xC0FFEE42
+    for k in range(349):
+        seed = (seed*0x41C64E6D + 0x3039) & 0xFFFFFFFF
+        ks   = (seed >> 16) & 0xFF
+        out[k] = src[k] ^ ks
+
+Output split (scattered into globals via SSE stores):
+    out[0:256]   -> global 0x40C0  = 256-byte S-BOX  (== standard AES S-box:
+                    63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ...)
+    out[256:349] -> global 0x4060  = 93-byte VM PROGRAM (31 instructions)
+
+====================================================================
+4. verify() @ 0x1460 — the virtual machine
+====================================================================
+- If strlen(input) != 0x20 (32) -> return 0.  (passphrase is exactly 32 bytes)
+- VM state:
+    M[0..15] : 16-byte data memory, zero-initialised (rsp[0..0x10])
+    H (u32)  : accumulator at rsp[0x10], init 0x811C9DC5 (FNV-1a offset basis)
+    input    : the 32 argv bytes
+- Dispatch: computed-goto. opcode byte; instructions are 3 bytes each
+  (opcode, arg1, arg2). Jump table @ 0x2020, index = opcode-0xA1 for the
+  0xA1..0xC3 range; a few opcodes handled specially (0x17,0xD4,0xE5,0xE9,0xF6).
+
+Recovered opcode set (verified by disassembling each handler):
+    A1 a b   LDIN : M[a] = input[M[b]]        (only if M[b] < 32)
+    A7 a b   MOV  : M[a] = M[b]
+    B2 a b   SETI : M[a] = b                  (immediate)
+    B6 a .   SBOX : M[a] = sbox[M[a]]         (AES S-box)
+    C3 a b   XORCMP: flag = (M[a]==M[b]); M[a] ^= M[b]
+    D4 a b   ADD  : M[a] = (M[a] + b) & 0xFF  (immediate)
+    E5 a .   ROL  : M[a] = rol8(M[a], 3)
+    F6 a b   HASH : H = ((H ^ M[a])*P ^ ((M[b]<<8)|M[1])) * P   (P=0x01000193)
+    17 a .   JNZ  : if flag==0: pc = a        (used as the loop back-edge)
+    E9 . .   CHECK: result = (M[1]==0x20) && (H == 0x86D03165)
+    FF . .   (falls through to return)
+
+Full 31-instruction program (decrypted), decompiled:
+
+    SETI  M1 = 0            ; loop index i
+    SETI  M3 = 0x42         ; running key K
+  LOOP (pc=6):
+    LDIN  M0 = input[M1]        ; x0 = in[i]
+    MOV   M4 = M1 ; ADD M4 += 1 ; LDIN M2 = input[M4]  ; x1 = in[i+1]
+    MOV   M5 = M3 ; ROL M5      ; rol8(K,3)
+    MOV   M4 = M2 ; XORCMP M4^=M5 ; SBOX M4 ; XORCMP M4^=M0
+                                ; M4 = sbox[x1 ^ rol8(K,3)] ^ x0  == T
+    MOV   M0 = M2 ; MOV M2 = M4  ; carry x1, store T
+    MOV   M5 = M3 ; XORCMP M5^=M1 ; MOV M4=M2 ; XORCMP M4^=M5 ; SBOX M4 ; XORCMP M4^=M0
+                                ; M4 = sbox[T ^ K ^ i] ^ x1     == U
+    MOV   M0 = M2 ; MOV M2 = M4
+    HASH  M0,M2                 ; fold (T, U, i) into H
+    XORCMP M0 ^= M2 ; MOV M3 = M0   ; K = T ^ U   (key feedback)
+    ADD   M1 += 2              ; i += 2
+    SETI  M5 = 0x20 ; XORCMP M5 ^= M1   ; flag = (i+2 == 32)
+    JNZ   -> LOOP if flag==0   ; loop while i != 32  (16 iterations)
+    CHECK                      ; result = (i==32) && (H==0x86D03165)
+
+Clean pseudocode:
+
+    K = 0x42 ; H = 0x811C9DC5
+    for i in 0,2,4,...,30:              # 16 iterations, one byte-pair each
+        x0 = in[i] ; x1 = in[i+1]
+        T  = sbox[x1 ^ rol8(K,3)] ^ x0
+        U  = sbox[T  ^ K ^ i]     ^ x1
+        H  = ((H ^ T)*P ^ ((U<<8)|i)) * P        # mod 2^32, P=0x01000193
+        K  = T ^ U                               # feedback
+    GRANTED  iff  H == 0x86D03165
+
+So: a keyed AES-S-box stream transform with key feedback, folded into a rolling
+FNV-1a hash; the sole acceptance gate is H == 0x86D03165.
+
+====================================================================
+5. VERIFICATION (ground truth)
+====================================================================
+- Re-implemented the VM in pure Python.
+- Emulated the REAL binary in Unicorn: ran prepare() to populate globals
+  (decrypted program & sbox byte-for-byte identical to the Python model),
+  then ran verify() with a strlen hook.
+- Cross-check: Python H == binary H (captured at the 0x1664 compare) for
+  200/200 random inputs (0 mismatches). Model is exact.
+- All 200 random inputs REACH the final compare (0x1664) -> there is NO
+  per-character early-exit gate; the only decision is the final hash.
+
+====================================================================
+6. OPEN PROBLEM — why a single "flag" isn't falling out
+====================================================================
+The gate is a 32-bit value over 32 input bytes => the check is underdetermined:
+many distinct 32-byte strings satisfy H == 0x86D03165.
+- Constructed valid passphrases via meet-in-the-middle (FNV *P is invertible mod
+  2^32; the per-round cipher (x0,x1)<->(T,U) is invertible given K,i).
+- Example VERIFIED on the real binary (Unicorn verify() returns 1 = GRANTED):
+    IATCQ{d4rk_c0v3r_vm_rev33}Kbh<V}   (fully printable, hashes to 0x86D03165)
+  and 200+ other inputs also pass.
+- Nothing readable/flag-like is embedded anywhere (searched all sections, the
+  decrypted bytecode, and the S-box).
+
+Consequence: the author's EXACT IATCQ{...} string cannot be uniquely recovered
+from this binary alone via the hash. Recovering the intended flag requires either
+(a) the platform grading by executing the binary (any collision passes), or
+(b) an additional constraint/source not yet identified.
+
+NEXT STEPS to pursue:
+- Re-examine whether the intended flag is pinned by a stronger constraint I may
+  have under-modeled (revisit each handler once more, per the "store-with-no-load"
+  class of emulator bugs).
+- Consider that the flag content may be short + fixed padding (brute-forceable),
+  or a fixed charset (hex) that narrows the space.
+
+====================================================================
+7. TOOLING
+====================================================================
+Windows + capstone (disasm) + Unicorn (faithful execution / ground truth) +
+pure-Python model (LCG / AES S-box / FNV) + meet-in-the-middle key construction.
+Z3 was too slow on the 32-bit multiply chains; MITM exploiting FNV invertibility
+was the fast path.

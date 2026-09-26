@@ -1,0 +1,115 @@
+{
+  "content_hash": "8214bddb034bedf11c3b579f228eb313483c3fd919dd0e65309cf8965f52d489",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "crypto",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "JimmyBot",
+    "points": null,
+    "tags": [
+      "XOR Cipher",
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "8344cf369ad0daf1bf2c93f26e1a53296b08d15b684bc9793084aaf8b04632d5",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_jimmybot-writeup.html.html",
+    "extra": {
+      "author": "Manindar Mohan",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/jimmybot-writeup.html",
+      "challenge": "JimmyBot",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_jimmybot-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/jimmybot-writeup.html"
+  },
+  "record_id": "391e17b5b39fc3e2",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "JimmyBot is an automated bot with a dash of AI and a fatal flaw that was set up a challenge in DOME CTF 2020.",
+  "techniques": [
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "the output we can see that encode.py is a python script to XOR strings so we have to decode the XOR using a key, so we hav",
+      "keywords": [
+        "xor"
+      ],
+      "name": "XOR Cipher",
+      "technique_id": "xor-cipher"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "JimmyBot Writeup",
+  "trajectory": {
+    "completeness": 0.1818,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Magnus college deployed a bot to help students study programming. Unfortunately, there\u2019s a critical vulnerability in it. Find it before some bad actors use it for malicious activities."
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: Jimmy bot is an automated discord bot with a dash of AI and a fatal flaw.\n By giving help command, the bot will list the functionalities.\n\n By giving the command .ls we can see the flag.txt and a python script encode.py\n\n Using the .viewcode function, the bot displays some code blocks and the reverse function is the one with the vulnerability.\n\n             @bot.command  ()\n         asyn"
+      }
+    ]
+  }
+}

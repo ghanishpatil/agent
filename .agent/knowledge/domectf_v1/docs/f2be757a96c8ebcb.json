@@ -1,0 +1,87 @@
+{
+  "content_hash": "19a71d299b900a54a8b29e4b0d382454ee1376587816ac3564c48ffa03594ab9",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "missing",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "explicit",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "missing",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "",
+    "difficulty": "",
+    "event": "c0c0n XIV",
+    "flag_format": "",
+    "flags": [],
+    "name": "Murder",
+    "points": null,
+    "tags": []
+  },
+  "provenance": {
+    "content_sha256": "31927f157d2ed182d79e3f639c797b180ea30cdfdd3df1e1ad303d22326b0232",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_murder-writeup.html.html",
+    "extra": {
+      "author": "Nasim Sulaiman",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/murder-writeup.html",
+      "challenge": "murder",
+      "event": "c0c0n XIV",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_murder-writeup.html.html",
+      "source_origin": "discovered_from_explicit_source",
+      "year": "2021"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/murder-writeup.html"
+  },
+  "record_id": "f2be757a96c8ebcb",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Murder is a challenge at DomeCTF 2021 that requires you to find the flag by decoding the dataset made available for you.",
+  "techniques": [],
+  "title": "Murder Write-up",
+  "trajectory": {
+    "completeness": 0.2727,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Susan was found dead in her apartment. The investigation officer found a thumb drive from the crime scene. On examining the thumb drive, the officer found some images of food items are arranged in a particular order. This made him suspicious. \u201cYour task is to help him decode the images.\u201d"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "OBSERVATION",
+        "order": 1,
+        "source_heading": "Output:",
+        "text": "Output:: Written by\n     Nasim Sulaiman\n\n AI Engineer\n Nasim Sulaiman is a distinguished AI Engineer with a profound understanding of the intricacies of artificial intelligence. With a rich background in the field, Nasim excels in leveraging AI to tackle complex challenges and drive innovation. His expertise extends to designing and implementing AI solutions that push the boundaries of what's poss"
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 2,
+        "source_heading": "Solution",
+        "text": "Solution: We have sent you a zip file that contains a set of folders of images with names  \u2018if_you_need_use_me\u2019  and  \u2018predict_me\u2019 .\n\n In the folder  \u2018if_you_need_use_me\u2019 , there will be 2 folders named  \u2018Dessert\u2019  and  \u2018Soup\u2019 .\n\n Each folder (DESSERT and SOUP) contains 2000 images that can be used for the training process. The  \u2018predict_me\u2019  folder contains 1000 images of dessert and soups.\n To g"
+      }
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "jiaje": {
+    "all_safety_invariants_preserved": true,
+    "knowledge_attributable_verified_solves": 1,
+    "per_case": {
+      "kd2-baseline-solvable": {
+        "actions": 2,
+        "knowledge_attributable": false,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "retrieved_records": 0,
+        "safety_ok": true,
+        "time_to_first_action_ms": 7.194,
+        "time_to_verified_ms": 22.675,
+        "treatment_status": "SOLVED",
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_baseline}"
+      },
+      "kd2-knowledge-dependent": {
+        "actions": 4,
+        "knowledge_attributable": true,
+        "knowledge_hypotheses": 2,
+        "retrieval_calls": 1,
+        "retrieved_records": 1,
+        "safety_ok": true,
+        "time_to_first_action_ms": 11.686,
+        "time_to_verified_ms": 40.083,
+        "treatment_status": "SOLVED",
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_dependent}"
+      }
+    },
+    "verdict": "KNOWLEDGE-CONTRIBUTING: 1 knowledge-attributable verified solve(s); all safety invariants preserved; easy cases stayed on the fast path"
+  },
+  "local": {
+    "all_safety_invariants_preserved": true,
+    "knowledge_attributable_verified_solves": 0,
+    "per_case": {
+      "kd2-baseline-solvable": {
+        "actions": 2,
+        "knowledge_attributable": false,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "retrieved_records": 0,
+        "safety_ok": true,
+        "time_to_first_action_ms": 7.004,
+        "time_to_verified_ms": 21.687,
+        "treatment_status": "SOLVED",
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_baseline}"
+      },
+      "kd2-knowledge-dependent": {
+        "actions": 0,
+        "knowledge_attributable": false,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 1,
+        "retrieved_records": 3,
+        "safety_ok": true,
+        "time_to_first_action_ms": null,
+        "time_to_verified_ms": null,
+        "treatment_status": "BLOCKED",
+        "unnecessary_retrievals": 1,
+        "verified_flag": null
+      }
+    },
+    "verdict": "KNOWLEDGE-SAFE / NON-CONTRIBUTING: 0 knowledge-attributable verified solves"
+  },
+  "local_plus_jiaje": {
+    "all_safety_invariants_preserved": true,
+    "knowledge_attributable_verified_solves": 0,
+    "per_case": {
+      "kd2-baseline-solvable": {
+        "actions": 2,
+        "knowledge_attributable": false,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "retrieved_records": 0,
+        "safety_ok": true,
+        "time_to_first_action_ms": 7.928,
+        "time_to_verified_ms": 21.702,
+        "treatment_status": "SOLVED",
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_baseline}"
+      },
+      "kd2-knowledge-dependent": {
+        "actions": 0,
+        "knowledge_attributable": false,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 1,
+        "retrieved_records": 3,
+        "safety_ok": true,
+        "time_to_first_action_ms": null,
+        "time_to_verified_ms": null,
+        "treatment_status": "BLOCKED",
+        "unnecessary_retrievals": 1,
+        "verified_flag": null
+      }
+    },
+    "verdict": "KNOWLEDGE-SAFE / NON-CONTRIBUTING: 0 knowledge-attributable verified solves"
+  }
+}

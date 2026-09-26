@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 38522,
+  "content_sha256": "4cda353662e0bd8ba13f932428ce7fd9d2782b3de4e56a42c8c26f0ab9e677d3",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/the-spy-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:14.814601+00:00"
+}

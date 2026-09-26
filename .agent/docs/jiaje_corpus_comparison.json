@@ -1,0 +1,139 @@
+{
+  "comparison": {
+    "categories": {
+      "jiaje": {
+        "misc": 2,
+        "unknown": 2
+      },
+      "local": {
+        "crypto": 8,
+        "forensics": 1,
+        "misc": 4,
+        "pwn": 2,
+        "reverse": 3,
+        "unknown": 3,
+        "web": 11
+      }
+    },
+    "distinct_techniques": {
+      "jiaje": 17,
+      "local": 20
+    },
+    "documents": {
+      "jiaje": 4,
+      "local": 32
+    },
+    "failure_correction_coverage": {
+      "jiaje": 0.0,
+      "local": 0.1875
+    },
+    "mean_trajectory_completeness": {
+      "jiaje": 0.0683,
+      "local": 0.2843
+    },
+    "provenance_completeness": {
+      "jiaje": 1.0,
+      "local": 0.8
+    },
+    "techniques_only_in_jiaje": [],
+    "techniques_shared": [
+      "aes-mode-attack",
+      "buffer-overflow",
+      "classical-cipher",
+      "dynamic-analysis",
+      "format-string",
+      "hash-attack",
+      "memory-forensics",
+      "path-traversal",
+      "pcap-analysis",
+      "rsa-attack",
+      "sql-injection",
+      "ssrf",
+      "ssti",
+      "static-analysis",
+      "steganography",
+      "xor-cipher",
+      "xss"
+    ],
+    "unique_challenges": {
+      "jiaje": 4,
+      "local": 32
+    }
+  },
+  "jiaje_stats": {
+    "categories": {
+      "misc": 2,
+      "unknown": 2
+    },
+    "distinct_techniques": 17,
+    "documents": 4,
+    "documents_with_failures": 0,
+    "documents_with_techniques": 2,
+    "failure_correction_coverage": 0.0,
+    "mean_trajectory_completeness": 0.0683,
+    "provenance_completeness": 1.0,
+    "technique_coverage": {
+      "aes-mode-attack": 1,
+      "buffer-overflow": 1,
+      "classical-cipher": 1,
+      "dynamic-analysis": 2,
+      "format-string": 1,
+      "hash-attack": 1,
+      "memory-forensics": 1,
+      "path-traversal": 1,
+      "pcap-analysis": 1,
+      "rsa-attack": 1,
+      "sql-injection": 1,
+      "ssrf": 1,
+      "ssti": 1,
+      "static-analysis": 1,
+      "steganography": 1,
+      "xor-cipher": 1,
+      "xss": 1
+    },
+    "unique_challenges": 4,
+    "unique_documents": 4
+  },
+  "local_stats": {
+    "categories": {
+      "crypto": 8,
+      "forensics": 1,
+      "misc": 4,
+      "pwn": 2,
+      "reverse": 3,
+      "unknown": 3,
+      "web": 11
+    },
+    "distinct_techniques": 20,
+    "documents": 32,
+    "documents_with_failures": 6,
+    "documents_with_techniques": 24,
+    "failure_correction_coverage": 0.1875,
+    "mean_trajectory_completeness": 0.2843,
+    "provenance_completeness": 0.8,
+    "technique_coverage": {
+      "aes-mode-attack": 5,
+      "buffer-overflow": 1,
+      "classical-cipher": 4,
+      "dynamic-analysis": 3,
+      "format-string": 1,
+      "hash-attack": 6,
+      "heap-exploit": 1,
+      "jwt-attack": 1,
+      "memory-forensics": 1,
+      "path-traversal": 4,
+      "pcap-analysis": 2,
+      "rop": 6,
+      "rsa-attack": 5,
+      "sql-injection": 2,
+      "ssrf": 2,
+      "ssti": 2,
+      "static-analysis": 10,
+      "steganography": 3,
+      "xor-cipher": 6,
+      "xss": 3
+    },
+    "unique_challenges": 32,
+    "unique_documents": 32
+  }
+}

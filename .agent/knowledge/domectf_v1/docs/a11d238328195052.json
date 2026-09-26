@@ -1,0 +1,89 @@
+{
+  "content_hash": "bb5ef48ea02a568307efbe9a47eeb86ef180b587b9dedba031f58d590e9f1d2e",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "inferred",
+    "category": "inferred",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "missing",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "missing",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "reverse",
+    "difficulty": "",
+    "event": "c0c0n XII",
+    "flag_format": "",
+    "flags": [],
+    "name": "UnlockMe CTF",
+    "points": null,
+    "tags": [
+      "Static Analysis",
+      "Reverse Engineering"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "2b855240ac04e400f6b4d318dc1dc478e8059bc3ff77b5839901d6e9ebd6df0e",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__github.com_aencode_domectf_blob_master_c0c0n_xii_United_States_Play_Store.md.html",
+    "extra": {
+      "author": "Ashish Rana",
+      "canonical_url": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/United_States_Play_Store.md",
+      "challenge": "UnlockMe CTF",
+      "event": "c0c0n XII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__github.com_aencode_domectf_blob_master_c0c0n_xii_United_States_Play_Store.md.html",
+      "source_origin": "explicit_reference",
+      "year": "2019"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://github.com/aencode/domectf/blob/master/c0c0n_xii/United_States_Play_Store.md"
+  },
+  "record_id": "a11d238328195052",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "d0mectf organized by AppFabs. Contribute to AshishRanaX/domectf development by creating an account on GitHub.",
+  "techniques": [
+    {
+      "category": "reverse",
+      "confidence": 0.7,
+      "evidence": "have to find the flag in that APK. First it was simple to Decompile the APK. We used JADX De-compiler to decompile the APK. We",
+      "keywords": [
+        "decompil"
+      ],
+      "name": "Static Analysis",
+      "technique_id": "static-analysis"
+    },
+    {
+      "category": "reverse",
+      "confidence": 0.55,
+      "evidence": "have to find the flag in that APK. First it was simple to Decompile the APK. We used JADX De-compiler to decompile the APK. We",
+      "keywords": [
+        "decompile"
+      ],
+      "name": "Reverse Engineering",
+      "technique_id": "reversing"
+    }
+  ],
+  "title": "domectf/c0c0n_xii/United_States_Play_Store.md at master \u00b7 AshishRanaX/domectf \u00b7 GitHub",
+  "trajectory": {
+    "completeness": 0.0,
+    "steps": []
+  }
+}

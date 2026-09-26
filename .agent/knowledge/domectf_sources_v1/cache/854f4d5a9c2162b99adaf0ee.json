@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 0,
+  "content_sha256": "",
+  "content_type": "",
+  "error": "HTTPError 308 Permanent Redirect",
+  "final_url": "https://appfabs.com/blog/2019/09/30/cocon-xii-dome-ctf-2019-by-appfabs-and-kerala-police-cyberdome.html",
+  "http_status": 308,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:05.122414+00:00"
+}

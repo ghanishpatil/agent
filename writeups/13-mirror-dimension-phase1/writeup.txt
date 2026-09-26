@@ -1,0 +1,20 @@
+# Phase 1 // Mirror Dimension
+
+**CTF:** HexNova // Chakravyuh Dynamic Range
+**Category:** Crypto
+**Points:** 150
+**Flag:** `CHAKRA{p1_atbash-74D668}`
+
+---
+
+Connected via netcat. Service gave an Atbash-encoded string and asked to recover the original.
+
+Ciphertext: TXFEJYEFOF
+
+Atbash maps each letter to its mirror in the alphabet — A↔Z, B↔Y, C↔X and so on. Apply it to every letter, non-alpha chars stay unchanged.
+
+T→G, X→C, F→U, E→V, J→Q, Y→B, E→V, F→U, O→L, F→U
+
+Plaintext: GCUVQBVULU
+
+Sent it, got the flag. Atbash is its own inverse so you apply the same transform to both encode and decode.

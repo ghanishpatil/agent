@@ -1,0 +1,357 @@
+{
+  "generated_at": "2026-09-25T05:59:53.261439+00:00",
+  "note": "links recorded as DISCOVERED; none were fetched or followed",
+  "pages": {
+    "https://jia.je/ctf-writeups/puppeteer/index.html": {
+      "counts_by_classification": {
+        "anchor": 7,
+        "external": 4,
+        "internal_book": 18
+      },
+      "links": [
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html#redbud-puppeteer-ctf-writeups",
+          "in_content": false,
+          "text": "Skip to content"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/index.html",
+          "in_content": true,
+          "text": ""
+        },
+        {
+          "classification": "external",
+          "fetched": false,
+          "href": "https://github.com/jiegec/ctf-writeups",
+          "in_content": true,
+          "text": "GitHub\n  233"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/misc/solution.html",
+          "in_content": true,
+          "text": "Writeups by Solution"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/misc/pyjail.html",
+          "in_content": true,
+          "text": "Pyjail"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html",
+          "in_content": true,
+          "text": "Redbud Puppeteer"
+        },
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html#_1",
+          "in_content": true,
+          "text": "\u76ee\u5f55"
+        },
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html#week-0",
+          "in_content": true,
+          "text": "Week 0"
+        },
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html#week-1",
+          "in_content": true,
+          "text": "Week 1"
+        },
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html#week-2",
+          "in_content": true,
+          "text": "Week 2"
+        },
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html#week-3",
+          "in_content": true,
+          "text": "Week 3"
+        },
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html#week-4",
+          "in_content": true,
+          "text": "Week 4"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/index.html",
+          "in_content": true,
+          "text": "Redbud Summer 2026"
+        },
+        {
+          "classification": "external",
+          "fetched": false,
+          "href": "https://thuctf.redbud.info/",
+          "in_content": true,
+          "text": "Puppeteer"
+        },
+        {
+          "classification": "external",
+          "fetched": false,
+          "href": "https://ctf.jia.je/",
+          "in_content": true,
+          "text": "\u5b58\u6863\u7f51\u7ad9"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week0/easy-random-1.html",
+          "in_content": true,
+          "text": "Easy Random 1"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week0/easy-random-2.html",
+          "in_content": true,
+          "text": "Easy Random 2"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week0/the-old-gods-are-whispering.html",
+          "in_content": true,
+          "text": "The Old Gods Are Whispering"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week1/easy-pyjail-1.html",
+          "in_content": true,
+          "text": "Easy Pyjail 1"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week1/easy-random-3.html",
+          "in_content": true,
+          "text": "Easy Random 3"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week1/easy-re-1.html",
+          "in_content": true,
+          "text": "Easy RE 1"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week1/rosetta-3.html",
+          "in_content": true,
+          "text": "Rosetta 3"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week1/rsa-all-in-one.html",
+          "in_content": true,
+          "text": "RSA All in One"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week2/easy-random-4.html",
+          "in_content": true,
+          "text": "Easy Random 4"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week2/ecdsa-nonce-reuse.html",
+          "in_content": true,
+          "text": "ECDSA Nonce Reuse"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week3/easy-random-5.html",
+          "in_content": true,
+          "text": "Easy Random 5"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week3/rsa-partial-factorization.html",
+          "in_content": true,
+          "text": "RSA Partial Factorization"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/week4/easy-random-6.html",
+          "in_content": true,
+          "text": "Easy Random 6"
+        },
+        {
+          "classification": "external",
+          "fetched": false,
+          "href": "https://zensical.org/",
+          "in_content": false,
+          "text": "Zensical"
+        }
+      ],
+      "ok": true,
+      "writeup_link_candidates": 15
+    },
+    "https://jia.je/ctf-writeups/summer2026/index.html": {
+      "counts_by_classification": {
+        "anchor": 2,
+        "external": 2,
+        "internal_book": 14
+      },
+      "links": [
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/index.html#redbud-2026",
+          "in_content": false,
+          "text": "Skip to content"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/index.html",
+          "in_content": true,
+          "text": ""
+        },
+        {
+          "classification": "external",
+          "fetched": false,
+          "href": "https://github.com/jiegec/ctf-writeups",
+          "in_content": true,
+          "text": "GitHub\n  233"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/misc/solution.html",
+          "in_content": true,
+          "text": "Writeups by Solution"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/misc/pyjail.html",
+          "in_content": true,
+          "text": "Pyjail"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/puppeteer/index.html",
+          "in_content": true,
+          "text": "Redbud Puppeteer"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/index.html",
+          "in_content": true,
+          "text": "Redbud Summer 2026"
+        },
+        {
+          "classification": "anchor",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/index.html#pwn",
+          "in_content": true,
+          "text": "Pwn"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/ret2shellcode.html",
+          "in_content": true,
+          "text": "ret2shellcode"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/ret2shellcode-orw.html",
+          "in_content": true,
+          "text": "ret2shellcode-orw"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/baby_rop.html",
+          "in_content": true,
+          "text": "baby_rop"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/babysyscall.html",
+          "in_content": true,
+          "text": "babysyscall"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/jarvisoj_x64.html",
+          "in_content": true,
+          "text": "jarvisoj_x64"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/stack_pivot.html",
+          "in_content": true,
+          "text": "stack_pivot"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/setcontext.html",
+          "in_content": true,
+          "text": "setcontext"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/2025-09-27-sunshine-ctf-2025/jupiter.html",
+          "in_content": true,
+          "text": "jupiter"
+        },
+        {
+          "classification": "internal_book",
+          "fetched": false,
+          "href": "https://jia.je/ctf-writeups/summer2026/paragraph.html",
+          "in_content": true,
+          "text": "paragraph"
+        },
+        {
+          "classification": "external",
+          "fetched": false,
+          "href": "https://zensical.org/",
+          "in_content": false,
+          "text": "Zensical"
+        }
+      ],
+      "ok": true,
+      "writeup_link_candidates": 11
+    }
+  }
+}

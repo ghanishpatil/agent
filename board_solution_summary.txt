@@ -1,0 +1,49 @@
+BOARD.PNG FORENSICS CHALLENGE - SOLUTION SUMMARY
+================================================
+
+Challenge: "Who wins?"
+Category: Forensics
+Points: 300
+Flag Format: KAAL{}
+
+ANALYSIS PERFORMED:
+1. File structure analysis - No appended data, no hidden chunks
+2. LSB steganography - No hidden data in RGB/Alpha channels
+3. Metadata examination - No text chunks or EXIF data
+4. Visual analysis - 720x720 PNG with game board
+
+BOARD STATE:
+- 8x8 grid with pieces
+- Black pieces (12): a7, b6, b7, b8, d5, d6, d8, e7, f8, g8, h5, h7
+- White pieces (11): c3, d4, e1, f1, f2, f3, f6, g3, h1, h2, h6
+
+GAME TYPE ANALYSIS:
+1. Chess - Cannot determine without knowing piece types
+2. Checkers - Both sides have moves (14 each), game continues
+3. Reversi/Othello - BLACK WINS (12 vs 11 pieces)
+4. Go - Doesn't match Go patterns
+
+CONCLUSION:
+Most likely interpretation: REVERSI/OTHELLO game
+Winner: BLACK (has more pieces)
+
+RECOMMENDED FLAGS TO TRY:
+Primary candidates:
+1. Kaal{black}
+2. KAAL{BLACK}
+3. Kaal{Black}
+4. KAAL{black}
+
+Alternative if wrong:
+5. Kaal{white}
+6. KAAL{WHITE}
+7. Kaal{reversi}
+8. Kaal{othello}
+
+CONFIDENCE: Medium-High
+The board shows a clear Reversi/Othello endgame where BLACK has 12 pieces
+and WHITE has 11 pieces. In Reversi, the player with more pieces wins.
+
+NEXT STEPS:
+Try the flag formats above on the CTF platform.
+Most likely: Kaal{black} (following the Kaal{} format from previous challenges)

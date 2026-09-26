@@ -1,0 +1,10 @@
+
+[6-16]
+exit0x7ffc4e5d4d68.0x6dfe16571e56a472.0x1.(nil).0x403e18.0x7f84f78c4000.0x6dfe16571f36a472.0x6d0f643e0494a472.0x7ffc00000000.(nil).(nil)AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA¢@Look ma, I made sure you can't rop no more.
+>> 
+[17-27]
+exit0x1.0x7fff86816720.0xc5090461ba8ad000.0x7fff86816700.0x7fa3b6c5928b.0x7fff86816738.0x403e18.0x7fff86816738.0x4012a2.(nil).(nil)AAAAAAAAAAAAAAAAAAAAAAAAAAA¢@Look ma, I made sure you can't rop no more.
+>> 
+[28-38]
+exit0x401110.0x7ffde8e4c6a0.(nil).(nil).(nil).0x401135.0x7ffde8e4c698.0x38.0x1.0x7ffde8e4dea6.(nil)AAAAAAAAAAAAAAAAAAAAAAAAAAA¢@Look ma, I made sure you can't rop no more.
+>> 

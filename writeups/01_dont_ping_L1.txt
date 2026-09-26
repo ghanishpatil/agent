@@ -1,0 +1,21 @@
+# Don't Ping that Cat! (L1)
+
+**Flag:** `TDHT{k03pzlXhPjBS3yy1DFVRT5Mz7A}`
+
+---
+
+Same old ping utility page. Text box, you enter a host, it pings it. The title literally says "Command Injection" so not much guessing needed.
+
+Threw a semicolon in there to chain a second command:
+
+```
+127.0.0.1; ls /
+```
+
+Got a directory listing back. Found the flag at `/tmp/flag.txt` using find, then just read it:
+
+```
+127.0.0.1; cat /tmp/flag.txt
+```
+
+Flag popped out below the ping output. No filtering at all on this one.

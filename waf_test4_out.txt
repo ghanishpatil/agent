@@ -1,0 +1,9 @@
+Warning: _curses.error: setupterm: could not find terminfo database
+
+Terminal features will not be available.  Consider setting TERM variable to your current terminal name (or xterm).
+{'K': 0, 'out': b'exitL:0x7ffd27f258d8:0x100400040:0x4012a2:0x7ffd27f258d8:0xfdd6845af94106db:0x1:(nil):0x403e18:0x7fa416c4d000:0xfdd6845ae66106db:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', 'looped': False}
+{'K': 1, 'out': b'exitL:0x100400040:0x4012a2:0x7ffc16f549b8:0x34c3b65b0b12f26c:0x1:(nil):0x403e18:0x7f1cf11f1000:0x34c3b65b0832f26c:0x35027a48ba70f26c:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\xb8I\xf5\x16\xfc\x7f', 'looped': False}
+{'K': 2, 'out': b'exitL:0x4012a2:0x7ffd762f1508:0xf5c44bb6c67499de:0x1:(nil):0x403e18:0x7f5f68d62000:0xf5c44bb6c89499de:0xf480768fac7699de:0x7ffd00000000:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA@', 'looped': False}
+{'K': 3, 'out': b"exitL:0x7fff7de20dd8:0x898a0610cca5efca:0x1:(nil):0x403e18:0x7f3cf592f000:0x898a0610cf85efca:0x880d17343507efca:0x7fff00000000:(nil):AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\xa2\x12@Look ma, I made sure you can't rop no more.\n>> ", 'looped': True}
+{'K': 4, 'out': b'exitL:0x59c719dff9147136:0x1:(nil):0x403e18:0x7f9c0ef43000:0x59c719dff8347136:0x5904104ec3f67136:0x7ffd00000000:(nil):(nil):AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx-\x19\x8a\xfd\x7f', 'looped': False}
+{'K': 5, 'out': b'exitL:0x1:(nil):0x403e18:0x7fcc05bcb000:0x923cec5b03b35e05:0x925a7fbe41715e05:0x7fff00000000:(nil):(nil):0x1:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x05^\x93', 'looped': False}

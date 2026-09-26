@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 67381,
+  "content_sha256": "7fa8d7cbe0469752f6ca0fd48ce89302dda89eed63b132c0177022f3eea63c78",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/tpm-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:45.255562+00:00"
+}

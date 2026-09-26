@@ -1,0 +1,36 @@
+# Shopping! Level 2
+
+**Flag:** `TDHT{5640e184eecc1d886f8d3614e1254b0702f7}`
+
+---
+
+Same Northline Market product catalog from level 1. Nine items, images loaded through `/image.php?path=/var/www/html/bag.png`. Tried the direct LFI from L1 — `/image.php?path=/etc/flag.txt` — got back "Are we trying to be sneaky? I don't think so." So there's a filter now.
+
+Read the source by pointing image.php at itself:
+
+```
+/image.php?path=/var/www/html/image.php
+```
+
+Got the full PHP. The guard function does two things — checks that the path starts with `/var/www/html/` and then runs two `str_replace` calls to strip `../` and `./`:
+
+```php
+function vuln_image_guard($path) {
+    if (!str_starts_with($path, '/var/www/html/')) return 'sneaky';
+    $path = str_replace('../', '', $path);
+    $path = str_replace('./', '', $path);
+    return $path;
+}
+```
+
+PHP's `str_replace` is single-pass, not recursive. It scans through once and moves on. So you can nest characters that reform into a traversal after both passes run. Tried a bunch of things that collapsed to nothing — `....//`, `..././`, URL encoding tricks. None of them survived both removal steps.
+
+Eventually found that `.....///` (five dots, three slashes) works. After step 1 strips `../` from it, you're left with `...//'`. Then step 2 strips `./` from that, leaving `../`. Traversal reformed.
+
+Three levels up from `/var/www/html/` gets you to root. Final payload:
+
+```
+/image.php?path=/var/www/html/.....///.....///.....///etc/flag.txt
+```
+
+After filtering, the server sees `/var/www/html/../../../etc/flag.txt`, the OS resolves it to `/etc/flag.txt`, and `file_get_contents` reads it out. Flag came back in the response body directly.

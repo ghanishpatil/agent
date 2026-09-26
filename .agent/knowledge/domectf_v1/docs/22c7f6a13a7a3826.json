@@ -1,0 +1,108 @@
+{
+  "content_hash": "6e38999d6d42903ec6ef0c4e7a9b6adb5afe4f0e5a36f9c97bbb8dc32979450d",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "missing",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "missing",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "missing",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "web",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [],
+    "name": "TikTok",
+    "points": null,
+    "tags": [
+      "Path Traversal",
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "dee2b3c9f5b6d3b91bb001326da5489ad89330e9717f25beacac371014cd2fcb",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_tiktok-writeup.html.html",
+    "extra": {
+      "author": "Nash N Sulthan",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/tiktok-writeup.html",
+      "challenge": "TikTok",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_tiktok-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/tiktok-writeup.html"
+  },
+  "record_id": "22c7f6a13a7a3826",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "The challenge starts at https://tiktok.domectf.in/dashboard/login.php. It will welcome you with a login page. The login page uses Php strcmp() function to check the password. It can be bypassed by capturing the request with ZAP/Burp and replacing the email=admin@mail.com&amp;pass=abc with email=admin&amp;pass[]=abc. If we navigate to https://tiktok.domectf.in/dashboard/icons.php, there are a lot of...",
+  "techniques": [
+    {
+      "category": "web",
+      "confidence": 0.7,
+      "evidence": "main () Using this script you can inject payload \u201c../../icons.php\u201d and retrieve source code of the php file. Insp",
+      "keywords": [
+        "../"
+      ],
+      "name": "Path Traversal",
+      "technique_id": "path-traversal"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Tiktok Writeup",
+  "trajectory": {
+    "completeness": 0.0909,
+    "steps": [
+      {
+        "confidence": 0.7,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 0,
+        "source_heading": "",
+        "text": "solution code block present"
+      }
+    ]
+  }
+}

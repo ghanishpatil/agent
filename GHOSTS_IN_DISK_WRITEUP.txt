@@ -1,0 +1,241 @@
+Ghosts in the Disk - Writeup
+
+Flag: Kaal{7h3_1m4g3_sp34ks_wh3n_7h3_byt3s_4l1gn}
+
+Description
+
+A disk image from a compromised machine containing multiple files of interest. Initial inspection revealed no explicitly malicious content, but valuable information was hidden in plain sight or embedded within existing data. The challenge involved analyzing a 1.5 GB FAT32 disk image with corrupted filesystem structures, requiring manual parsing, archive recovery, password cracking, Android reverse engineering, and steganography extraction.
+
+Solution
+
+Step 1: Initial Disk Image Analysis
+
+The challenge provided disk1.zip containing Disk2.001, a raw disk image. We extracted and identified it:
+
+unzip disk1.zip
+file Disk2.001
+
+Output: DOS/MBR boot sector ... FAT (32 bit)
+
+The image was a raw FAT32 filesystem without a partition table. Standard mounting tools failed due to filesystem corruption, requiring manual analysis.
+
+Step 2: Manual FAT32 Filesystem Parsing
+
+We wrote a Python script to manually parse the FAT32 structures by reading the BIOS Parameter Block (BPB):
+
+import struct
+
+with open("Disk2.001", "rb") as f:
+    data = f.read()
+
+# Parse BPB values
+bytes_per_sector = 512
+sectors_per_cluster = 8
+reserved_sectors = 206
+num_fats = 2
+fat_size_32 = 3993
+
+# Calculate data area start
+# Expected: (206 + 3993 + 3993) * 512 = 4,194,304 bytes
+# Actual: 4,194,303 bytes (off by 1)
+
+data_start = 4194303  # Manually corrected offset
+cluster_size = sectors_per_cluster * bytes_per_sector  # 4096 bytes
+
+The critical discovery was a 1-byte offset discrepancy. This single-byte corruption broke automated tools but could be corrected manually.
+
+Step 3: Discovering FL4G.7Z
+
+With the corrected offset, we parsed directory entries. The root directory starts at cluster 2. Navigating to the Desktop folder (cluster 5) revealed FL4G.7Z:
+- Starting cluster: 8
+- File size: 34,481,754 bytes
+
+We extracted it by calculating the exact offset:
+
+file_offset = data_start + (8 - 2) * cluster_size
+file_offset = 4194303 + 24576 = 4,218,879
+
+file_data = data[file_offset:file_offset + 34481754]
+with open("FL4G.7z", "wb") as f:
+    f.write(file_data)
+
+Step 4: Repairing the Corrupted 7z Archive
+
+The extracted 7z file had a corrupted header. The 7z magic signature should be: 37 7a bc af 27 1c
+Our file had: 37 bc af 27 1c ... (missing 0x7a at position 1)
+
+We fixed it by inserting the missing byte:
+
+fixed_data = file_data[0:1] + b'\x7a' + file_data[1:]
+with open("FL4G_fixed.7z", "wb") as f:
+    f.write(fixed_data)
+
+Step 5: Cracking the 7z Password
+
+The archive was password-protected with 7zAES encryption. We tried common passwords:
+
+7z t -pwelcome FL4G_fixed.7z
+
+Output: Everything is Ok
+
+The password was "welcome". We extracted the archive contents.
+
+Step 6: Analyzing Archive Contents
+
+The archive contained:
+- Android project folder "Secure OTP"
+- Several APK files
+- Enter final Pass.apk
+- FL4G.jpg (2.1 MB image)
+
+Step 7: Reverse Engineering the Android APK
+
+We decompiled Enter final Pass.apk using apktool and found the flag decryption logic in smali bytecode:
+
+ENCRYPTED_FLAG = "ETs7NiEJNTcuMjM0PSc="
+XOR_KEY = 0x5a
+
+The decryption method:
+1. Base64 decode the encrypted string
+2. XOR each byte with key 0x5a
+3. Convert to UTF-8 string
+
+We implemented this in Python:
+
+import base64
+
+encrypted = "ETs7NiEJNTcuMjM0PSc="
+xor_key = 0x5a
+
+decoded = base64.b64decode(encrypted)
+flag = bytes([b ^ xor_key for b in decoded]).decode('utf-8')
+print(flag)
+
+Output: Kaal{Somthing}
+
+This was an intermediate result. The real flag was in the image.
+
+Step 8: Steganography in FL4G.jpg
+
+We used steghide to check for hidden data in FL4G.jpg:
+
+steghide info FL4G.jpg
+
+Data was confirmed to be embedded. We extracted it using the same password:
+
+steghide extract -sf FL4G.jpg -p welcome -xf output.txt
+cat output.txt
+
+Output: Kaal{7h3_1m4g3_sp34ks_wh3n_7h3_byt3s_4l1gn}
+
+This was the final flag. The leetspeak translates to "The image speaks when the bytes align" - referencing both the steganography and the byte alignment issues throughout the challenge.
+
+Complete Solution Script
+
+#!/usr/bin/env python3
+import struct
+import base64
+import subprocess
+
+def parse_fat32_and_extract():
+    with open("Disk2.001", "rb") as f:
+        data = f.read()
+    
+    # Corrected FAT32 parameters
+    data_start = 4194303
+    cluster_size = 4096
+    file_cluster = 8
+    file_size = 34481754
+    
+    # Extract FL4G.7z
+    file_offset = data_start + (file_cluster - 2) * cluster_size
+    file_data = data[file_offset:file_offset + file_size]
+    
+    # Fix corrupted header
+    fixed_data = file_data[0:1] + b'\x7a' + file_data[1:]
+    
+    with open("FL4G_fixed.7z", "wb") as f:
+        f.write(fixed_data)
+    
+    return "FL4G_fixed.7z"
+
+def extract_archive(filename, password="welcome"):
+    subprocess.run(["7z", "x", f"-p{password}", filename, "-oextracted"])
+
+def decrypt_apk_flag():
+    encrypted = "ETs7NiEJNTcuMjM0PSc="
+    xor_key = 0x5a
+    decoded = base64.b64decode(encrypted)
+    return bytes([b ^ xor_key for b in decoded]).decode('utf-8')
+
+def extract_steganography(image, password="welcome"):
+    subprocess.run(["steghide", "extract", "-sf", image, "-p", password, "-xf", "flag.txt"])
+    with open("flag.txt", "r") as f:
+        return f.read().strip()
+
+# Main execution
+archive = parse_fat32_and_extract()
+extract_archive(archive)
+apk_flag = decrypt_apk_flag()
+final_flag = extract_steganography("extracted/FL4G.jpg")
+print(f"Final Flag: {final_flag}")
+
+Attack Chain Summary
+
+1. Extracted disk1.zip to obtain Disk2.001 FAT32 image
+2. Identified filesystem corruption preventing standard mounting
+3. Manually parsed FAT32 Boot Parameter Block
+4. Discovered 1-byte offset discrepancy (4,194,303 vs 4,194,304)
+5. Corrected offset and navigated directory structure
+6. Found FL4G.7Z at cluster 8 (34,481,754 bytes)
+7. Extracted file from calculated offset
+8. Identified corrupted 7z header (missing 0x7a byte)
+9. Repaired header by inserting missing byte
+10. Cracked password: "welcome"
+11. Extracted archive: APK files and FL4G.jpg
+12. Decompiled Enter final Pass.apk
+13. Found Base64 + XOR encrypted flag in bytecode
+14. Decrypted APK flag: Kaal{Somthing} (intermediate)
+15. Used steghide on FL4G.jpg with password "welcome"
+16. Extracted final flag: Kaal{7h3_1m4g3_sp34ks_wh3n_7h3_byt3s_4l1gn}
+
+Key Techniques
+
+- FAT32 filesystem manual parsing
+- BIOS Parameter Block analysis
+- Cluster-to-offset calculations
+- Corrupted filesystem recovery
+- File carving from raw disk images
+- 7z archive header repair
+- Password cracking
+- Android APK reverse engineering
+- Smali bytecode analysis
+- Base64 decoding and XOR decryption
+- Image steganography extraction
+
+Tools Used
+
+- file command for image identification
+- Python with struct module for binary parsing
+- Hex editor for header examination
+- 7z for archive extraction
+- apktool for APK decompilation
+- steghide for steganography extraction
+
+Security Lessons
+
+This challenge demonstrates multiple layers of digital forensics that mirror real-world incident response. The filesystem corruption shows how data can be hidden from automated tools while remaining recoverable through manual analysis. Attackers sometimes intentionally corrupt structures to evade detection.
+
+The single-byte offset error and missing byte in the 7z header required knowledge of FAT32 structure and 7z file format specifications. This highlights the importance of understanding file formats at the binary level.
+
+The challenge illustrated defense in depth through multiple obfuscation layers: filesystem corruption, archive encryption, code obfuscation in the APK, and steganography. Each layer required different skills and tools.
+
+The weak password "welcome" demonstrates that even strong encryption algorithms like 7zAES become useless with poor password choices. This is a common real-world security failure.
+
+The steganography component shows how data can be hidden in plain sight. The FL4G.jpg appeared completely normal but contained the flag embedded within it, a technique used in real-world data exfiltration and covert communication.
+
+The challenge title "Ghosts in the Disk" perfectly captures hidden data that exists but isn't immediately visible - like ghosts, the information was there all along, just not in a form standard tools could see.
+
+Flag
+
+Kaal{7h3_1m4g3_sp34ks_wh3n_7h3_byt3s_4l1gn}

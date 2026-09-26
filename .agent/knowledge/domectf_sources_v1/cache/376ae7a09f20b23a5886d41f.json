@@ -1,0 +1,12 @@
+{
+  "content_length_bytes": 53153,
+  "content_sha256": "c631242797aaecf2f1c9df17098f9c9302cbf16b4e1f7e432511dbe20389c846",
+  "content_type": "text/html; charset=utf-8",
+  "error": null,
+  "final_url": "https://rahulr.in/C0C0N-XII-CTF-Walkthrough/",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:06.559610+00:00",
+  "stored_raw_differs_from_refetch": true
+}

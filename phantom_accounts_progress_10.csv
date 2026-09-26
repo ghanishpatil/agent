@@ -1,0 +1,14 @@
+index,username,email,password,status
+2,phantom_00002,phantom00002@ctftest.local,PhantomPass00002!@#,success
+3,phantom_00003,phantom00003@ctftest.local,PhantomPass00003!@#,success
+10,phantom_00010,phantom00010@ctftest.local,PhantomPass00010!@#,success
+71,phantom_00071,phantom00071@ctftest.local,PhantomPass00071!@#,success
+72,phantom_00072,phantom00072@ctftest.local,PhantomPass00072!@#,success
+73,phantom_00073,phantom00073@ctftest.local,PhantomPass00073!@#,success
+74,phantom_00074,phantom00074@ctftest.local,PhantomPass00074!@#,success
+80,phantom_00080,phantom00080@ctftest.local,PhantomPass00080!@#,success
+321,phantom_00321,phantom00321@ctftest.local,PhantomPass00321!@#,success
+325,phantom_00325,phantom00325@ctftest.local,PhantomPass00325!@#,success
+326,phantom_00326,phantom00326@ctftest.local,PhantomPass00326!@#,success
+327,phantom_00327,phantom00327@ctftest.local,PhantomPass00327!@#,success
+328,phantom_00328,phantom00328@ctftest.local,PhantomPass00328!@#,success

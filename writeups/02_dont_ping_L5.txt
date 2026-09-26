@@ -1,0 +1,17 @@
+# Don't Ping that Cat! (Level 5)
+
+**Flag:** `TDHT{Cg6NjRspE4DBCHqHmMaMtTijSi946ica}`
+
+---
+
+Same ping form as L1 but now there's filtering. Tried the basic `127.0.0.1; cat /tmp/flag.txt` and got "Invalid input. Trying to be sneaky?" back. Semicolons with spaces, pipes with spaces — all blocked.
+
+Tried pipe with no space: `127.0.0.1|id` — worked. Got `uid=33(www-data)` in the output. So the filter is catching spaces specifically.
+
+Used `${IFS}` as a space substitute (bash expands it to whitespace):
+
+```
+127.0.0.1|cat${IFS}/etc/flag.txt
+```
+
+No literal space character anywhere, but bash still treats `${IFS}` as a separator. Filter doesn't catch it, flag comes back clean.

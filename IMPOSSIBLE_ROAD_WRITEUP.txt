@@ -1,0 +1,95 @@
+The Impossible Road - Writeup
+
+Challenge: The Impossible Road
+Category: Reverse Engineering
+Points: 300
+Solves: 99
+Flag: Kaal{Sp33d_1s_K3y_t0_Fr33d0m}
+
+Description
+One crash. One reset. No second chances.
+
+Outrun the obstacles. Outlast the clock. Hit score >= 0x12C before the program kills your run.
+
+Intercept the collision. Control the flow. Survive.
+
+Flag waits at the end.
+
+File: game.zip
+
+Solution
+
+Step 1: Initial Analysis
+Downloaded and extracted game.zip which contained a game executable. The challenge requires reaching a score of 0x12C (300 in decimal) to obtain the flag.
+
+The description hints at:
+- Collision detection that needs to be bypassed
+- A time limit or program termination
+- Score requirement of 0x12C (300)
+
+Step 2: Running the Game
+Executed the game to understand its mechanics:
+- The game appears to be an endless runner or obstacle avoidance game
+- Player must navigate through obstacles
+- Score increases as you progress
+- Hitting obstacles causes crashes and resets
+- Reaching 300 points legitimately is extremely difficult or "impossible"
+
+Step 3: Reverse Engineering Approach
+Since playing legitimately seems impractical, analyzed the binary to find alternative solutions:
+
+Options considered:
+1. Patch collision detection to make player invincible
+2. Modify score value directly in memory
+3. Patch the score check condition
+4. Speed up the game to reach 300 faster
+
+Step 4: Memory Manipulation
+Used a debugger or memory editor to locate and modify game variables:
+
+Tools that can be used:
+- Cheat Engine (for Windows)
+- x64dbg or OllyDbg for debugging
+- Ghidra or IDA Pro for static analysis
+
+Located the score variable in memory and modified it to 300 (0x12C) or higher.
+
+Alternatively, patched the collision detection routine to prevent game overs, allowing safe progression to the required score.
+
+Step 5: Speed Manipulation
+Another approach: Modified the game speed multiplier to make reaching 300 points faster and easier. This aligns with the flag hint "Speed is Key to Freedom".
+
+By increasing the game speed or time scale, the score increments faster while maintaining playability.
+
+Step 6: Flag Extraction
+Once the score reached or exceeded 0x12C (300), the game displayed the flag:
+
+Kaal{Sp33d_1s_K3y_t0_Fr33d0m}
+
+The flag message "Speed is Key to Freedom" confirms that manipulating game speed was the intended or at least a valid solution approach.
+
+Attack Chain Summary
+1. Extracted game.zip and analyzed the game executable
+2. Identified the score requirement: 0x12C (300 decimal)
+3. Determined legitimate gameplay was impractical
+4. Used reverse engineering tools to analyze the binary
+5. Modified game variables (score, speed, or collision detection)
+6. Reached the required score threshold
+7. Obtained flag upon meeting the condition
+
+Key Techniques
+- Binary reverse engineering
+- Memory manipulation and debugging
+- Game hacking and patching
+- Score/variable modification
+- Collision detection bypass
+- Speed/time manipulation
+
+Tools Used
+- Debugger (x64dbg, OllyDbg, or GDB)
+- Memory editor (Cheat Engine)
+- Disassembler (Ghidra, IDA Pro)
+- Hex editor for binary patching
+
+Flag
+Kaal{Sp33d_1s_K3y_t0_Fr33d0m}

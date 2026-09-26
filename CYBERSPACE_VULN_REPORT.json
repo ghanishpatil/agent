@@ -1,0 +1,30 @@
+{
+  "target": "https://cyberspacevr.in",
+  "timestamp": "2026-05-24T01:13:37.432282",
+  "vulnerabilities": [
+    {
+      "severity": "MEDIUM",
+      "title": "Missing X-XSS-Protection Header",
+      "description": "The application does not implement X-XSS-Protection security header",
+      "impact": "Increased risk of XSS, clickjacking, or MIME sniffing attacks"
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "Missing Rate Limiting",
+      "description": "No rate limiting detected on endpoints",
+      "impact": "Vulnerable to brute force and DoS attacks"
+    },
+    {
+      "severity": "HIGH",
+      "title": "Reflected XSS Vulnerability",
+      "description": "User input is reflected without sanitization",
+      "impact": "Session hijacking, credential theft possible"
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "critical": 0,
+    "high": 1,
+    "medium": 2
+  }
+}

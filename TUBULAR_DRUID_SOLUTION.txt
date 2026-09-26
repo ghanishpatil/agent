@@ -1,0 +1,54 @@
+================================================================================
+भ्रमित CTF (TUBULAR DRUID) - COMPLETE SOLUTION
+================================================================================
+
+Website: https://tubular-druid-6212cc.netlify.app
+
+================================================================================
+THE THREE FLAGS:
+================================================================================
+
+1. FLAG 1 (Page 42): CTF{THIS_IS_WRONG}
+   - Hidden in plain sight as a "fake" flag
+   - The trick: it LOOKS fake but it's actually REAL
+   - Found in: "FLAG1 इथेच आहे: CTF{THIS_IS_WRONG}"
+
+2. FLAG 2 (Page 73): CTF{HELLO_ASHISH}
+   - Hidden in Marathi text
+   - Found in: "HELLO_ASHISH, पण तो ध्वज असू शकतो? CTF{HELLO_ASHISH}"
+
+3. FLAG 3 (Page 99): CTF{SANSCRIT_ध्वज_भ्रम}
+   - Hidden in Sanskrit shloka style
+   - Found in: "ध्वज तिसरा येथे लपविला आहे: CTF{SANSCRIT_ध्वज_भ्रम}"
+
+================================================================================
+SOLUTION SUMMARY:
+================================================================================
+
+Visit these pages:
+- https://tubular-druid-6212cc.netlify.app/#page42
+- https://tubular-druid-6212cc.netlify.app/#page73
+- https://tubular-druid-6212cc.netlify.app/#page99
+
+The hint "42, 73, 99" from the image was correct!
+
+================================================================================
+FAKE FLAGS (IGNORE):
+================================================================================
+
+- CTF{IGNORE_ME}
+- CTF{NOT_A_FLAG}
+- CTF{FAKE_FLAG}
+- CTF{DUMMY_ALERT}
+- CTF{FAKE_CONSOLE_FLAG}
+- CTF{???}
+
+================================================================================
+THE TRICK:
+================================================================================
+
+The main deception: CTF{THIS_IS_WRONG} appears to be fake (even says "WRONG" 
+in the name), but it's actually the REAL first flag! This is the confusion 
+layer - making you think the real flag is fake.
+
+================================================================================

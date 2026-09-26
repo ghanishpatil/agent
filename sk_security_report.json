@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-05-16 01:49:44",
+  "target": "https://smartkopargaonhackathon.vercel.app",
+  "vulnerabilities": [
+    {
+      "severity": "HIGH",
+      "category": "IDOR",
+      "description": "Can access user 1 without auth",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "HIGH",
+      "category": "IDOR",
+      "description": "Can access user 2 without auth",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "HIGH",
+      "category": "IDOR",
+      "description": "Can access user 100 without auth",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "HIGH",
+      "category": "IDOR",
+      "description": "Can access user 999 without auth",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "HIGH",
+      "category": "IDOR",
+      "description": "Can access user admin without auth",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Broken Access Control",
+      "description": "Admin endpoint accessible without auth: /api/admin/users",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Broken Access Control",
+      "description": "Admin endpoint accessible without auth: /api/admin/stats",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Broken Access Control",
+      "description": "Admin endpoint accessible without auth: /api/admin/teams",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "Broken Access Control",
+      "description": "Admin endpoint accessible without auth: /api/admin/submissions",
+      "evidence": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-s"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Missing Rate Limiting",
+      "description": "No rate limiting detected - 20/20 requests succeeded",
+      "evidence": ""
+    }
+  ],
+  "findings": [
+    {
+      "category": "SQL Injection",
+      "description": "No obvious SQLi in login"
+    },
+    {
+      "category": "Config Endpoint",
+      "description": "/api/config accessible but no obvious secrets"
+    },
+    {
+      "category": "Config Endpoint",
+      "description": "/api/event-config accessible but no obvious secrets"
+    },
+    {
+      "category": "Config Endpoint",
+      "description": "/api/admin/event-config accessible but no obvious secrets"
+    },
+    {
+      "category": "Config Endpoint",
+      "description": "/.env accessible but no obvious secrets"
+    },
+    {
+      "category": "Config Endpoint",
+      "description": "/config.json accessible but no obvious secrets"
+    }
+  ]
+}

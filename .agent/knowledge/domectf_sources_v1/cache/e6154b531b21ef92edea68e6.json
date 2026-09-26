@@ -1,0 +1,12 @@
+{
+  "content_length_bytes": 5974,
+  "content_sha256": "fb123fe63da68faa351af9568e8fa2bdcbda1c38378d2730eefcbdbeb6934cd1",
+  "content_type": "text/html; charset=UTF-8",
+  "error": "HTTPError 403 Forbidden",
+  "final_url": "https://medium.com/bugbountywriteup/domectf-writeup-the-matrix-9f863a9fe6b4",
+  "http_status": 403,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:15.742550+00:00",
+  "stored_raw_differs_from_refetch": true
+}

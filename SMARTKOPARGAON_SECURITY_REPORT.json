@@ -1,0 +1,61 @@
+{
+  "target": "https://smartkopargaonhackathon.vercel.app",
+  "timestamp": "2026-05-16T02:00:55.742367",
+  "vulnerabilities": [
+    {
+      "severity": "MEDIUM",
+      "category": "Missing Security Header",
+      "description": "Missing X-Content-Type-Options header",
+      "recommendation": "Add X-Content-Type-Options header to responses"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Missing Security Header",
+      "description": "Missing X-Frame-Options header",
+      "recommendation": "Add X-Frame-Options header to responses"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Missing Security Header",
+      "description": "Missing CSP header",
+      "recommendation": "Add Content-Security-Policy header to responses"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Missing Security Header",
+      "description": "Missing X-XSS-Protection header",
+      "recommendation": "Add X-XSS-Protection header to responses"
+    },
+    {
+      "severity": "HIGH",
+      "category": "Information Disclosure",
+      "description": "Sensitive file exposed: /.env",
+      "recommendation": "Block access to /.env"
+    },
+    {
+      "severity": "HIGH",
+      "category": "Information Disclosure",
+      "description": "Sensitive file exposed: /config.json",
+      "recommendation": "Block access to /config.json"
+    },
+    {
+      "severity": "HIGH",
+      "category": "Information Disclosure",
+      "description": "Sensitive file exposed: /web.config",
+      "recommendation": "Block access to /web.config"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Missing Rate Limiting",
+      "description": "No rate limiting on API endpoints",
+      "recommendation": "Implement rate limiting to prevent abuse"
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "by_severity": {
+      "MEDIUM": 5,
+      "HIGH": 3
+    }
+  }
+}

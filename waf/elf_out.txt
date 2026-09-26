@@ -1,0 +1,144 @@
+=== glibc version in container ===
+ldd (Ubuntu GLIBC 2.39-0ubuntu8.8) 2.39
+=== program headers (segments) ===
+
+Elf file type is EXEC (Executable file)
+Entry point 0x401110
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000400318 0x0000000000400318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                 0x0000000000000690 0x0000000000000690  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000401000 0x0000000000401000
+                 0x0000000000000381 0x0000000000000381  R E    0x1000
+  LOAD           0x0000000000002000 0x0000000000402000 0x0000000000402000
+                 0x0000000000000144 0x0000000000000144  R      0x1000
+  LOAD           0x0000000000002e10 0x0000000000403e10 0x0000000000403e10
+                 0x0000000000000250 0x0000000000000260  RW     0x1000
+  DYNAMIC        0x0000000000002e20 0x0000000000403e20 0x0000000000403e20
+                 0x00000000000001d0 0x00000000000001d0  RW     0x8
+  NOTE           0x0000000000000338 0x0000000000400338 0x0000000000400338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  NOTE           0x0000000000000368 0x0000000000400368 0x0000000000400368
+                 0x0000000000000044 0x0000000000000044  R      0x4
+  GNU_PROPERTY   0x0000000000000338 0x0000000000400338 0x0000000000400338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  GNU_EH_FRAME   0x0000000000002040 0x0000000000402040 0x0000000000402040
+                 0x000000000000003c 0x000000000000003c  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000002e10 0x0000000000403e10 0x0000000000403e10
+                 0x00000000000001f0 0x00000000000001f0  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+=== section headers (key) ===
+  [ 6] .dynsym           DYNSYM           00000000004003d8  000003d8
+  [ 7] .dynstr           STRTAB           00000000004004e0  000004e0
+  [10] .rela.dyn         RELA             00000000004005a0  000005a0
+  [11] .rela.plt         RELA             00000000004005e8  000005e8
+  [13] .plt              PROGBITS         0000000000401020  00001020
+  [14] .plt.sec          PROGBITS         00000000004010a0  000010a0
+  [17] .rodata           PROGBITS         0000000000402000  00002000
+  [23] .got              PROGBITS         0000000000403ff0  00002ff0
+  [24] .got.plt          PROGBITS         0000000000404000  00003000
+  [25] .data             PROGBITS         0000000000404050  00003050
+  [26] .bss              NOBITS           0000000000404060  00003060
+=== .rela.plt (JMPREL) ===
+
+Relocation section '.rela.dyn' at offset 0x5a0 contains 3 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+000000403ff0  000100000006 R_X86_64_GLOB_DAT 0000000000000000 __libc_start_main@GLIBC_2.34 + 0
+000000403ff8  000800000006 R_X86_64_GLOB_DAT 0000000000000000 __gmon_start__ + 0
+000000404060  000a00000005 R_X86_64_COPY     0000000000404060 stdout@GLIBC_2.2.5 + 0
+
+Relocation section '.rela.plt' at offset 0x5e8 contains 7 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+000000404018  000200000007 R_X86_64_JUMP_SLO 0000000000000000 strncmp@GLIBC_2.2.5 + 0
+000000404020  000300000007 R_X86_64_JUMP_SLO 0000000000000000 puts@GLIBC_2.2.5 + 0
+000000404028  000400000007 R_X86_64_JUMP_SLO 0000000000000000 strlen@GLIBC_2.2.5 + 0
+000000404030  000500000007 R_X86_64_JUMP_SLO 0000000000000000 printf@GLIBC_2.2.5 + 0
+000000404038  000600000007 R_X86_64_JUMP_SLO 0000000000000000 memset@GLIBC_2.2.5 + 0
+000000404040  000700000007 R_X86_64_JUMP_SLO 0000000000000000 read@GLIBC_2.2.5 + 0
+000000404048  000900000007 R_X86_64_JUMP_SLO 0000000000000000 setvbuf@GLIBC_2.2.5 + 0
+=== dynamic ===
+
+Dynamic section at offset 0x2e20 contains 24 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x401000
+ 0x000000000000000d (FINI)               0x401374
+ 0x0000000000000019 (INIT_ARRAY)         0x403e10
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x403e18
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x4003b0
+ 0x0000000000000005 (STRTAB)             0x4004e0
+ 0x0000000000000006 (SYMTAB)             0x4003d8
+ 0x000000000000000a (STRSZ)              121 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x404000
+ 0x0000000000000002 (PLTRELSZ)           168 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x4005e8
+ 0x0000000000000007 (RELA)               0x4005a0
+ 0x0000000000000008 (RELASZ)             72 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0x400570
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x40055a
+ 0x0000000000000000 (NULL)               0x0
+=== PLT disasm (first entries) ===
+
+chal:     file format elf64-x86-64
+
+
+Disassembly of section .plt:
+
+0000000000401020 <.plt>:
+  401020:	ff 35 e2 2f 00 00    	push   0x2fe2(%rip)        # 404008 <_GLOBAL_OFFSET_TABLE_+0x8>
+  401026:	f2 ff 25 e3 2f 00 00 	bnd jmp *0x2fe3(%rip)        # 404010 <_GLOBAL_OFFSET_TABLE_+0x10>
+  40102d:	0f 1f 00             	nopl   (%rax)
+  401030:	f3 0f 1e fa          	endbr64
+  401034:	68 00 00 00 00       	push   $0x0
+  401039:	f2 e9 e1 ff ff ff    	bnd jmp 401020 <_init+0x20>
+  40103f:	90                   	nop
+  401040:	f3 0f 1e fa          	endbr64
+  401044:	68 01 00 00 00       	push   $0x1
+  401049:	f2 e9 d1 ff ff ff    	bnd jmp 401020 <_init+0x20>
+  40104f:	90                   	nop
+  401050:	f3 0f 1e fa          	endbr64
+  401054:	68 02 00 00 00       	push   $0x2
+  401059:	f2 e9 c1 ff ff ff    	bnd jmp 401020 <_init+0x20>
+  40105f:	90                   	nop
+  401060:	f3 0f 1e fa          	endbr64
+  401064:	68 03 00 00 00       	push   $0x3
+  401069:	f2 e9 b1 ff ff ff    	bnd jmp 401020 <_init+0x20>
+  40106f:	90                   	nop
+  401070:	f3 0f 1e fa          	endbr64
+  401074:	68 04 00 00 00       	push   $0x4
+  401079:	f2 e9 a1 ff ff ff    	bnd jmp 401020 <_init+0x20>
+  40107f:	90                   	nop
+  401080:	f3 0f 1e fa          	endbr64
+  401084:	68 05 00 00 00       	push   $0x5
+  401089:	f2 e9 91 ff ff ff    	bnd jmp 401020 <_init+0x20>
+  40108f:	90                   	nop
+  401090:	f3 0f 1e fa          	endbr64
+  401094:	68 06 00 00 00       	push   $0x6
+  401099:	f2 e9 81 ff ff ff    	bnd jmp 401020 <_init+0x20>
+  40109f:	90                   	nop
+=== .plt.sec? ===
+Disassembly of section .plt.sec:
+
+00000000004010a0 <strncmp@plt>:
+  4010a0:	f3 0f 1e fa          	endbr64

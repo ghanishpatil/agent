@@ -1,0 +1,34 @@
+Breakpoint 1 at 0x4010d4
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, 0x00000000004010d4 in printf@plt ()
+
+Breakpoint 1, 0x00000000004010d4 in printf@plt ()
+=== OUR printf(buf) entry ===
+rdi(fmt)=0x7fffffffeb30
+0x7fffffffeb30:	"exit %p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p", 'A' <repeats 48 times>, "\324\020@"
+rsp=0x7fffffffeb90 (=> *rsp is printf return addr = eb90 region)
+=== stack args (arg7=%7$p is *rsp, etc). Dump 30 qwords from rsp ===
+0x7fffffffeb90:	0x00007fffffffebd0	0x00007fffffffeca8
+0x7fffffffeba0:	0x0000000100400040	0x00000000004012a2
+0x7fffffffebb0:	0x00007fffffffeca8	0xfb6d34fc229712ac
+0x7fffffffebc0:	0x0000000000000001	0x0000000000000000
+0x7fffffffebd0:	0x0000000000403e18	0x00007ffff7ffd000
+0x7fffffffebe0:	0xfb6d34fc2df712ac	0xfb6d24ba19d512ac
+0x7fffffffebf0:	0x00007fff00000000	0x0000000000000000
+0x7fffffffec00:	0x0000000000000000	0x0000000000000001
+0x7fffffffec10:	0x00007fffffffeca0	0xa18544af95c29800
+0x7fffffffec20:	0x00007fffffffec80	0x00007ffff7dcf28b
+0x7fffffffec30:	0x00007fffffffecb8	0x0000000000403e18
+0x7fffffffec40:	0x00007fffffffecb8	0x00000000004012a2
+0x7fffffffec50:	0x0000000000000000	0x0000000000000000
+0x7fffffffec60:	0x0000000000401110	0x00007fffffffeca0
+0x7fffffffec70:	0x0000000000000000	0x0000000000000000
+=== registers rsi rdx rcx r8 r9 (args2-6) ===
+rsi=0x402038 rdx=0x4 rcx=0xfffffff0 r8=0x3 r9=0x7ffff7fca380
+A debugging session is active.
+
+	Inferior 1 [process 24] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]

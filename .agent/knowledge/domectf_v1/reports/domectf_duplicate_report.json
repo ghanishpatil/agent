@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-09-25T07:52:04.455116+00:00",
+  "internal_domectf": {
+    "matches": [],
+    "near_duplicate_count": 0,
+    "records": 32
+  },
+  "policy": "duplicates are reported with provenance preserved; distinct challenges are never merged even when techniques/templates are similar",
+  "vs_jiaje_redbud_v1": {
+    "duplicate_count": 0,
+    "matches": [],
+    "other_records": 22
+  },
+  "vs_jiaje_v1": {
+    "duplicate_count": 0,
+    "matches": [],
+    "other_records": 4
+  },
+  "vs_local_writeups": {
+    "duplicate_count": 0,
+    "matches": [],
+    "other_records": 32
+  }
+}

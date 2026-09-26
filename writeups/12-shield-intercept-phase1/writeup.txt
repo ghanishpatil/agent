@@ -1,0 +1,22 @@
+# Phase 1 // S.H.I.E.L.D. Intercept
+
+**CTF:** HexNova // Chakravyuh Dynamic Range
+**Category:** Misc
+**Points:** 100
+**Flag:** `CHAKRA{p1_base_chain-2FBE8A}`
+
+---
+
+Connected via netcat. Service handed over a string and told you exactly what it was — base64 wrapped around base32:
+
+SUZMRUtUU0hJVkpGR0xKV0tKR0UyUktTTEFaUT09PT0=
+
+Peel the layers in reverse order. base64 decode first:
+
+IFLEKTSHIVJFGLJWKJGE2RKSLAZQ====
+
+Then base32 decode that:
+
+AVENGERS-6RLMERX3
+
+Sent it back, got the flag. Easiest 100 points — they literally told you the encoding stack.

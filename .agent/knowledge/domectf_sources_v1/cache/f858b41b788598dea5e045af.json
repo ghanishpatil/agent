@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 72056,
+  "content_sha256": "d69cea85fb6128f6530d2a28b63a6607c62d7635809fcab552f78d4fa0577d3f",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/adlemans-doc-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:22.882797+00:00"
+}

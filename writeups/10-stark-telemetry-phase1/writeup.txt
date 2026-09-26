@@ -1,0 +1,18 @@
+# Phase 1 // Stark Telemetry
+
+**CTF:** HexNova // Chakravyuh Dynamic Range
+**Category:** Misc
+**Points:** 125
+**Flag:** `CHAKRA{p1_morse-632C1D}`
+
+---
+
+Connected via netcat. Service printed a Morse code string and asked for the plaintext:
+
+-. .--. .-. -.-. . - . .-- ..
+
+Decoded each symbol against the standard Morse table. Spaces between characters, triple spaces between words — but this was all one word. Came out to `NPRCETEWI`.
+
+Sent it back, got the flag.
+
+Same anti-AI notice as the XOR challenge — flag is unique per instance so the actual flag value changes, but the exploit is the same every time. Connect, decode the Morse, send the plaintext.

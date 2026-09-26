@@ -1,0 +1,641 @@
+{
+  "field_summary_explicit_inferred_missing": {
+    "category": {
+      "inferred": 22
+    },
+    "challenge_description_context": {
+      "explicit": 8,
+      "missing": 14
+    },
+    "challenge_name": {
+      "explicit": 22
+    },
+    "commands_tools": {
+      "explicit": 22
+    },
+    "difficulty": {
+      "inferred": 8,
+      "missing": 14
+    },
+    "discriminating_tests": {
+      "missing": 22
+    },
+    "event": {
+      "explicit": 22
+    },
+    "exploit_solution_mechanism": {
+      "explicit": 22
+    },
+    "failures_corrections": {
+      "missing": 22
+    },
+    "final_outcome": {
+      "explicit": 9,
+      "missing": 13
+    },
+    "hypothesis_changes": {
+      "missing": 22
+    },
+    "important_clues": {
+      "missing": 22
+    },
+    "initial_hypotheses": {
+      "explicit": 10,
+      "missing": 12
+    },
+    "interpretations": {
+      "explicit": 8,
+      "missing": 14
+    },
+    "next_actions": {
+      "missing": 22
+    },
+    "observations": {
+      "explicit": 1,
+      "missing": 21
+    },
+    "techniques_mechanisms": {
+      "explicit": 22
+    },
+    "verification_method": {
+      "explicit": 10,
+      "missing": 12
+    }
+  },
+  "generated_at": "2026-09-25T06:38:43.520629+00:00",
+  "note": "reasoning stages are EXPLICIT only when a section heading denotes them; never inferred/fabricated",
+  "per_document": [
+    {
+      "challenge": "Easy Random 1",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.4545
+    },
+    {
+      "challenge": "Easy Random 2",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.4545
+    },
+    {
+      "challenge": "The Old Gods Are Whispering",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "explicit",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.5455
+    },
+    {
+      "challenge": "Easy Pyjail 1",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.4545
+    },
+    {
+      "challenge": "Easy Random 3",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.3636
+    },
+    {
+      "challenge": "Easy RE 1",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.4545
+    },
+    {
+      "challenge": "Rosetta 3",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.3636
+    },
+    {
+      "challenge": "RSA All in One",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "explicit",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": true,
+      "trajectory_completeness": 0.2727
+    },
+    {
+      "challenge": "Easy Random 4",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.1818
+    },
+    {
+      "challenge": "ECDSA Nonce Reuse",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.1818
+    },
+    {
+      "challenge": "Easy Random 5",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.2727
+    },
+    {
+      "challenge": "RSA Partial Factorization",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "explicit",
+        "interpretations": "explicit",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.2727
+    },
+    {
+      "challenge": "Easy Random 6 WP",
+      "event": "Redbud Puppeteer",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "inferred",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.1818
+    },
+    {
+      "challenge": "ret2shellcode",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    },
+    {
+      "challenge": "ret2shellcode-orw",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    },
+    {
+      "challenge": "baby_rop",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    },
+    {
+      "challenge": "babysyscall",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    },
+    {
+      "challenge": "jarvisoj_x64",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    },
+    {
+      "challenge": "stack_pivot",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    },
+    {
+      "challenge": "setcontext",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    },
+    {
+      "challenge": "Jupiter",
+      "event": "SunshineCTF 2025",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "explicit",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "explicit"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.1818
+    },
+    {
+      "challenge": "paragraph",
+      "event": "Redbud Summer 2026",
+      "field_provenance": {
+        "category": "inferred",
+        "challenge_description_context": "missing",
+        "challenge_name": "explicit",
+        "commands_tools": "explicit",
+        "difficulty": "missing",
+        "discriminating_tests": "missing",
+        "event": "explicit",
+        "exploit_solution_mechanism": "explicit",
+        "failures_corrections": "missing",
+        "final_outcome": "missing",
+        "hypothesis_changes": "missing",
+        "important_clues": "missing",
+        "initial_hypotheses": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification_method": "missing"
+      },
+      "genuine_trajectory": false,
+      "trajectory_completeness": 0.0909
+    }
+  ]
+}

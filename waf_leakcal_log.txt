@@ -1,0 +1,39 @@
+Breakpoint 1 at 0x4010d4
+warning: Unable to find libthread_db matching inferior's thread library, thread debugging will not be available.
+
+Breakpoint 1, 0x00000000004010d4 in printf@plt ()
+
+Breakpoint 1, 0x00000000004010d4 in printf@plt ()
+
+Breakpoint 1, 0x00000000004010d4 in printf@plt ()
+
+Breakpoint 1, 0x00000000004010d4 in printf@plt ()
+
+Breakpoint 1, 0x00000000004010d4 in printf@plt ()
+RDI=0x7fffffffeb58
+RSP=0x7fffffffebb8
+0x7fffffffebb8:	0x0000000000000000	0x0000000000000000
+0x7fffffffebc8:	0x0000000000000000	0x0000000000000000
+0x7fffffffebd8:	0x00007fffffffecb8	0x00007ffff7ffd000
+0x7fffffffebe8:	0x0000000000403e18	0x9cd8292edcf54b07
+0x7fffffffebf8:	0x9cd8396f93754b07	0x0000000000000000
+0x7fffffffec08:	0x0000000000000000	0x0000000000000000
+0x7fffffffec18:	0x00007fffffffeca8	0x0000000000000001
+0x7fffffffec28:	0xddf254c448881f00	0x00007fffffffeca0
+0x7fffffffec38:	0x00007ffff7df4d65	0x00000000004012a2
+0x7fffffffec48:	0x0000000000403e18	0x00007ffff7ffe5f0
+0x7fffffffec58:	0x0000000000000000	0x0000000000000000
+0x7fffffffec68:	0x0000000000401110	0x00007fffffffeca0
+0x7fffffffec78:	0x0000000000000000	0x0000000000000000
+0x7fffffffec88:	0x0000000000401135	0x00007fffffffec98
+0x7fffffffec98:	0x0000000000000038	0x0000000000000001
+0x7fffffffeca8:	0x00007fffffffee91	0x0000000000000000
+0x7fffffffecb8:	0x00007fffffffeead	0x00007fffffffeec3
+0x7fffffffecc8:	0x00007fffffffeecb	0x00007fffffffeed6
+0x7fffffffecd8:	0x00007fffffffeee3	0x00007fffffffef12
+0x7fffffffece8:	0x00007fffffffef21	0x00007fffffffef3d
+A debugging session is active.
+
+	Inferior 1 [process 24] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]

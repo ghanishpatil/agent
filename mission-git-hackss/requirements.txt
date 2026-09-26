@@ -1,0 +1,72 @@
+# ============================================================================
+# MD-EXPLOIT-ENGINE - Requirements
+# Developed by: Md Abu Shalem Alam
+# Automated CTF Challenge Solver
+# ============================================================================
+
+# Core Dependencies
+requests>=2.31.0
+urllib3>=2.0.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Cryptography
+pycryptodome>=3.19.0
+cryptography>=41.0.0
+
+# Web Framework
+flask>=3.0.0
+fastapi>=0.104.0
+uvicorn>=0.24.0
+websockets>=12.0
+
+# Image Processing & Steganography
+Pillow>=10.1.0
+numpy>=1.24.0
+
+# Audio Processing (for Morse code)
+scipy>=1.11.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# Utilities
+pyyaml>=6.0
+colorama>=0.4.6
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+click>=8.1.0
+rich>=13.7.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Optional - Binary Analysis (install if needed)
+# pwntools>=4.11.0
+# capstone>=5.0.0
+# unicorn>=2.0.0
+# angr>=9.2.0
+# z3-solver>=4.12.0
+# ropper>=1.13.0
+
+# Optional - Advanced Web (install if needed)
+# selenium>=4.15.0
+# playwright>=1.40.0
+
+# Optional - Bot Protection Bypass (install for protected sites)
+# undetected-chromedriver>=3.5.0  # Best for Vercel/Cloudflare bypass
+# cloudscraper>=1.2.71            # Good for Cloudflare bypass
+# curl_cffi>=0.5.0                # curl-impersonate Python binding
+
+# Optional - Forensics (install if needed)
+# opencv-python>=4.8.0
+# scapy>=2.5.0
+# python-magic>=0.4.27
+
+# Optional - Machine Learning (install if needed)
+# tensorflow>=2.15.0
+# torch>=2.1.0
+# scikit-learn>=1.3.0
+# transformers>=4.35.0

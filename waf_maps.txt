@@ -1,0 +1,26 @@
+process 24
+Mapped address spaces:
+
+          Start Addr           End Addr       Size     Offset  Perms  objfile
+            0x3fe000           0x3ff000     0x1000        0x0  rw-p   /work/waf_chal/chal_patched
+            0x400000           0x401000     0x1000     0x2000  r--p   /work/waf_chal/chal_patched
+            0x401000           0x402000     0x1000     0x3000  r-xp   /work/waf_chal/chal_patched
+            0x402000           0x403000     0x1000     0x4000  r--p   /work/waf_chal/chal_patched
+            0x403000           0x404000     0x1000     0x4000  r--p   /work/waf_chal/chal_patched
+            0x404000           0x405000     0x1000     0x5000  rw-p   /work/waf_chal/chal_patched
+      0x7ffff7dc8000     0x7ffff7dcb000     0x3000        0x0  rw-p   
+      0x7ffff7dcb000     0x7ffff7df3000    0x28000        0x0  r--p   /work/waf_chal/libc.so.6
+      0x7ffff7df3000     0x7ffff7f56000   0x163000    0x28000  r-xp   /work/waf_chal/libc.so.6
+      0x7ffff7f56000     0x7ffff7fac000    0x56000   0x18b000  r--p   /work/waf_chal/libc.so.6
+      0x7ffff7fac000     0x7ffff7fb0000     0x4000   0x1e0000  r--p   /work/waf_chal/libc.so.6
+      0x7ffff7fb0000     0x7ffff7fb2000     0x2000   0x1e4000  rw-p   /work/waf_chal/libc.so.6
+      0x7ffff7fb2000     0x7ffff7fc1000     0xf000        0x0  rw-p   
+      0x7ffff7fc1000     0x7ffff7fc5000     0x4000        0x0  r--p   [vvar]
+      0x7ffff7fc5000     0x7ffff7fc7000     0x2000        0x0  r-xp   [vdso]
+      0x7ffff7fc7000     0x7ffff7fc8000     0x1000        0x0  r--p   /work/waf_chal/ld.so.2
+      0x7ffff7fc8000     0x7ffff7ff0000    0x28000     0x1000  r-xp   /work/waf_chal/ld.so.2
+      0x7ffff7ff0000     0x7ffff7ffb000     0xb000    0x29000  r--p   /work/waf_chal/ld.so.2
+      0x7ffff7ffb000     0x7ffff7ffd000     0x2000    0x34000  r--p   /work/waf_chal/ld.so.2
+      0x7ffff7ffd000     0x7ffff7ffe000     0x1000    0x36000  rw-p   /work/waf_chal/ld.so.2
+      0x7ffff7ffe000     0x7ffff7fff000     0x1000        0x0  rw-p   
+      0x7ffffffde000     0x7ffffffff000    0x21000        0x0  rw-p   [stack]

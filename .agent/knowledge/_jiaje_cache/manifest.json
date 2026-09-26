@@ -1,0 +1,50 @@
+{
+  "source": "https://jia.je/ctf-writeups/index.html",
+  "author": "Jiajie Chen (@jiegec)",
+  "license_note": "jia.je CTF writeups by Jiajie Chen; attribute to author; ingested for research",
+  "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+  "robots": "no robots.txt (HTTP 404) => no crawl restriction",
+  "sitemap": "https://jia.je/ctf-writeups/sitemap.xml",
+  "documents": [
+    {
+      "filename": "solution.txt",
+      "url": "https://jia.je/ctf-writeups/misc/solution.html",
+      "title": "Writeups by Solution",
+      "category_hint": "misc",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "sha256": "64fad2a96e242536932e4ef61e5565317d5f8fa4e19e775e6fc37d2a9ad44406",
+      "bytes": 5511,
+      "has_static_content": true
+    },
+    {
+      "filename": "pyjail.txt",
+      "url": "https://jia.je/ctf-writeups/misc/pyjail.html",
+      "title": "Pyjail",
+      "category_hint": "misc",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "sha256": "8c19a52ea337b4f99b997b9d3785289017d0afa08e8313ab1c36ef7ae47c55ac",
+      "bytes": 5402,
+      "has_static_content": true
+    },
+    {
+      "filename": "puppeteer.txt",
+      "url": "https://jia.je/ctf-writeups/puppeteer/index.html",
+      "title": "Redbud Puppeteer",
+      "category_hint": "misc",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "sha256": "89d9240ebb9844a33427195491171139f557bcee13b20701f7af7122e3b55fd4",
+      "bytes": 43,
+      "has_static_content": false
+    },
+    {
+      "filename": "summer2026.txt",
+      "url": "https://jia.je/ctf-writeups/summer2026/index.html",
+      "title": "Redbud Summer 2026",
+      "category_hint": "misc",
+      "retrieved_at": "2026-09-25T05:24:13.454572+00:00",
+      "sha256": "1c652b96ad078a506576524ef4c22e7f3146aeb99768859ade7056da2e003d7e",
+      "bytes": 45,
+      "has_static_content": false
+    }
+  ]
+}

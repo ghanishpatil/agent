@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 49612,
+  "content_sha256": "02f49f39659a49d70dc51316b849967170c320380a6de1d541066a2ce00a5de0",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/c0c0n-XIII-dome-ctf-2020.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:17.189930+00:00"
+}

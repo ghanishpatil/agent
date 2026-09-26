@@ -1,0 +1,26 @@
+# The Server's Secret
+
+**CTF:** HexNova // Chakravyuh
+**Category:** Web Exploitation
+**Points:** 150
+**Flag:** `CHAKRA{r0b0ts_4nd_c43s4r_s3cr3t}`
+
+---
+
+First thing — hit robots.txt. It had two disallowed paths:
+
+Disallow: /restricted_archive_03/
+Disallow: /admin_panel_internal/
+
+/admin_panel_internal/ returned 404. /restricted_archive_03/ was an open directory listing with two files:
+
+- confidential_message.txt
+- incident_draft.log
+
+incident_draft.log was a dead end (Vercel 404 ghost). confidential_message.txt had five "key entries" all ROT13 encoded, labeled as canary, honeypot, legacy, drill, and production. The decoys were obvious — they literally say "fake flag do not submit", "honeypot trap activated", etc.
+
+Entry #5 was labeled PRODUCTION-CONFIDENTIAL. ROT13 decoded:
+
+PUNXEN{e0o0gf_4aq_p43f4e_f3pe3g} -> CHAKRA{r0b0ts_4nd_c43s4r_s3cr3t}
+
+The flag name itself is the hint — robots.txt led you to the archive, ROT13 (Caesar cipher) was the encryption. Classic CTF misdirection with decoy flags to waste your time if you just submit everything you find.

@@ -1,0 +1,44 @@
+{
+  "average_trajectory_completeness": 0.284,
+  "by_category": {
+    "crypto": 8,
+    "forensics": 1,
+    "misc": 4,
+    "pwn": 2,
+    "reverse": 3,
+    "unknown": 3,
+    "web": 11
+  },
+  "by_source_type": {
+    "LOCAL_DIRECTORY": 32
+  },
+  "by_technique": {
+    "aes-mode-attack": 5,
+    "buffer-overflow": 1,
+    "classical-cipher": 4,
+    "dynamic-analysis": 3,
+    "format-string": 1,
+    "hash-attack": 6,
+    "heap-exploit": 1,
+    "jwt-attack": 1,
+    "memory-forensics": 1,
+    "path-traversal": 4,
+    "pcap-analysis": 2,
+    "rop": 6,
+    "rsa-attack": 5,
+    "sql-injection": 2,
+    "ssrf": 2,
+    "ssti": 2,
+    "static-analysis": 10,
+    "steganography": 3,
+    "xor-cipher": 6,
+    "xss": 3
+  },
+  "duplicate_records": 0,
+  "generated_at": "2026-09-25T04:32:23.662213+00:00",
+  "records_sha256": "1b5bcab1ed73f5c20d9548b51a24b6f8842a0916c61ba3b166c66a7169d4c146",
+  "records_with_failures": 6,
+  "schema_version": "1.0",
+  "total_records": 32,
+  "unique_records": 32
+}

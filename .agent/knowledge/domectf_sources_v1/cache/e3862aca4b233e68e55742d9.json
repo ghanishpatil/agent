@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 48053,
+  "content_sha256": "efe5455da99dbbb46559529dd671cfe181541488c5b9c36e2fae6263014405df",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/the-retrospect-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:33.625997+00:00"
+}

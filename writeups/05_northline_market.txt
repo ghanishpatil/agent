@@ -1,0 +1,19 @@
+# Northline Market (Shopping L1)
+
+**Flag:** `TDHT{SmlChucIb58jz7n1Md52Y1YmQp}`
+
+---
+
+Product catalog page. Nine items listed. The interesting thing was in how images load — every `<img>` tag uses:
+
+```html
+<img src="/image.php?path=/var/www/html/bag.png">
+```
+
+A PHP script reading files by absolute path. Classic LFI. Just changed the path parameter:
+
+```
+/image.php?path=/etc/flag.txt
+```
+
+Flag came back in the response body. No filtering, no whitelist, no path traversal needed — they hand you the full absolute path format right in the page source.

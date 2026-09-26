@@ -1,0 +1,148 @@
+{
+  "content_hash": "7becb9744f6d7169d52f9c58c74ce265fcc34306c1c5bb2c9d13c2a7884b5445",
+  "duplicate_of": null,
+  "failures": [],
+  "field_provenance": {
+    "author": "explicit",
+    "category": "inferred",
+    "challenge_description_context": "explicit",
+    "challenge_name": "explicit",
+    "commands_tools": "explicit",
+    "difficulty": "missing",
+    "discriminating_tests": "missing",
+    "event": "explicit",
+    "failures_corrections": "missing",
+    "final_outcome": "explicit",
+    "hypothesis_changes": "missing",
+    "initial_hypotheses": "missing",
+    "interpretations": "missing",
+    "next_actions": "missing",
+    "observations": "missing",
+    "solution_mechanism": "explicit",
+    "supplied_clues": "missing",
+    "techniques_mechanisms": "explicit",
+    "verification_method": "explicit",
+    "year": "explicit"
+  },
+  "genuine_trajectory": false,
+  "metadata": {
+    "category": "crypto",
+    "difficulty": "",
+    "event": "c0c0n XIII",
+    "flag_format": "",
+    "flags": [
+      "juskizl{XSeVsIFDmAWoiK7BkUjrEI7zLCYYnERL}",
+      "domectf{RMyPmCZXgUQicE7VeOdlYC7tFWSShYLF}"
+    ],
+    "name": "Adleman's Doc",
+    "points": null,
+    "tags": [
+      "RSA Attack",
+      "AES Mode Attack",
+      "Classical Cipher",
+      "Return-Oriented Programming",
+      "TPM / Hardware Security"
+    ]
+  },
+  "provenance": {
+    "content_sha256": "d69cea85fb6128f6530d2a28b63a6607c62d7635809fcab552f78d4fa0577d3f",
+    "document_path": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_adlemans-doc-writeup.html.html",
+    "extra": {
+      "author": "Febna V M",
+      "canonical_url": "https://beaglesecurity.com/blog/domectf2020/adlemans-doc-writeup.html",
+      "challenge": "Adleman's Doc",
+      "event": "c0c0n XIII",
+      "raw_artifact": "knowledge\\domectf_sources_v1\\raw\\src__beaglesecurity.com_blog_domectf2020_adlemans-doc-writeup.html.html",
+      "source_origin": "explicit_reference",
+      "year": "2020"
+    },
+    "license_note": "DomeCTF (c0c0n) historical writeups; see per-source author",
+    "retrieved_at": "2026-09-25T07:52:04.455116+00:00",
+    "revision": "domectf-extract-1.0",
+    "source_type": "HTTP",
+    "source_uri": "https://beaglesecurity.com/blog/domectf2020/adlemans-doc-writeup.html"
+  },
+  "record_id": "f858b41b788598de",
+  "schema_version": "domectf-extract-1.0",
+  "summary": "Adleman",
+  "techniques": [
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "crypted public key. The code is quite short and simple: RSA key pair is generated in some secret way Private RSA key",
+      "keywords": [
+        "rsa"
+      ],
+      "name": "RSA Attack",
+      "technique_id": "rsa-attack"
+    },
+    {
+      "category": "crypto",
+      "confidence": 1.0,
+      "evidence": "ated in some secret way Private RSA key is encrypted via AES-ECB The flag is encrypted using public RSA key Public",
+      "keywords": [
+        "aes",
+        "ecb"
+      ],
+      "name": "AES Mode Attack",
+      "technique_id": "aes-mode-attack"
+    },
+    {
+      "category": "crypto",
+      "confidence": 0.85,
+      "evidence": "uld be decrypted for the actual flag. It is clear that some substitution cipher is used and the pattern will consist of capital and small l",
+      "keywords": [
+        "substitution cipher"
+      ],
+      "name": "Classical Cipher",
+      "technique_id": "classical-cipher"
+    },
+    {
+      "category": "pwn",
+      "confidence": 0.55,
+      "evidence": "Cyber Security Engineer DOMECTF2020 20 Sep 2020 Qropolis Writeup Anandhu K A Lead Engineer DOMECTF2020",
+      "keywords": [
+        "rop"
+      ],
+      "name": "Return-Oriented Programming",
+      "technique_id": "rop"
+    },
+    {
+      "category": "hardware",
+      "confidence": 0.55,
+      "evidence": "Ananthu S Lead Engineer DOMECTF2020 20 Sep 2020 TPM Writeup Sooraj V Nair Cyber Security Engineer DOMEC",
+      "keywords": [
+        "tpm"
+      ],
+      "name": "TPM / Hardware Security",
+      "technique_id": "hardware-tpm"
+    }
+  ],
+  "title": "Adleman's Doc Writeup",
+  "trajectory": {
+    "completeness": 0.2727,
+    "steps": [
+      {
+        "confidence": 0.9,
+        "kind": "CHALLENGE_CONTEXT",
+        "order": 0,
+        "source_heading": "Story",
+        "text": "Story: Adleman resigned from his job and left his documents in a locker. He had kept a secret password to open it.\n He has sent some files to his co-workers and it contains the crucial information to identify the password.\n Help the team to recover the password."
+      },
+      {
+        "confidence": 0.9,
+        "kind": "EXPLOIT_SOLUTION",
+        "order": 1,
+        "source_heading": "Solution",
+        "text": "Solution: In the challenge, we get encryption code, encrypted flag, encrypted private key and encrypted public key.\n The code is quite short and simple:\n   RSA key pair is generated in some secret way\n\n  Private RSA key is encrypted via AES-ECB\n\n  The flag is encrypted using public RSA key\n\n  Public key is encrypted using some online encrypter.\n\n The goal seems clear - we need to somehow recover t"
+      },
+      {
+        "confidence": 0.7,
+        "kind": "VERIFICATION",
+        "order": 2,
+        "source_heading": "",
+        "text": "flag present: juskizl{XSeVsIFDmAWoiK7BkUjrEI7zLCYYnERL}"
+      }
+    ]
+  }
+}

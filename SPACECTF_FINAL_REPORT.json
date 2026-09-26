@@ -1,0 +1,16 @@
+{
+  "target": "https://api.cyberspacevr.in/v1",
+  "timestamp": "2026-05-24 01:25:25",
+  "credentials": {
+    "email": "ashishpardeshi7498@gmail.com",
+    "username": "ashish"
+  },
+  "authenticated": false,
+  "findings": [
+    "No rate limiting (50/50 requests succeeded)"
+  ],
+  "exploits": [
+    "CRITICAL: Mass assignment vulnerability in registration",
+    "MEDIUM: Missing rate limiting - brute force possible"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 35843,
+  "content_sha256": "31927f157d2ed182d79e3f639c797b180ea30cdfdd3df1e1ad303d22326b0232",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/murder-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:23:17.649839+00:00"
+}

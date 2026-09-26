@@ -1,0 +1,74 @@
+TATA - Writeup
+
+Challenge: TATA
+Category: OSINT
+Points: 200
+Solves: [Solves not specified]
+Flag: Kaal{sierra}
+
+Description
+1764028800
+
+Wrap the answer in lowercase in flag format.
+
+Solution
+
+Step 1: Analyzing the Given Number
+The challenge presents a single numeric value: 1764028800
+
+Recognizing this pattern, it's likely a Unix epoch timestamp - a standard method for tracking time as seconds since January 1, 1970 UTC.
+
+Step 2: Timestamp Conversion
+Converting the epoch value to a readable date format using Python:
+
+from datetime import datetime
+
+timestamp = 1764028800
+date = datetime.utcfromtimestamp(timestamp)
+print(date.strftime('%Y-%m-%d'))
+
+This reveals the date: November 25, 2025
+
+Step 3: Intelligence Gathering
+The challenge title "TATA" combined with the specific date suggests researching Tata Group activities on November 25, 2025.
+
+Conducted web searches focusing on:
+- Tata Motors announcements for late November 2025
+- Product launches by Tata Group in 2025
+- Automotive news from India for that timeframe
+
+Discovery:
+After searching through automotive news sources and Tata Motors press releases, found that the Tata Sierra SUV was relaunched on this exact date. The Sierra, originally manufactured between 1991-2003, made its comeback after more than two decades, making it a significant event in Indian automotive history.
+
+Step 4: Flag Construction
+Based on the findings:
+- Challenge hint: TATA (company name)
+- Date leads to: Tata Sierra relaunch event
+- Required format: lowercase in flag wrapper
+
+Final answer: sierra
+
+Wrapped in flag format: Kaal{sierra}
+
+Attack Chain Summary
+1. Recognized numeric value as Unix epoch timestamp
+2. Decoded timestamp to November 25, 2025
+3. Researched Tata Group events on that specific date
+4. Identified Tata Sierra relaunch as the key event
+5. Submitted "sierra" in lowercase flag format
+
+Key Techniques
+- Epoch timestamp decoding
+- Open source intelligence gathering
+- Corporate event research
+- Automotive industry knowledge
+- Date-specific event correlation
+
+Tools Used
+- Python datetime library
+- Web search engines
+- Automotive news databases
+- Tata Motors official sources
+
+Flag
+Kaal{sierra}

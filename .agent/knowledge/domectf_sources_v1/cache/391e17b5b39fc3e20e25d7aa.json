@@ -1,0 +1,11 @@
+{
+  "content_length_bytes": 65933,
+  "content_sha256": "8344cf369ad0daf1bf2c93f26e1a53296b08d15b684bc9793084aaf8b04632d5",
+  "content_type": "text/html",
+  "error": null,
+  "final_url": "https://beaglesecurity.com/blog/domectf2020/jimmybot-writeup.html",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [],
+  "retrieved_at": "2026-09-25T07:22:27.212839+00:00"
+}

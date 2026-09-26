@@ -1,0 +1,18 @@
+{
+  "content_length_bytes": 248116,
+  "content_sha256": "a04938d0d689d7a9dfdc1ef51a9f7a03eb896e6651cfd60aa8160b24b40d0bff",
+  "content_type": "text/html; charset=utf-8",
+  "error": null,
+  "final_url": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/Madagascar_Weapon_store.md",
+  "http_status": 200,
+  "ok_transport": true,
+  "redirect_chain": [
+    {
+      "code": 301,
+      "from": "https://github.com/aencode/domectf/blob/master/c0c0n_xii/Madagascar_Weapon_store.md",
+      "to": "https://github.com/AshishRanaX/domectf/blob/master/c0c0n_xii/Madagascar_Weapon_store.md"
+    }
+  ],
+  "retrieved_at": "2026-09-25T07:22:08.323158+00:00",
+  "stored_raw_differs_from_refetch": true
+}

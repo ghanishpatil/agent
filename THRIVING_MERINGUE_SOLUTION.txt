@@ -1,0 +1,57 @@
+================================================================================
+HEART OF SECRETS CTF - SOLUTION
+================================================================================
+
+Website: https://thriving-meringue-85c152.netlify.app
+
+================================================================================
+THE KEY:
+================================================================================
+
+**KEY NEXT LEVEL** (or "KEY:NEXT_LEVEL")
+
+Found in the JavaScript source code:
+- const VALID_KEY = "KEY NEXT LEVEL";
+- Hidden in LSB steganography: "KEY:NEXT_LEVEL"
+- Morse code: -.- . -.-- # -. . -..- - # .-.. . ...- . .-..
+  Decoded: KEY # NEXT # LEVEL
+
+================================================================================
+STEGANOGRAPHY CLUES:
+================================================================================
+
+1. Canvas image has hidden data in LSB (Least Significant Bit)
+2. Hidden message embedded in blue channel pixels
+3. Invisible text layer: "THE KEY IS HIDDEN IN THE BITS"
+4. Morse code embedded: "MORSE: -.- . -.-- # -. . -..- - # .-.. . ...- . .-.."
+
+================================================================================
+HIDDEN PATHS (in source):
+================================================================================
+
+const _0x4d5e = ['/l0v3', '/h34rt', '/s3cr3t', '/l3v3l2'];
+
+These paths may not be implemented yet, or require the key to be submitted first.
+
+================================================================================
+HOW TO SOLVE:
+================================================================================
+
+1. View page source (despite anti-devtools measures)
+2. Find: const VALID_KEY = "KEY NEXT LEVEL";
+3. Enter "KEY NEXT LEVEL" in the input field
+4. The page attempts to POST to /auth/verify and /api/get_path
+5. Response should contain the next level path
+
+================================================================================
+ANTI-DEBUGGING FEATURES:
+================================================================================
+
+- Right-click disabled
+- F12/DevTools shortcuts blocked
+- Console logging intercepted
+- Debugger detection
+- Source selection disabled
+- Access denied warnings
+
+================================================================================

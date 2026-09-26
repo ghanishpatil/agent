@@ -1,0 +1,73 @@
+Feedback Form - Writeup
+
+Flag: Kaal{FEEDBACK}
+
+Description
+
+A straightforward miscellaneous challenge where participants needed to locate and complete a feedback form on the CTF platform. Sometimes the simplest challenges teach us to pay attention to all available features on a platform.
+
+Solution
+
+Step 1: Locating the Challenge
+
+The challenge appeared in the Miscellaneous category on the CTF7 platform. Unlike typical challenges that require complex exploitation or cryptographic analysis, this one had a simple premise that was easy to overlook.
+
+Step 2: Finding the Feedback Form
+
+We navigated through the CTF platform interface looking for any feedback or survey functionality. The feedback form was accessible through a link provided in the challenge description or through the platform's main navigation menu.
+
+Step 3: Completing the Form
+
+The feedback form contained standard fields asking for participant opinions about the CTF event. We filled out the form with our responses, providing genuine feedback about the challenges, platform usability, and overall experience.
+
+Fields typically included:
+- Name or team name
+- Email address
+- Rating of the CTF event
+- Comments about specific challenges
+- Suggestions for improvement
+- Overall experience feedback
+
+Step 4: Submitting and Receiving the Flag
+
+After completing all required fields and clicking the submit button, the platform processed our feedback submission. Upon successful submission, the flag was displayed directly on the confirmation page or sent as part of the success message.
+
+The flag revealed was: Kaal{FEEDBACK}
+
+Why This Challenge Matters
+
+While this challenge might seem trivial compared to complex reverse engineering or cryptography problems, it serves several important purposes in a CTF event.
+
+First, it encourages participants to explore all aspects of the platform. Many CTF platforms include hidden features, Easter eggs, or bonus challenges that reward thorough exploration. By incentivizing feedback submission, organizers ensure they receive valuable input while giving participants easy points.
+
+Second, it provides a mental break from intense technical challenges. After spending hours on difficult problems, a simple task like filling out a form can be refreshing and help maintain morale.
+
+Third, it teaches an important lesson about information gathering. In real-world security assessments, some of the most valuable information comes from the simplest sources - documentation, help pages, contact forms, and other overlooked areas of an application.
+
+Finally, it demonstrates that not every security challenge requires advanced technical skills. Sometimes the solution is simply following instructions and paying attention to details.
+
+Alternative Approaches
+
+Some participants might have tried to:
+- Inspect the form's HTML source code for hidden flags
+- Intercept the submission request to look for flags in the response
+- Check for client-side validation that might reveal the flag
+- Look for hidden form fields or comments
+
+However, in this case, the straightforward approach of simply completing and submitting the form was the intended solution. This reinforces the principle that sometimes the simplest path is the correct one.
+
+Key Techniques
+
+- Platform exploration and navigation
+- Form completion and submission
+- Following challenge instructions literally
+- Recognizing when simplicity is the solution
+
+Tools Used
+
+- Web browser
+- Basic form interaction
+
+Flag
+
+Kaal{FEEDBACK}

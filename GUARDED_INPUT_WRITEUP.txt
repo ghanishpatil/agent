@@ -1,0 +1,140 @@
+Guarded Input - Writeup
+
+Challenge: Guarded Input
+Category: Reverse Engineering
+Points: [Points not specified]
+Solves: [Solves not specified]
+Flag: Kaal{4r3_y0u_cr4k3_k44l_ch4kr4}
+
+Description
+A mysterious program locked behind a single condition. It reveals nothing unless provided with the exact input it seeks.
+
+File: crackme.exe (MinGW-compiled Windows PE, x86_64)
+
+Solution
+
+Step 1: Initial Binary Analysis
+Identified the binary as a MinGW x64 PE executable. Performed initial reconnaissance:
+
+$ file crackme.exe
+crackme.exe: PE32+ executable (console) x86-64, for MS Windows
+
+Extracted strings and found several interesting outputs:
+- "Enter key: "
+- "Flag: "
+- "Wrong key!"
+- "Nice try... but wrong flag"
+
+This suggested multiple code paths and a potential decoy flag.
+
+Step 2: Disassembly and Stack String Analysis
+Disassembled the binary and found two sets of encoded stack strings constructed via movabs instructions in the .text section.
+
+Set 1 - Decoy Flag (RVA 0x178f):
+Stack strings assembled as:
+'flag: Eo' + 'obuhboiQ' + 'ha{`jQma' + '`i|oz{bo' + 'zga`}Ql{' + 'zQya|`iQ' + '`iQl|as'
+
+These bytes are XOR'd with key 0x0e during execution.
+
+Decoding manually:
+
+for c in 'flag: Eoobuhboiha{`jQma`i|oz{bozga`}Ql{zQya|`iQ`iQl|as':
+    print(chr(ord(c) ^ 0x0e), end='')
+
+Result: hboi4.Kaal{flag_found_congratulations_but_worng_ng_bro}
+
+This is a DECOY flag printed when the wrong key is entered.
+
+Step 3: Finding the Expected Key
+Located three key generation functions at different RVAs:
+
+Function 1 (RVA 0x184c) - Generates 4 bytes:
+dword 0x7a1b0f1e -> bytes [0x1e, 0x0f, 0x1b, 0x7a]
+
+Function 2 (RVA 0x186f) - Generates 5 bytes:
+dword 0x2b203c2d + byte 0x2b -> bytes [0x2d, 0x3c, 0x20, 0x2b, 0x2b]
+
+Function 3 (RVA 0x189d) - Generates 4 bytes:
+dword 0x7c2d203c -> bytes [0x3c, 0x20, 0x2d, 0x7c]
+
+The key generation function at RVA 0x18c0 XORs each byte with 0x5b:
+
+key = ''
+for b in [0x1e, 0x0f, 0x1b, 0x7a, 0x2d, 0x3c, 0x20, 0x2b, 0x2b, 0x3c, 0x20, 0x2d, 0x7c]:
+    key += chr(b ^ 0x5b)
+
+Expected key: ET@!vg{ppg{v'
+
+Step 4: Running with Correct Key
+Executed the binary with the discovered key:
+
+$ ./crackme.exe
+Enter key: ET@!vg{ppg{v'
+Flag: K_cauc_ha0rl4ly44k{_k4r433k4r_}
+
+The output is scrambled - this is the real flag but requires decoding.
+
+Step 5: Unscrambling the Flag
+Tested various transposition ciphers. The scrambled output suggested a Rail Fence cipher.
+
+Tried different rail counts and found that 7 rails produces the correct result:
+
+def rail_fence_decrypt(text, rails):
+    fence = [['' for _ in range(len(text))] for _ in range(rails)]
+    rail, direction = 0, 1
+    
+    for i in range(len(text)):
+        fence[rail][i] = '*'
+        rail += direction
+        if rail == 0 or rail == rails - 1:
+            direction *= -1
+    
+    index = 0
+    for r in range(rails):
+        for c in range(len(text)):
+            if fence[r][c] == '*':
+                fence[r][c] = text[index]
+                index += 1
+    
+    result = ''
+    rail, direction = 0, 1
+    for i in range(len(text)):
+        result += fence[rail][i]
+        rail += direction
+        if rail == 0 or rail == rails - 1:
+            direction *= -1
+    
+    return result
+
+scrambled = "K_cauc_ha0rl4ly44k{_k4r433k4r_}"
+flag = rail_fence_decrypt(scrambled, 7)
+
+Result: Kaal{4r3_y0u_cr4k3_k44l_ch4kr4}
+
+This reads as: "are you crake kaal chakra"
+
+Attack Chain Summary
+1. Analyzed MinGW x64 PE executable structure
+2. Extracted and decoded decoy flag (XOR 0x0e)
+3. Reverse engineered key generation functions
+4. Extracted correct key bytes and XOR'd with 0x5b
+5. Ran binary with key: ET@!vg{ppg{v'
+6. Received scrambled flag output
+7. Identified Rail Fence cipher with 7 rails
+8. Decrypted to get final flag
+
+Key Techniques
+- Static binary analysis and disassembly
+- Stack string extraction and decoding
+- XOR cipher analysis
+- Key generation function reverse engineering
+- Rail Fence cipher cryptanalysis
+- Multi-stage obfuscation bypass
+
+Tools Used
+- Ghidra/IDA Pro for disassembly
+- Python 3 for decoding and cipher solving
+- Hex editor for binary inspection
+
+Flag
+Kaal{4r3_y0u_cr4k3_k44l_ch4kr4}

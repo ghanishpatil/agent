@@ -1,0 +1,142 @@
+{
+  "field_summary": {
+    "category": {
+      "explicit": 2,
+      "missing": 2
+    },
+    "challenge_context": {
+      "explicit": 1,
+      "missing": 3
+    },
+    "challenge_description_context": {
+      "explicit": 4
+    },
+    "discriminating_tests": {
+      "missing": 4
+    },
+    "event_challenge_metadata": {
+      "explicit": 4
+    },
+    "exploit_solution": {
+      "explicit": 1,
+      "missing": 3
+    },
+    "failures_corrections": {
+      "missing": 4
+    },
+    "hypotheses": {
+      "missing": 4
+    },
+    "hypothesis_updates": {
+      "missing": 4
+    },
+    "interpretations": {
+      "missing": 4
+    },
+    "next_actions": {
+      "explicit": 1,
+      "missing": 3
+    },
+    "observations": {
+      "missing": 4
+    },
+    "observed_clues": {
+      "missing": 4
+    },
+    "techniques_mechanisms": {
+      "explicit": 2,
+      "missing": 2
+    },
+    "verification": {
+      "missing": 4
+    }
+  },
+  "note": "reasoning stages are marked missing when absent; none are invented",
+  "per_record": [
+    {
+      "fields": {
+        "category": "explicit",
+        "challenge_context": "missing",
+        "challenge_description_context": "explicit",
+        "discriminating_tests": "missing",
+        "event_challenge_metadata": "explicit",
+        "exploit_solution": "explicit",
+        "failures_corrections": "missing",
+        "hypotheses": "missing",
+        "hypothesis_updates": "missing",
+        "interpretations": "missing",
+        "next_actions": "explicit",
+        "observations": "missing",
+        "observed_clues": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification": "missing"
+      },
+      "record_id": "9a2e80eddba247ec",
+      "source": "https://jia.je/ctf-writeups/misc/solution.html"
+    },
+    {
+      "fields": {
+        "category": "explicit",
+        "challenge_context": "explicit",
+        "challenge_description_context": "explicit",
+        "discriminating_tests": "missing",
+        "event_challenge_metadata": "explicit",
+        "exploit_solution": "missing",
+        "failures_corrections": "missing",
+        "hypotheses": "missing",
+        "hypothesis_updates": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "observed_clues": "missing",
+        "techniques_mechanisms": "explicit",
+        "verification": "missing"
+      },
+      "record_id": "d2f0fa20ccb28787",
+      "source": "https://jia.je/ctf-writeups/misc/pyjail.html"
+    },
+    {
+      "fields": {
+        "category": "missing",
+        "challenge_context": "missing",
+        "challenge_description_context": "explicit",
+        "discriminating_tests": "missing",
+        "event_challenge_metadata": "explicit",
+        "exploit_solution": "missing",
+        "failures_corrections": "missing",
+        "hypotheses": "missing",
+        "hypothesis_updates": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "observed_clues": "missing",
+        "techniques_mechanisms": "missing",
+        "verification": "missing"
+      },
+      "record_id": "407c5878caed2954",
+      "source": "https://jia.je/ctf-writeups/puppeteer/index.html"
+    },
+    {
+      "fields": {
+        "category": "missing",
+        "challenge_context": "missing",
+        "challenge_description_context": "explicit",
+        "discriminating_tests": "missing",
+        "event_challenge_metadata": "explicit",
+        "exploit_solution": "missing",
+        "failures_corrections": "missing",
+        "hypotheses": "missing",
+        "hypothesis_updates": "missing",
+        "interpretations": "missing",
+        "next_actions": "missing",
+        "observations": "missing",
+        "observed_clues": "missing",
+        "techniques_mechanisms": "missing",
+        "verification": "missing"
+      },
+      "record_id": "325b647ee83567bb",
+      "source": "https://jia.je/ctf-writeups/summer2026/index.html"
+    }
+  ],
+  "record_count": 4
+}

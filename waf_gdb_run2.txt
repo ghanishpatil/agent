@@ -1,0 +1,25 @@
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+Temporary breakpoint 1 at 0x401373
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Look ma, I made sure you can't rop no more.
+>> 
+Temporary breakpoint 1, 0x0000000000401373 in main ()
+=== at main ret ===
+saved_rip=0x401374  saved_rbp=0x4141414141414141
+0x7fffffffeb68:	0x0000000000401374	0x00007fffffffebb0
+0x7fffffffeb78:	0x00007fffffffec88	0x0000000100400040
+0x0000000000401374 in _fini ()
+=== after ret, rip now ===
+rip            0x401374            0x401374 <_fini>
+rsp            0x7fffffffeb70      0x7fffffffeb70
+A debugging session is active.
+
+	Inferior 1 [process 22] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]

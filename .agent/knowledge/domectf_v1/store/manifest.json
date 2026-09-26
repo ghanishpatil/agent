@@ -1,0 +1,45 @@
+{
+  "average_trajectory_completeness": 0.182,
+  "by_category": {
+    "android": 1,
+    "crypto": 6,
+    "hardware": 1,
+    "malware": 1,
+    "osint": 1,
+    "pwn": 9,
+    "reverse": 4,
+    "unknown": 5,
+    "web": 4
+  },
+  "by_source_type": {
+    "HTTP": 32
+  },
+  "by_technique": {
+    "aes-mode-attack": 3,
+    "classical-cipher": 2,
+    "hardware-tpm": 20,
+    "hash-attack": 7,
+    "idor": 1,
+    "jwt-attack": 1,
+    "memory-forensics": 1,
+    "osint": 1,
+    "path-traversal": 2,
+    "pcap-analysis": 1,
+    "reversing": 5,
+    "rop": 20,
+    "rsa-attack": 4,
+    "sql-injection": 2,
+    "sqli": 2,
+    "ssrf": 1,
+    "static-analysis": 6,
+    "steganography": 2,
+    "xor-cipher": 4
+  },
+  "duplicate_records": 0,
+  "generated_at": "2026-09-25T07:52:04.810813+00:00",
+  "records_sha256": "0e039b714d3652a0bb2651fc679890be8d6d3163e28f62ba3196f0aab8f35ffe",
+  "records_with_failures": 0,
+  "schema_version": "1.0",
+  "total_records": 32,
+  "unique_records": 32
+}

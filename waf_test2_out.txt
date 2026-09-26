@@ -1,0 +1,7 @@
+Warning: _curses.error: setupterm: could not find terminfo database
+
+Terminal features will not be available.  Consider setting TERM variable to your current terminal name (or xterm).
+round 0 looped ok, got banner next
+round 1 looped ok, got banner next
+round 2 looped ok, got banner next
+LEAK OUT: b"exit-0x7ffc6b8e0328-0x403e18-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\xa2\x12@Look ma, I made sure you can't rop no more.\n>> "

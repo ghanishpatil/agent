@@ -1,0 +1,279 @@
+{
+  "all_safety_invariants_preserved": true,
+  "case_count": 5,
+  "cases": [
+    {
+      "attribution_reasons": [
+        "control already verify-solved (not knowledge-attributable)"
+      ],
+      "case_id": "kd2-baseline-solvable",
+      "control": {
+        "actions": 2,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": true,
+        "expected_hypothesis_status": "SUPPORTED",
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "SOLVED",
+        "submissions": 1,
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_baseline}"
+      },
+      "kind": "BASELINE_SOLVABLE",
+      "knowledge_attributable_verified_solve": false,
+      "metrics": {
+        "actions_per_solve": 2,
+        "budget_violations": 0,
+        "duplicate_actions": 0,
+        "false_disproof": false,
+        "false_verification": false,
+        "knowledge_hypotheses_per_solve": 0,
+        "retrieval_calls_per_solve": 0,
+        "stopping_correct": true,
+        "time_to_first_action_ms": 10.095,
+        "time_to_verified_ms": 22.597,
+        "unnecessary_retrievals": 0
+      },
+      "safety_invariants": {
+        "no_blind_guessing": true,
+        "no_budget_violations": true,
+        "no_duplicate_action_regression": true,
+        "no_false_disproof": true,
+        "no_false_verification": true,
+        "stopping_correct": true
+      },
+      "treatment": {
+        "actions": 2,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": true,
+        "expected_hypothesis_status": "SUPPORTED",
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "SOLVED",
+        "submissions": 1,
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_baseline}"
+      }
+    },
+    {
+      "attribution_reasons": [],
+      "case_id": "kd2-knowledge-dependent",
+      "control": {
+        "actions": 0,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": null,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 0,
+        "verified_flag": null
+      },
+      "kind": "KNOWLEDGE_DEPENDENT",
+      "knowledge_attributable_verified_solve": true,
+      "metrics": {
+        "actions_per_solve": 2,
+        "budget_violations": 0,
+        "duplicate_actions": 0,
+        "false_disproof": false,
+        "false_verification": false,
+        "knowledge_hypotheses_per_solve": 1,
+        "retrieval_calls_per_solve": 1,
+        "stopping_correct": true,
+        "time_to_first_action_ms": 12.152,
+        "time_to_verified_ms": 25.672,
+        "unnecessary_retrievals": 0
+      },
+      "safety_invariants": {
+        "no_blind_guessing": true,
+        "no_budget_violations": true,
+        "no_duplicate_action_regression": true,
+        "no_false_disproof": true,
+        "no_false_verification": true,
+        "stopping_correct": true
+      },
+      "treatment": {
+        "actions": 2,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": true,
+        "expected_hypothesis_status": "SUPPORTED",
+        "knowledge_hypotheses": 1,
+        "retrieval_calls": 1,
+        "status": "SOLVED",
+        "submissions": 1,
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_dependent}"
+      }
+    },
+    {
+      "attribution_reasons": [
+        "treatment did not kernel-verify the expected flag"
+      ],
+      "case_id": "kd2-misleading",
+      "control": {
+        "actions": 0,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": null,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 0,
+        "verified_flag": null
+      },
+      "kind": "MISLEADING",
+      "knowledge_attributable_verified_solve": false,
+      "metrics": {
+        "actions_per_solve": 2,
+        "budget_violations": 0,
+        "duplicate_actions": 1,
+        "false_disproof": false,
+        "false_verification": false,
+        "knowledge_hypotheses_per_solve": 1,
+        "retrieval_calls_per_solve": 1,
+        "stopping_correct": true,
+        "time_to_first_action_ms": 9.576,
+        "time_to_verified_ms": null,
+        "unnecessary_retrievals": 0
+      },
+      "safety_invariants": {
+        "no_blind_guessing": true,
+        "no_budget_violations": true,
+        "no_duplicate_action_regression": true,
+        "no_false_disproof": true,
+        "no_false_verification": true,
+        "stopping_correct": true
+      },
+      "treatment": {
+        "actions": 2,
+        "budget_violations": 0,
+        "duplicate_proposals": 1,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": "OPEN",
+        "knowledge_hypotheses": 1,
+        "retrieval_calls": 1,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 0,
+        "verified_flag": null
+      }
+    },
+    {
+      "attribution_reasons": [],
+      "case_id": "kd2-conflicting",
+      "control": {
+        "actions": 0,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": null,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 0,
+        "verified_flag": null
+      },
+      "kind": "CONFLICTING",
+      "knowledge_attributable_verified_solve": true,
+      "metrics": {
+        "actions_per_solve": 2,
+        "budget_violations": 0,
+        "duplicate_actions": 0,
+        "false_disproof": false,
+        "false_verification": false,
+        "knowledge_hypotheses_per_solve": 1,
+        "retrieval_calls_per_solve": 1,
+        "stopping_correct": true,
+        "time_to_first_action_ms": 14.194,
+        "time_to_verified_ms": 29.087,
+        "unnecessary_retrievals": 0
+      },
+      "safety_invariants": {
+        "no_blind_guessing": true,
+        "no_budget_violations": true,
+        "no_duplicate_action_regression": true,
+        "no_false_disproof": true,
+        "no_false_verification": true,
+        "stopping_correct": true
+      },
+      "treatment": {
+        "actions": 2,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": true,
+        "expected_hypothesis_status": "SUPPORTED",
+        "knowledge_hypotheses": 1,
+        "retrieval_calls": 1,
+        "status": "SOLVED",
+        "submissions": 1,
+        "unnecessary_retrievals": 0,
+        "verified_flag": "CTF{kd2_conflicting_real}"
+      }
+    },
+    {
+      "attribution_reasons": [
+        "treatment did not kernel-verify the expected flag"
+      ],
+      "case_id": "kd2-noise",
+      "control": {
+        "actions": 0,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": null,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 0,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 0,
+        "verified_flag": null
+      },
+      "kind": "NOISE",
+      "knowledge_attributable_verified_solve": false,
+      "metrics": {
+        "actions_per_solve": 0,
+        "budget_violations": 0,
+        "duplicate_actions": 0,
+        "false_disproof": false,
+        "false_verification": false,
+        "knowledge_hypotheses_per_solve": 0,
+        "retrieval_calls_per_solve": 1,
+        "stopping_correct": true,
+        "time_to_first_action_ms": null,
+        "time_to_verified_ms": null,
+        "unnecessary_retrievals": 1
+      },
+      "safety_invariants": {
+        "no_blind_guessing": true,
+        "no_budget_violations": true,
+        "no_duplicate_action_regression": true,
+        "no_false_disproof": true,
+        "no_false_verification": true,
+        "stopping_correct": true
+      },
+      "treatment": {
+        "actions": 0,
+        "budget_violations": 0,
+        "duplicate_proposals": 0,
+        "ends_with_stop": false,
+        "expected_hypothesis_status": null,
+        "knowledge_hypotheses": 0,
+        "retrieval_calls": 1,
+        "status": "BLOCKED",
+        "submissions": 0,
+        "unnecessary_retrievals": 1,
+        "verified_flag": null
+      }
+    }
+  ],
+  "knowledge_attributable_verified_solves": 2,
+  "verdict": "KNOWLEDGE-CONTRIBUTING: 2 knowledge-attributable verified solve(s); all safety invariants preserved; easy cases stayed on the fast path"
+}
